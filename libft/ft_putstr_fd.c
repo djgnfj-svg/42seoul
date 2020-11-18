@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djgnfj <djgnfj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 05:39:24 by ysong             #+#    #+#             */
-/*   Updated: 2020/11/16 18:13:04 by djgnfj           ###   ########.fr       */
+/*   Updated: 2020/11/18 13:09:38 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
