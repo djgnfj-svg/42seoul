@@ -1,7 +1,6 @@
 section .text
-    global _start
-
-_start:
+    global _ft_strlen
+    
 _ft_strlen:
     mov rax, 0
     jmp _loop
