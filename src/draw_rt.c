@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_rt.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/12 19:44:47 by ysong             #+#    #+#             */
+/*   Updated: 2021/02/16 01:15:07 by ysong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#include "minirt.h"
+
+void	ft_draw_element(t_rt rt, t_ray *ray)
+{
+	int	i;
+
+	i = -1;
+	while (rt.sphere[++i])
+		ft_draw_sphere(rt, ray, i);
+	i = -1;
+	while (rt.plane[++i])
+		ft_draw_plane(rt, ray, i);
+	i = -1;
+	while (rt.square[++i])
+		ft_draw_square(rt, ray, i);
+	i = -1;
+	while (rt.triangle[++i])
+		ft_draw_triangle(rt, ray, i);
+	i = -1;
+	while (rt.cylinder[++i])
+		ft_draw_cylinder(rt, ray, i);
+}
+
+void	ft_fill_img_buf(t_image *img, int x, int y, int color)
+{
+	img->addr[y * img->len / 4 + x] = color;
+}
+
+void	ft_initialize_ray(t_ray *ray)
+{
+	ray->t = DBL_MAX;
+	ray->color = 0;
+	ray->origin = (t_vec){0, 0, 0};
+}
+
+void	ft_render_pxl(double px, double py, t_ray *ray, t_rt *rt)
+{
+	ray->local = ft_local_camera_ray(*s, px, py);
+
+	ray->global = ft_mtx_vct_prod(s->camera[s->i_cam]->base, ray->local);
+    
+	ft_initialize_ray(ray);
+
+	ft_normalize_vector(&ray->global);
+
+	ft_draw_element(*s, ray);
+}
+
+void	ft_render_scene(t_rt *rt)
+{
+	int		px;
+	int		py;
+	t_ray	ray;
+
+	px = 0;
+	if (ft_global_camera_base(rt, rt->i_cam))
+	{
+		while (px < rt->x)
+		{
+			py = 0;
+			while (py < rt->y)
+			{
+				ft_render_pxl((double)px, (double)py, &ray, rt);
+				ft_fill_img_buf(&rt->img, px, py, ray.color);
+				py++;
+			}
+			px++;
+		}
+		//rt->option[4] ? ft_draw_reference(rt->camera[rt->i_cam]->base, rt) : 0;
+	}
+}
