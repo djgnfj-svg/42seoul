@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/12 22:40:26 by ysong             #+#    #+#              #
-#    Updated: 2021/02/15 04:29:35 by ysong            ###   ########.fr        #
+#    Updated: 2021/02/16 19:28:49 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 SRC		= camera.c color_utils.c color.c draw_rt.c error.c \
-		light.c minirt_utils.c minirt.c save_bmp.c \
+		light.c minirt_utils.c minirt.c save_bmp.c\
 		free_memory/free_object.c free_memory/free_object2.c \
 		object/cylinder_caps.c object/cylinder.c object/plane.c \
 		object/sphere.c object/square.c object/triangle.c \
@@ -25,10 +25,10 @@ SRC		= camera.c color_utils.c color.c draw_rt.c error.c \
 		shadows/shadows.c \
 		shadows/cylinder_shadows.c shadows/plane_shadows.c \
 		shadows/sphere_shadows.c shadows/square_shadows.c shadows/triangle_shadows.c \
-		vec/vec_calc.c vec/vec_utils.c vec/vec_calc_extra.c
+		vec/vec_calc.c vec/vec_utils.c vec/vec_calc_extra.c \
 
 SRC_BONUS = camera.c color_utils.c color.c draw_rt_bonus.c error.c \
-		light.c minirt_utils.c minirt.c save_bmp.c  axis.c\
+		light.c minirt_utils.c minirt.c save_bmp.c  axis.c thread.c\
 		free_memory/free_object.c free_memory/free_object2.c \
 		filter_bonus/filter_bonus.c \
 		object/cylinder_caps.c object/cylinder.c object/plane.c \
@@ -70,7 +70,7 @@ $(NAME):	$(LIBNAME) $(MLXNAME) $(OBJS) $(MOBJS)
 			$(GCC) $(CFLAG) -I$(INCLUDE) -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(MOBJS) $(LIBNAME) $(MLXNAME)
 
 $(NAME_BONUS):	$(LIBNAME) $(MLXNAME) $(OBJS_BONUS) $(MOBJS_BONUS)
-			$(GCC) $(CFLAG) -I$(INCLUDE) -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS) $(OBJS_BONUS) $(MOBJS_BONUS) $(LIBNAME) $(MLXNAME)
+			$(GCC) $(CFLAG) -I$(INCLUDE) -L$(MLXDIR) -lpthread -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS) $(OBJS_BONUS) $(MOBJS_BONUS) $(LIBNAME) $(MLXNAME)
 
 $(LIBNAME):
 			@$(MAKE) -C $(LIBDIR) bonus

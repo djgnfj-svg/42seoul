@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:35:17 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 04:47:42 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/16 19:24:28 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <time.h>
 # include <pthread.h>
 
-
 # include "mlx.h"
 # include "libft.h"
 # include "minirt_const.h"
@@ -35,13 +34,11 @@
 # include "shadows.h"
 # include "free_memort.h"
 
-//error
-void	    	ft_error_handler(int error_id);
+void	    ft_error_handler(int error_id);
 
 t_vec	    ft_local_camera_ray(t_rt rt, double p_x, double p_y);
 int         ft_global_camera_base(t_rt *rt, int i_cam);
 
-//minirt utils
 void		ft_handle_axis_translation(int key, t_rt *rt);
 void		ft_change_camera(int key, t_rt *rt);
 int			ft_handle_keyboard(int key, t_rt *rt);
@@ -66,16 +63,4 @@ int			ft_get_color(t_rt rt, t_obj_color obj);
 
 void    	ft_save_bmp(t_rt rt);
 
-
-
-#define PTHREAD_CNT 12
-
-typedef struct		s_thread_info
-{
-	t_rt			*rt;
-    double          px;
-    double          py;
-    t_ray           ray;
-	int				tnum;
-}					t_thread_info;
 #endif

@@ -6,12 +6,14 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 01:01:12 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 04:47:13 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/16 19:24:17 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_CONST_H
 # define MINIRT_CONST_H
+
+#define PTHREAD_CNT 1
 
 # define TRUE 1
 # define FALSE 0
