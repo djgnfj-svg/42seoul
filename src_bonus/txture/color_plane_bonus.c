@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 02:02:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:35 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/16 21:09:26 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_vec		ft_wave_normal(t_obj_color obj)
 	else
 	{
 		d = ft_mod_vector(wave_n);
-		alpha = 100 * exp(-d * 0.025) * cos(0.025 * M_PI * d);
+		alpha = 3000 * exp(-d * 0.025) * cos(0.025 * M_PI * d);
 	}
 	wave_n = ft_sub_vec(obj.p, obj.center);
 	wave_n.x *= alpha;

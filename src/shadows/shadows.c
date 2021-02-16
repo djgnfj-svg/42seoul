@@ -6,35 +6,35 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 04:34:34 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:35 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/17 06:25:01 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	ft_shadows(t_rt rtcene, t_ray *ray)
+int	ft_shadows(t_rt rt, t_ray *ray)
 {
 	int	i;
 
 	i = -1;
-	while (scene.sphere[++i])
-		if (ft_shadow_sphere(scene, ray, i))
+	while (rt.sphere[++i])
+		if (ft_shadow_sphere(rt, ray, i))
 			return (1);
 	i = -1;
-	while (scene.plane[++i])
-		if (ft_shadow_plane(scene, ray, i))
+	while (rt.plane[++i])
+		if (ft_shadow_plane(rt, ray, i))
 			return (1);
 	i = -1;
-	while (scene.square[++i])
-		if (ft_shadow_square(scene, ray, i))
+	while (rt.square[++i])
+		if (ft_shadow_square(rt, ray, i))
 			return (1);
 	i = -1;
-	while (scene.triangle[++i])
-		if (ft_shadow_triangle(scene, ray, i))
+	while (rt.triangle[++i])
+		if (ft_shadow_triangle(rt, ray, i))
 			return (1);
 	i = -1;
-	while (scene.cylinder[++i])
-		if (ft_shadow_cylinder(scene, ray, i))
+	while (rt.cylinder[++i])
+		if (ft_shadow_cylinder(rt, ray, i))
 			return (1);
 	return (0);
 }

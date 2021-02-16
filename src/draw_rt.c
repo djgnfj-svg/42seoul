@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 19:44:47 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:15:07 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/17 06:18:33 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ void	ft_initialize_ray(t_ray *ray)
 
 void	ft_render_pxl(double px, double py, t_ray *ray, t_rt *rt)
 {
-	ray->local = ft_local_camera_ray(*s, px, py);
+	ray->local = ft_local_camera_ray(*rt, px, py);
 
-	ray->global = ft_mtx_vct_prod(s->camera[s->i_cam]->base, ray->local);
+	ray->global = ft_mtx_vct_prod(rt->camera[rt->i_cam]->base, ray->local);
     
 	ft_initialize_ray(ray);
 
 	ft_normalize_vector(&ray->global);
 
-	ft_draw_element(*s, ray);
+	ft_draw_element(*rt, ray);
 }
 
 void	ft_render_scene(t_rt *rt)

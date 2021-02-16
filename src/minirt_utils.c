@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:45:07 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/17 06:19:39 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,39 @@ void			ft_handle_axis_translation(int key, t_rt *rt)
 		aux = (t_vec){0, 0, -1};
 	else
 		aux = (t_vec){0, 0, 1};
-	aux = ft_mtx_vct_prod(s->camera[s->i_cam]->base, aux);
-	s->camera[s->i_cam]->pos = ft_add_vec(aux, s->camera[s->i_cam]->pos);
-	ft_draw_to_screen(s);
+	aux = ft_mtx_vct_prod(rt->camera[rt->i_cam]->base, aux);
+	rt->camera[rt->i_cam]->pos = ft_add_vec(aux, rt->camera[rt->i_cam]->pos);
+	ft_draw_to_screen(rt);
 }
 
 void			ft_change_camera(int key, t_rt *rt)
 {
 	if (key == ARROW_LEFT)
 	{
-		if (s->i_cam > 0)
-			s->i_cam = s->i_cam - 1;
+		if (rt->i_cam > 0)
+			rt->i_cam = rt->i_cam - 1;
 		else
-			s->i_cam = s->n_cams - 1;
+			rt->i_cam = rt->n_cams - 1;
 	}
 	else
 	{
-		if (s->i_cam < s->n_cams - 1)
-			s->i_cam = s->i_cam + 1;
+		if (rt->i_cam < rt->n_cams - 1)
+			rt->i_cam = rt->i_cam + 1;
 		else
-			s->i_cam = 0;
+			rt->i_cam = 0;
 	}
-	ft_draw_to_screen(s);
+	ft_draw_to_screen(rt);
 }
 
 int				ft_handle_keyboard(int key, t_rt *rt)
 {
 	if (key == ESC)
-		ft_exit(&s->window);
+		ft_exit(&rt->window);
 	else if (key == KEY_A || key == KEY_W || key == KEY_S
 			|| key == KEY_D || key == KEY_E || key == KEY_Q)
-		ft_handle_axis_translation(key, s);
+		ft_handle_axis_translation(key, rt);
 	else if (key == ARROW_LEFT || key == ARROW_RIGHT)
-		ft_change_camera(key, s);
+		ft_change_camera(key, rt);
 	return (0);
 }
 
@@ -69,10 +69,10 @@ int				ft_handle_mouse(int press, int u, int v, t_rt *rt)
 	t_vec	new_normal;
 
 	(void)press;
-	new_normal = ft_local_camera_ray(*s, (double)u, (double)v);
-	new_normal = ft_mtx_vct_prod(s->camera[s->i_cam]->base, new_normal);
+	new_normal = ft_local_camera_ray(*rt, (double)u, (double)v);
+	new_normal = ft_mtx_vct_prod(rt->camera[rt->i_cam]->base, new_normal);
 	ft_normalize_vector(&new_normal);
-	s->camera[s->i_cam]->n = new_normal;
-	ft_draw_to_screen(s);
+	rt->camera[rt->i_cam]->n = new_normal;
+	ft_draw_to_screen(rt);
 	return (0);
 }

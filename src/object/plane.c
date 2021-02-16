@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 22:48:43 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/17 06:22:14 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_intersect_plane(t_rt *rt, t_auxplane *plane, t_ray *r)
 	if (ft_isvoid(r->origin))
 		plane->po = ft_sub_vec(r->origin, plane->point);
 	else
-		plane->po = ft_sub_vec(s->camera[s->i_cam]->pos, plane->point);
+		plane->po = ft_sub_vec(rt->camera[rt->i_cam]->pos, plane->point);
 	plane->den = ft_dot_product(plane->n, r->global);
 	if (plane->den)
 	{
@@ -40,7 +40,7 @@ int		ft_get_point_plane(t_rt *rt, t_auxplane *plane, t_ray *r)
 		plane->p = ft_add_vec(r->origin,
 				ft_k_mul_vec(r->t, r->global));
 	else
-		plane->p = ft_add_vec(s->camera[s->i_cam]->pos,
+		plane->p = ft_add_vec(rt->camera[rt->i_cam]->pos,
 				ft_k_mul_vec(r->t, r->global));
 	return (1);
 }
@@ -50,19 +50,19 @@ int		ft_draw_plane(t_rt rt, t_ray *r, int i)
 	t_auxplane		auxplane;
 	t_obj_color		obj;
 
-	auxplane.point = s.plane[i]->point;
-	auxplane.n = s.plane[i]->n;
-	if (ft_intersect_plane(&s, &auxplane, r))
-		if (ft_get_point_plane(&s, &auxplane, r))
+	auxplane.point = rt.plane[i]->point;
+	auxplane.n = rt.plane[i]->n;
+	if (ft_intersect_plane(&rt, &auxplane, r))
+		if (ft_get_point_plane(&rt, &auxplane, r))
 		{
 			if (auxplane.den > 0)
 				auxplane.n = ft_k_mul_vec(-1, auxplane.n);
 			obj.p = auxplane.p;
 			obj.center = auxplane.point;
 			obj.normal = auxplane.n;
-			obj.rgb = s.plane[i]->rgb;
-			obj.bonus = s.plane[i]->bonus;
-			r->color = ft_get_color(s, obj);
+			obj.rgb = rt.plane[i]->rgb;
+			obj.bonus = rt.plane[i]->bonus;
+			r->color = ft_get_color(rt, obj);
 			return (1);
 		}
 	return (0);

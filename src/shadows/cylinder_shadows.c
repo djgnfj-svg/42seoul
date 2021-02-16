@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_shadows.c                                 :+:      :+:    :+:   */
+/*   cylinder_shadowrt.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,14 +16,14 @@ int	ft_shadow_caps(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane	auxplane;
 
-	if (s.cylinder[i]->m && s.cylinder[i]->m > s.cylinder[i]->height)
-		auxplane.point = ft_add_vec(s.cylinder[i]->point,
-				ft_k_mul_vec(s.cylinder[i]->height, s.cylinder[i]->n));
+	if (rt.cylinder[i]->m && rt.cylinder[i]->m > rt.cylinder[i]->height)
+		auxplane.point = ft_add_vec(rt.cylinder[i]->point,
+				ft_k_mul_vec(rt.cylinder[i]->height, rt.cylinder[i]->n));
 	else
-		auxplane.point = s.cylinder[i]->point;
-	auxplane.n = s.cylinder[i]->n;
-	if (ft_intersect_caps(&s, r, i, &auxplane))
-		if (ft_between_light_source(s.light[s.i_light]->pos
+		auxplane.point = rt.cylinder[i]->point;
+	auxplane.n = rt.cylinder[i]->n;
+	if (ft_intersect_caps(&rt, r, i, &auxplane))
+		if (ft_between_light_source(rt.light[rt.i_light]->pos
 					, auxplane.p, r->origin))
 			return (1);
 	return (0);
@@ -31,22 +31,22 @@ int	ft_shadow_caps(t_rt rt, t_ray *r, int i)
 
 int	ft_shadow_cylinder(t_rt rt, t_ray *r, int i)
 {
-	s.cylinder[i]->m = 0;
-	if (ft_intersect_cylinder(&s, r, i))
+	rt.cylinder[i]->m = 0;
+	if (ft_intersect_cylinder(&rt, r, i))
 	{
-		s.cylinder[i]->p = ft_add_vec(r->origin,
+		rt.cylinder[i]->p = ft_add_vec(r->origin,
 				ft_k_mul_vec(r->t, r->global));
-		if (ft_between_light_source(s.light[s.i_light]->pos
-					, s.cylinder[i]->p, r->origin))
+		if (ft_between_light_source(rt.light[rt.i_light]->pos
+					, rt.cylinder[i]->p, r->origin))
 		{
-			s.cylinder[i]->m = ft_dot_product(s.cylinder[i]->n,
-					ft_sub_vec(s.cylinder[i]->p, s.cylinder[i]->point));
-			if (s.cylinder[i]->m < s.cylinder[i]->height
-					&& s.cylinder[i]->m > 0)
+			rt.cylinder[i]->m = ft_dot_product(rt.cylinder[i]->n,
+					ft_sub_vec(rt.cylinder[i]->p, rt.cylinder[i]->point));
+			if (rt.cylinder[i]->m < rt.cylinder[i]->height
+					&& rt.cylinder[i]->m > 0)
 				return (1);
 		}
 	}
-	if (ft_shadow_caps(s, r, i))
+	if (ft_shadow_caps(rt, r, i))
 		return (1);
 	return (0);
 }

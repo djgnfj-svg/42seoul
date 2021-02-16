@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:39:13 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 07:34:53 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/17 06:19:59 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void			ft_image_header(t_rt rt, int fd)
 	};
 
 	infoheader[0] = (unsigned char)(40);
-	infoheader[4] = (unsigned char)(s.x);
-	infoheader[5] = (unsigned char)(s.x >> 8);
-	infoheader[6] = (unsigned char)(s.x >> 16);
-	infoheader[7] = (unsigned char)(s.x >> 24);
-	infoheader[8] = (unsigned char)(s.y);
-	infoheader[9] = (unsigned char)(s.y >> 8);
-	infoheader[10] = (unsigned char)(s.y >> 16);
-	infoheader[11] = (unsigned char)(s.y >> 24);
+	infoheader[4] = (unsigned char)(rt.x);
+	infoheader[5] = (unsigned char)(rt.x >> 8);
+	infoheader[6] = (unsigned char)(rt.x >> 16);
+	infoheader[7] = (unsigned char)(rt.x >> 24);
+	infoheader[8] = (unsigned char)(rt.y);
+	infoheader[9] = (unsigned char)(rt.y >> 8);
+	infoheader[10] = (unsigned char)(rt.y >> 16);
+	infoheader[11] = (unsigned char)(rt.y >> 24);
 	infoheader[12] = (unsigned char)(1);
 	infoheader[14] = (unsigned char)(24);
 	write(fd, infoheader, 40);

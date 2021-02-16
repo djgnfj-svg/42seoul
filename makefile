@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/12 22:40:26 by ysong             #+#    #+#              #
-#    Updated: 2021/02/16 19:28:49 by ysong            ###   ########.fr        #
+#    Updated: 2021/02/17 06:30:09 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ clean:
 			$(RM) $(OBJS) $(MOBJS) $(OBJS_BONUS) $(MOBJS_BONUS) *.bmp
 
 fclean:		clean
-			$(RM) $(NAME) $(LIBNAME) $(MLXNAME)
+			$(RM) $(NAME) $(NAME_BONUS) $(LIBNAME) $(MLXNAME)
 			@$(MAKE) -C $(LIBDIR) fclean
 			@$(MAKE) -C $(MLXDIR) clean
 
