@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 02:02:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 21:09:26 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 08:40:12 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vec		ft_wave_normal(t_obj_color obj)
 	if (obj.bonus.type == 's')
 	{
 		d = ft_mod_vector(wave_n) * ft_dot_product(wave_n, (t_vec){0, 0, 1});
-		alpha = 100 * exp(-d * 0.5) * cos(0.25 * M_PI * d);
+		alpha = 3000 * exp(-d * 0.25) * cos(0.25 * M_PI * d);
 	}
 	else
 	{

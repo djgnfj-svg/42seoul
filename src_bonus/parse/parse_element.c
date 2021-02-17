@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 21:58:47 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 08:00:48 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	parse_camera(char *line, t_rt *rt)
 	camera->pos = ft_load_coords(buffer[1]);
 	camera->n = ft_load_coords(buffer[2]);
 	fov_deg = ft_atoi(buffer[3]);
+	if(fov_deg < 0 & fov_deg > 180)
+		ft_error_handler(BAD_FORMAT);
 	camera->fov = tan(((double)fov_deg * M_PI) / 360);
 	ft_del_matrix(buffer);
 }
