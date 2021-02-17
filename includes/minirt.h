@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:35:17 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 06:28:20 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 06:36:41 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MINIRT_H
 
 # include <stdio.h>
-# include <stdlib.h>
 # include <fcntl.h>
 # include <errno.h>
 # include <math.h>

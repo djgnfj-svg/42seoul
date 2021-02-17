@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:34:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 05:58:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 06:38:15 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ int			main(int argc, char **argv)
 	ft_check_options(argc, argv, &rt);
 	if (argc > 1 && !(ft_strncmp(argv[1] + ft_strlen(argv[1]) - 3, ".rt", 4)))
 	{
-		rt.window.mlx_ptr = mlx_init();
 		parse_file(argv[1], &rt);
+		
+		rt.window.mlx_ptr = mlx_init();
 		if (rt.option[0])
 			ft_save_bmp(rt);
 		else
