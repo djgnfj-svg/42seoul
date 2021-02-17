@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:42:24 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 19:18:24 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 01:05:44 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ typedef struct	s_axis_ref {
 ** 1 - help
 ** 2 - sepia filter
 ** 3 - antialiasing
-** 4 - no-specular
-** 5 - reference-axis
 */
 
 /*
@@ -101,7 +99,7 @@ typedef struct	s_axis_ref {
 */
 
 typedef struct	s_rt {
-	int			option[6];
+	int			option[3];
 	int			x;
 	int			y;
 	int			index[9];

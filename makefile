@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/12 22:40:26 by ysong             #+#    #+#              #
-#    Updated: 2021/02/17 06:30:09 by ysong            ###   ########.fr        #
+#    Updated: 2021/02/18 01:07:04 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC		= camera.c color_utils.c color.c draw_rt.c error.c \
 		vec/vec_calc.c vec/vec_utils.c vec/vec_calc_extra.c \
 
 SRC_BONUS = camera.c color_utils.c color.c draw_rt_bonus.c error.c \
-		light.c minirt_utils.c minirt.c save_bmp.c  axis.c thread.c\
+		light.c minirt_utils.c minirt.c save_bmp.c thread.c\
 		free_memory/free_object.c free_memory/free_object2.c \
 		filter_bonus/filter_bonus.c \
 		object/cylinder_caps.c object/cylinder.c object/plane.c \

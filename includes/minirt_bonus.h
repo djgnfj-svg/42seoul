@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:45:28 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 19:26:05 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 01:02:52 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,5 @@ t_rgb			ft_rainbow_pattern(t_vec n, t_rgb color);
 
 t_vec		ft_bumpmap(t_obj_color obj);
 t_vec		ft_get_bumpmap_normal(t_obj_color obj, int x, int y);
-
-
-void	ft_draw_center(t_axis_ref axis, t_rt *rt);
-void	ft_set_label_pos(t_axis_ref axis, char dir, t_rt *rt);
-void	ft_sketch_axis(t_axis_ref *axis, char dir, t_rt *rt);
-void	ft_draw_axis(t_vec p, char dir, t_rt *rt);
-void	ft_draw_reference(t_matrix c_base, t_rt *rt);
 
 #endif

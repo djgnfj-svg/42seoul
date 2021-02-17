@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 04:19:43 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 22:50:12 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 01:04:07 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,24 @@ static int					tinfo_get_y_init_value(t_thread_info *info)
 
 void	*ft_render_pthread(void *arg)
 {
-	t_thread_info		*tinfo;
+	t_thread_info	*tinfo;
+    int				px;
+    int				py;
+	t_ray			ray;
 
 	tinfo = (t_thread_info *)arg;
-    int px;
-    int py;
-	t_ray               ray;
-	
 	px = tinfo_get_y_init_value(tinfo);
     while (--px >= (tinfo_get_step(tinfo) * (tinfo->tnum - 1)))
 	{
 		py = 0;
 		while (py < tinfo->rt->y)
 		{
-			ft_render_pxl((double)px, (double)py, \
-            &ray, tinfo->rt);
+			if(tinfo->rt->option[2])
+				ft_render_pxl_antialiasing((double)px, (double)py, \
+							&ray, tinfo->rt);
+			else
+				ft_render_pxl((double)px, (double)py, \
+							&ray, tinfo->rt);
 			ft_fill_img_buf(&(tinfo->rt->img), px, py, ray.color);
 			py++;
 		}

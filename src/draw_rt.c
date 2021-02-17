@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 19:44:47 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:18:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 01:04:39 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@ void	ft_render_scene(t_rt *rt)
 			}
 			px++;
 		}
-		//rt->option[4] ? ft_draw_reference(rt->camera[rt->i_cam]->base, rt) : 0;
 	}
 }

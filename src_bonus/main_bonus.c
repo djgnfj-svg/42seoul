@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:34:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:16:11 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 01:05:08 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ static void	ft_bonus_options(char *argv, t_rt *rt)
 {
 	if (!ft_strncmp(argv, "--save", ft_strlen(argv) + 1))
 		rt->option[0] = 1;
-	else if (!ft_strncmp(argv, "--sepia-filter", ft_strlen(argv) + 1))
+	else if (!ft_strncmp(argv, "--sepia", ft_strlen(argv) + 1))
 		rt->option[1] = 1;
-	else if (!ft_strncmp(argv, "--antialiasing", ft_strlen(argv) + 1))
+	else if (!ft_strncmp(argv, "--anti", ft_strlen(argv) + 1))
 		rt->option[2] = 1;
-	else if (!ft_strncmp(argv, "--no-specular", ft_strlen(argv) + 1))
-		rt->option[3] = 1;
-	else if (!ft_strncmp(argv, "--reference-axis", ft_strlen(argv) + 1))
-		rt->option[4] = 1;
 	else
 		ft_error_handler(BAD_FLAG);
 }
@@ -34,7 +30,7 @@ static void	ft_check_options(int argc, char **argv, t_rt *rt)
 	int	i;
 
 	i = -1;
-	while (++i < 6)
+	while (++i < 3)
 		rt->option[i] = 0;
 	i = 1;
 	while (++i < argc)
