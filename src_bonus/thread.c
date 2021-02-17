@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 04:19:43 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 01:04:07 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 06:34:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	*ft_render_pthread(void *arg)
 		}
 	}
 	free(tinfo);
-	return 0;
+	return (0);
 }
 
 void				draw_hittable_pthread(t_rt *rt)

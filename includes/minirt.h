@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:35:17 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 19:24:28 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 06:28:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <string.h>
 # include <errno.h>
 # include <math.h>
 # include <float.h>
-# include <time.h>
 # include <pthread.h>
 
 # include "mlx.h"

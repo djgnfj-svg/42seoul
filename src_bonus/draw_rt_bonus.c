@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 19:44:47 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 01:03:24 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 06:34:23 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,28 @@ void	ft_render_pxl(double px, double py, t_ray *ray, t_rt *rt)
 
 void	ft_render_scene(t_rt *rt)
 {
+	// int		px;
+	// int		py;
+	// t_ray	ray;
+
+	// px = 0;
+	// if (ft_global_camera_base(rt, rt->i_cam))
+	// {
+	// 	while (px < rt->x)
+	// 	{
+	// 		py = 0;
+	// 		while (py < rt->y)
+	// 		{
+	// 			if (rt->option[2])
+	// 				ft_render_pxl_antialiasing((double)px, (double)py, &ray, rt);
+	// 			else
+	// 				ft_render_pxl((double)px, (double)py, &ray, rt);
+	// 			ft_fill_img_buf(&rt->img, px, py, ray.color);
+	// 			py++;
+	// 		}
+	// 		px++;
+	// 	}
+	// }
 	if (ft_global_camera_base(rt, rt->i_cam))
 		draw_hittable_pthread(rt);
 }
