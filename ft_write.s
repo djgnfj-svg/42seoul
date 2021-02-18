@@ -1,18 +1,17 @@
 section .text
     global _ft_write
+	extern ___error
 
-//RDI RSI RDX RCX R8 R9
 _ft_write:
-			mov r8, rdx
 			mov		rax, 0x2000004
 			syscall
-				jc error//에러이면 flags carry가 바뀜
-			jmp end
+				jc error
+			ret
 
 error :
+	push rax
+	call ___error
+	pop rdx
+	mov [rax], rdx
 	mov rax, -1
-	ret
-
-end :
-	mov rax, r8
 	ret

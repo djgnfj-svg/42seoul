@@ -11,3 +11,8 @@ https://www.notion.so/Libasm-f4869fe5de17402b9054a7ca06bfc79c 참조
 4. makefile만들기
 5. main만들기
 6. 내가만든 테스터로 동작시켜보고 README없에고 제출
+
+RDI RSI RDX RCX R8 R9
+ft_strdup(const char rdi)
+
+mov [rax] <- 에서 []는 

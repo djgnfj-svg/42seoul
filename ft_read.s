@@ -1,18 +1,17 @@
-#include <errno.h>
 section .text
     global _ft_read
-
+	extern ___error
+	
 _ft_read:
-	mov r8, rdx
     mov rax, 0x2000003
 	syscall
-		jc error//에러이면 flags carry가 바뀜
-	jmp end
-
-error :
-	mov rax, -1
+		jc error
 	ret
 
-end :
-	mov rax, r8
+error :
+	push rax
+	call ___error
+	pop rdx
+	mov [rax], rdx
+	mov rax, -1
 	ret
