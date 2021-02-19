@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:42:24 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 01:05:44 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 06:11:54 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,29 +74,6 @@ typedef struct	s_axis_ref {
 	int			color;
 }				t_axis_ref;
 
-/*
-** MAIN OPTION INDEX:
-** 0 - save
-** 1 - help
-** 2 - sepia filter
-** 3 - antialiasing
-*/
-
-/*
-** SCENE OPTION INDEX: **
-** LIGHT
-** parallel light -parallel ok!
-** PLANE/TRIANGLE/SQUARE
-** bonus:1 | normal disruption - normal-disruption
-** bonus:2 | checkered pattern -checkered
-** bonus:3 | bumpmap texture -bumpmap
-** bonus:4 | plane texture - skybox:textures/skybox.png
-** SPHERE
-** bonus:5 | color disruption -rainbow
-** bonus:6 | sphere texture - uv-map:texture/earth.png
-** CYLINDER
-** bonus:5 | color disruption -rainbow
-*/
 
 typedef struct	s_rt {
 	int			option[3];
@@ -119,11 +96,11 @@ typedef struct	s_rt {
 	t_triangle	**triangle;
 }				t_rt;
 
-typedef struct		s_thread_info
+typedef struct	s_thread_info
 {
-	t_rt			*rt;
-    t_ray           *ray;
-	int				tnum;
-}					t_thread_info;
+	t_rt		*rt;
+    t_ray       *ray;
+	int			tnum;
+}				t_thread_info;
 
 #endif

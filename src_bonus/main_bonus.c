@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:34:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 07:54:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 03:12:09 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_bonus_options(char *argv, t_rt *rt)
 
 static void	ft_check_options(int argc, char **argv, t_rt *rt)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	while (++i < 3)
@@ -40,7 +40,7 @@ static void	ft_check_options(int argc, char **argv, t_rt *rt)
 int			main(int argc, char **argv)
 {
 	t_rt	rt;
-	
+
 	ft_check_options(argc, argv, &rt);
 	if (argc > 1 && !(ft_strncmp(argv[1] + ft_strlen(argv[1]) - 3, ".rt", 4)))
 	{
@@ -52,7 +52,7 @@ int			main(int argc, char **argv)
 			ft_draw(rt);
 	}
 	else
-		ft_error_handler(1);
+		ft_error_handler(MEM_ALLOC);
 	ft_clean_memory(rt);
 	return (0);
 }

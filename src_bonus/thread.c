@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 04:19:43 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 08:20:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 03:13:54 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ t_thread_info		*tinfo_new(t_rt *rt, int tnum)
 	return (result);
 }
 
-static int					tinfo_get_step(t_thread_info *info)
+static int			tinfo_get_step(t_thread_info *info)
 {
 	return (info->rt->x / PTHREAD_CNT);
 }
 
-static int					tinfo_get_y_init_value(t_thread_info *info)
+static int			tinfo_get_y_init_value(t_thread_info *info)
 {
 	if (info->tnum == PTHREAD_CNT)
 		return (info->rt->x);
 	return (tinfo_get_step(info) * info->tnum);
 }
 
-void	*ft_render_pthread(void *arg)
+void				*ft_render_pthread(void *arg)
 {
 	t_thread_info	*tinfo;
     int				px;
@@ -64,9 +64,9 @@ void	*ft_render_pthread(void *arg)
 
 void				draw_hittable_pthread(t_rt *rt)
 {
-	pthread_t			*threads;
-	int					pnum;
-	t_thread_info		*info;
+	pthread_t		*threads;
+	int				pnum;
+	t_thread_info	*info;
 
 	threads = (pthread_t *)malloc(sizeof(pthread_t) * PTHREAD_CNT);
 	pnum = 0;

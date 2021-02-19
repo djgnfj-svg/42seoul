@@ -6,14 +6,14 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 01:01:12 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 08:46:03 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 06:07:34 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_CONST_H
 # define MINIRT_CONST_H
 
-#define PTHREAD_CNT 1
+# define PTHREAD_CNT 1
 
 # define TRUE 1
 # define FALSE 0
@@ -28,18 +28,18 @@
 # define BAD_BONUS 10
 # define BAD_TEXTURE 11
 
-#  define ESC 53
-#  define ARROW_RIGHT 124
-#  define ARROW_LEFT 123
-#  define KEY_A 0
-#  define KEY_S 1
-#  define KEY_D 2
-#  define KEY_Q 12
-#  define KEY_W 13
-#  define KEY_E 14
-#  define CLOSE 17
+# define ESC 53
+# define ARROW_RIGHT 124
+# define ARROW_LEFT 123
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_Q 12
+# define KEY_W 13
+# define KEY_E 14
+# define CLOSE 17
 
-#  define CLOSE 17
+# define CLOSE 17
 
 # define Res_Index 0
 # define Ambient_Index 1
@@ -50,6 +50,5 @@
 # define Square_Index 6
 # define Cylinder_Index 7
 # define Triangle_Index 8
-
 
 #endif

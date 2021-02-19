@@ -6,14 +6,14 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 01:36:32 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 08:23:07 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 05:56:15 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt_bonus.h"
 
-void			ft_render_pxl_antialiasing(double px, double py
-					, t_ray *ray, t_rt *rt)
+void		ft_render_pxl_antialiasing(double px, double py
+										, t_ray *ray, t_rt *rt)
 {
 	int		i;
 	int		j;
@@ -38,7 +38,7 @@ void			ft_render_pxl_antialiasing(double px, double py
 		+ ((int)(color.g / 4) << 8) + (int)(color.b / 4);
 }
 
-t_rgb			ft_sepia_filter(t_rt rt, t_rgb in_color)
+t_rgb		ft_sepia_filter(t_rt rt, t_rgb in_color)
 {
 	t_rgb	out_color;
 

@@ -4,10 +4,10 @@ Color disruption: rainbow effect using object’s normal.
 Parallel light following a precise direction.
 Compound element: Cube (6 squares).
 Compound element: Pyramid (4 triangles, 1 square).
+Anti-aliasing.
 Changing the camera rotation with the mouse.
 Keyboard interactivity (translation/rotation) with camera.
 Putting caps on size-limited cylinders.
-Anti-aliasing.
 Handle bump map textures.
 Sphere texturing: uv mapping.
 A beautiful skybox.
