@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:42:24 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/20 06:11:54 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 07:03:26 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,6 @@ typedef struct	s_ray {
 	double		t;
 }				t_ray;
 
-typedef struct	s_axis {
-	t_vec		x;
-	t_vec		y;
-	t_vec		z;
-}				t_axis;
-
-typedef struct	s_axis_ref {
-	int			x;
-	int			y;
-	int			l_x;
-	int			l_y;
-	int			px;
-	int			py;
-	int			color;
-}				t_axis_ref;
-
 
 typedef struct	s_rt {
 	int			option[3];
@@ -83,7 +67,6 @@ typedef struct	s_rt {
 	int			n_cams;
 	int			i_cam;
 	int			i_light;
-	t_axis		axis;
 	t_window	window;
 	t_image		img;
 	t_ambient	ambient;

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:45:28 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/20 02:41:05 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/20 06:13:10 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "minirt.h"
 
 t_thread_info	*tinfo_new(t_rt *rt, int tnum);
-void	           *ft_render_pthread(void *arg);
+void	        *ft_render_pthread(void *arg);
 void			draw_hittable_pthread(t_rt *rt);
 
 t_vec			ft_get_parallel_dir(char *option);
