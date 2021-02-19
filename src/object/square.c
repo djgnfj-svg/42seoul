@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 22:50:23 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:23:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:46:49 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_intersect_inside_square(t_rt rt, t_auxplane *auxplane, int i)
 	return (1);
 }
 
-int		ft_draw_square(t_rt rt, t_ray *r, int i)
+int					ft_draw_square(t_rt rt, t_ray *r, int i)
 {
 	double			last_t;
 	t_auxplane		auxplane;

@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 21:58:42 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:44:37 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	parse_res(char *line, t_rt *rt)
+void		parse_res(char *line, t_rt *rt)
 {
 	char	**buffer;
 	int		i;
@@ -25,13 +25,10 @@ void	parse_res(char *line, t_rt *rt)
 		ft_error_handler(BAD_FORMAT);
 	rt->x = ft_atoi(buffer[1]);
 	rt->y = ft_atoi(buffer[2]);
-	//참고 최대사이즈방어벽임
-	//ft_check_system_resolution(rt);
-	//참고 아래이거는 버퍼 치비워주는거임
 	ft_del_matrix(buffer);
 }
 
-void	parse_amdient(char *line, t_rt *rt)
+void		parse_amdient(char *line, t_rt *rt)
 {
 	char	**buffer;
 	int		i;
@@ -49,7 +46,7 @@ void	parse_amdient(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_camera(char *line, t_rt *rt)
+void			parse_camera(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;
@@ -73,7 +70,7 @@ void	parse_camera(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_light(char *line, t_rt *rt)
+void		parse_light(char *line, t_rt *rt)
 {
 	char	**buffer;
 	int		i;

@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:01:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:21:35 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:46:22 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	ft_calc_surface_cylinder(t_rt *rt, t_ray *r, int i)
+void		ft_calc_surface_cylinder(t_rt *rt, t_ray *r, int i)
 {
 	double	aux;
 
@@ -34,7 +34,7 @@ void	ft_calc_surface_cylinder(t_rt *rt, t_ray *r, int i)
 		* rt->cylinder[i]->a * rt->cylinder[i]->c;
 }
 
-int		ft_intersect_cylinder(t_rt *rt, t_ray *r, int i)
+int			ft_intersect_cylinder(t_rt *rt, t_ray *r, int i)
 {
 	double	t;
 
@@ -56,7 +56,7 @@ int		ft_intersect_cylinder(t_rt *rt, t_ray *r, int i)
 	return (1);
 }
 
-void	ft_color_cylinder(t_rt rt, t_ray *r, int i)
+void			ft_color_cylinder(t_rt rt, t_ray *r, int i)
 {
 	t_obj_color	obj;
 
@@ -67,7 +67,7 @@ void	ft_color_cylinder(t_rt rt, t_ray *r, int i)
 	r->color = ft_get_color(rt, obj);
 }
 
-int		ft_draw_cylinder(t_rt rt, t_ray *r, int i)
+int			ft_draw_cylinder(t_rt rt, t_ray *r, int i)
 {
 	double	last_t;
 

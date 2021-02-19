@@ -6,14 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 21:46:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 21:47:30 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:45:09 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-//이부분하면됨
-double	ft_ten_powerf(int p)
+double		ft_ten_powerf(int p)
 {
 	double	t;
 	int		i;
@@ -68,7 +67,7 @@ void	ft_del_matrix(char **matrix)
 	matrix = NULL;
 }
 
-t_rgb			parse_rgb(char *buffer)
+t_rgb		parse_rgb(char *buffer)
 {
 	char	**buff_aux;
 	t_rgb	color;
@@ -87,7 +86,7 @@ t_rgb			parse_rgb(char *buffer)
 
 t_vec		ft_load_coords(char *buffer)
 {
-	char		**buff_aux;
+	char	**buff_aux;
 	t_vec	vector;
 
 	buff_aux = ft_split(buffer, ',');

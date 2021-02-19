@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 04:45:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:25:53 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:42:41 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	ft_shadow_plane(t_rt rt, t_ray *r, int i)
+int				ft_shadow_plane(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane	auxplane;
 

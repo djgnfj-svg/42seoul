@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:34:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 22:03:28 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:28:26 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int		main(int argc, char **argv)
 	char	*aux;
 
 	ft_initialize_options(&rt);
-	if (argc > 1 && (aux = ft_strnstr(argv[1], ".rt", ft_strlen(argv[1]))) && !(*(aux + 3)))
+	if (argc > 1 && (aux = ft_strnstr(argv[1], ".rt", \
+		ft_strlen(argv[1]))) && !(*(aux + 3)))
 	{
 		rt.window.mlx_ptr = mlx_init();
 		ft_check_options(argc, argv, &rt);

@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:21:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 22:01:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:44:16 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	parse_sphere(char *line, t_rt *rt)
+void			parse_sphere(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;
@@ -34,7 +34,7 @@ void	parse_sphere(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_plane(char *line, t_rt *rt)
+void			parse_plane(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;
@@ -56,7 +56,7 @@ void	parse_plane(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_square(char *line, t_rt *rt)
+void			parse_square(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;
@@ -81,7 +81,7 @@ void	parse_square(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_cylinder(char *line, t_rt *rt)
+void			parse_cylinder(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;
@@ -105,7 +105,7 @@ void	parse_cylinder(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_triangle(char *line, t_rt *rt)
+void			parse_triangle(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:00:53 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:24:38 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:47:08 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ double		ft_get_q_param(t_rt rt, t_vec p0, int i)
 
 int			ft_is_inside_triangle(t_rt rt, t_auxplane *auxplane, int i)
 {
-	double		p;
-	double		q;
+	double	p;
+	double	q;
 	t_vec	p0;
 
 	p0 = ft_sub_vec(auxplane->p, rt.triangle[i]->a);
@@ -77,7 +77,7 @@ int			ft_intersect_triangle(t_rt *rt, t_ray *r, int i,
 	return (0);
 }
 
-int			ft_draw_triangle(t_rt rt, t_ray *r, int i)
+int				ft_draw_triangle(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane	auxplane;
 	t_obj_color	obj;

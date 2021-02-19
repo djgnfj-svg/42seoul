@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-int	ft_shadow_caps(t_rt rt, t_ray *r, int i)
+int				ft_shadow_caps(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane	auxplane;
 
@@ -29,7 +29,7 @@ int	ft_shadow_caps(t_rt rt, t_ray *r, int i)
 	return (0);
 }
 
-int	ft_shadow_cylinder(t_rt rt, t_ray *r, int i)
+int				ft_shadow_cylinder(t_rt rt, t_ray *r, int i)
 {
 	rt.cylinder[i]->m = 0;
 	if (ft_intersect_cylinder(&rt, r, i))

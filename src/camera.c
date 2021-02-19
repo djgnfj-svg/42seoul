@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 19:47:55 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:22 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:24:28 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_vec		ft_local_camera_ray(t_rt rt, double p_x, double p_y)
 {
 	t_vec	c_local;
-	double		rt_x;
-	double		rt_y;
+	double	rt_x;
+	double	rt_y;
 
 	rt_x = (double)rt.x;
 	rt_y = (double)rt.y;

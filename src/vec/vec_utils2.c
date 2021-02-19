@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_calc_extra.c                                   :+:      :+:    :+:   */
+/*   vec_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 06:53:14 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 21:46:23 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:41:09 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-//normal 방향 조정?
 t_vec		ft_set_hor_axis(t_vec n)
 {
-	t_vec x;
+	t_vec	x;
 
 	x.z = 0;
 	if (!n.x && !n.y)
@@ -36,20 +35,19 @@ t_vec		ft_set_hor_axis(t_vec n)
 	return (x);
 }
 
-t_vec	ft_cross_product(t_vec u, t_vec v)
+t_vec		ft_cross_product(t_vec u, t_vec v)
 {
-	t_vec w;
+	t_vec	w;
 
 	w.x = u.y * v.z - u.z * v.y;
-	//참고 -1곱하는데 나는 그냥으로 진행해보자
 	w.y = u.x * v.z - u.z * v.x;
 	w.z = u.x * v.y - u.y * v.x;
 	return (w);
 }
 
-void			ft_normalize_vector(t_vec *v)
+void		ft_normalize_vector(t_vec *v)
 {
-	double mod;
+	double	mod;
 
 	mod = ft_mod_vector(*v);
 	v->x = v->x / mod;
@@ -57,13 +55,13 @@ void			ft_normalize_vector(t_vec *v)
 	v->z = v->z / mod;
 }
 
-double			ft_mod_vector(t_vec v)
+double		ft_mod_vector(t_vec v)
 {
 	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }
 t_vec		ft_mtx_vct_prod(t_matrix m, t_vec v)
 {
-	t_vec p;
+	t_vec	p;
 
 	p.x = v.x * m.vx.x + v.y * m.vy.x + v.z * m.vz.x;
 	p.y = v.x * m.vx.y + v.y * m.vy.y + v.z * m.vz.y;

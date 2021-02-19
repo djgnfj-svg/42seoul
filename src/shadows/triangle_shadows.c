@@ -6,14 +6,14 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 04:50:21 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:29:18 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:43:34 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "minirt.h"
 
-int		ft_shadow_triangle(t_rt rt, t_ray *r, int i)
+int				ft_shadow_triangle(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane	auxplane;
 

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 04:21:02 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/12 22:54:23 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/18 23:40:08 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ double		ft_dot_product(t_vec u, t_vec v)
 	return (u.x * v.x + u.y * v.y + u.z * v.z);
 }
 
-double			ft_abs(double num)
+double		ft_abs(double num)
 {
 	if (num < 0)
 		return (-1 * num);
@@ -26,7 +26,7 @@ double			ft_abs(double num)
 
 t_vec		ft_set_axis(char axis)
 {
-	t_vec v;
+	t_vec	v;
 
 	v.x = 0;
 	v.y = 0;
