@@ -13,4 +13,6 @@ Sphere texturing: uv mapping.
 A beautiful skybox.
 One color filter: Sepia, R/G/B filters..
 
+-g -fsanitize=address
+
 멀티쓰래드도 만들기는 했는데 동작하면 화면이 깨짐
