@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 06:53:14 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:41:09 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:52:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ t_vec		ft_cross_product(t_vec u, t_vec v)
 	return (w);
 }
 
+double		ft_mod_vector(t_vec v)
+{
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+}
+
 void		ft_normalize_vector(t_vec *v)
 {
 	double	mod;
@@ -55,10 +60,6 @@ void		ft_normalize_vector(t_vec *v)
 	v->z = v->z / mod;
 }
 
-double		ft_mod_vector(t_vec v)
-{
-	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
-}
 t_vec		ft_mtx_vct_prod(t_matrix m, t_vec v)
 {
 	t_vec	p;

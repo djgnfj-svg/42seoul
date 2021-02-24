@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_caprt.c                                    :+:      :+:    :+:   */
+/*   cylinder_caps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:02:36 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 07:29:42 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:22:27 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int			ft_intersect_caps(t_rt *rt, t_ray *r, int i, t_auxplane *auxplane)
 	return (0);
 }
 
-t_vec	ft_nearest_cap(t_rt rt, int i)
+t_vec		ft_nearest_cap(t_rt rt, int i)
 {
-	t_vec	vect[2];
-	t_vec	top_side;
+	t_vec		vect[2];
+	t_vec		top_side;
 	double		dist[2];
 
 	top_side = ft_add_vec(rt.cylinder[i]->point,

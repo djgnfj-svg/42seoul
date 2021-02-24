@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:42:24 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/20 07:03:26 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:07:03 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct	s_ray {
 	double		t;
 }				t_ray;
 
-
 typedef struct	s_rt {
 	int			option[3];
 	int			x;
@@ -82,7 +81,7 @@ typedef struct	s_rt {
 typedef struct	s_thread_info
 {
 	t_rt		*rt;
-    t_ray       *ray;
+	t_ray		*ray;
 	int			tnum;
 }				t_thread_info;
 

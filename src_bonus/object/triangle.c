@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:00:53 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:53 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:19:25 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_is_inside_triangle(t_rt rt, t_auxplane *auxplane, int i)
 {
 	double		p;
 	double		q;
-	t_vec	p0;
+	t_vec		p0;
 
 	p0 = ft_sub_vec(auxplane->p, rt.triangle[i]->a);
 	p = ft_get_p_param(rt, p0, i);

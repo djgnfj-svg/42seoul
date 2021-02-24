@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 20:23:01 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/20 03:51:23 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:22:01 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_draw_sphere(t_rt rt, t_ray *r, int i)
 {
 	double		t;
 	t_obj_color	obj;
-	
+
 	if (!ft_intersect_sphere(&rt, r, i))
 		return (0);
 	t = rt.sphere[i]->p_oc - sqrt(rt.sphere[i]->radius * rt.sphere[i]->radius
@@ -53,4 +53,3 @@ int		ft_draw_sphere(t_rt rt, t_ray *r, int i)
 	r->color = ft_get_color(rt, obj);
 	return (1);
 }
-

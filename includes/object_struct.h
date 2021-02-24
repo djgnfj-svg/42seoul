@@ -1,5 +1,17 @@
-#ifndef OBJECT_STRUCT
-# define OBJECT_STRUCT
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   object_struct.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/24 14:06:10 by ysong             #+#    #+#             */
+/*   Updated: 2021/02/24 14:09:03 by ysong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef OBJECT_STRUCT_H
+# define OBJECT_STRUCT_H
 
 typedef struct	s_vec {
 	double		x;
@@ -13,7 +25,7 @@ typedef struct	s_matrix {
 	t_vec		vz;
 }				t_matrix;
 
-typedef struct	s_rgb {
+typedef	struct	s_rgb {
 	double		r;
 	double		g;
 	double		b;

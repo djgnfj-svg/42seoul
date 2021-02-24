@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 02:02:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:16:10 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_vec		ft_get_bumpmap_normal(t_obj_color obj, int x, int y)
 {
-	double		coef[2];
+	double	coef[2];
 	t_vec	u;
 	t_vec	v;
 

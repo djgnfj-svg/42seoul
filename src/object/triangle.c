@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:00:53 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:47:08 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:50:54 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			ft_intersect_triangle(t_rt *rt, t_ray *r, int i,
 	return (0);
 }
 
-int				ft_draw_triangle(t_rt rt, t_ray *r, int i)
+int			ft_draw_triangle(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane	auxplane;
 	t_obj_color	obj;

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 01:01:12 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/20 06:07:34 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:59:29 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@
 
 # define CLOSE 17
 
-# define Res_Index 0
-# define Ambient_Index 1
-# define Camera_Index 2
-# define Ligth_Index 3
-# define Sphere_Index 4
-# define Plane_Index 5
-# define Square_Index 6
-# define Cylinder_Index 7
-# define Triangle_Index 8
+# define RES_INDEX 0
+# define AMBIENT_INDEX 1
+# define CAMERA_INDEX 2
+# define LIGTH_INDEX 3
+# define SPHERE_INDEX 4
+# define PLANE_INDEX 5
+# define SQUARE_INDEX 6
+# define CYLINDER_INDEX 7
+# define TRAIANGLE_INDEX 8
 
 #endif

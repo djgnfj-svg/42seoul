@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 06:04:22 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:13:29 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_vec	ft_add_vec(t_vec u, t_vec v)
 	return (w);
 }
 
-double		ft_dot_product(t_vec u, t_vec v)
+double	ft_dot_product(t_vec u, t_vec v)
 {
 	return (u.x * v.x + u.y * v.y + u.z * v.z);
 }

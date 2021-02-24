@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:44:37 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:48:14 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		parse_amdient(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void			parse_camera(char *line, t_rt *rt)
+void		parse_camera(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;

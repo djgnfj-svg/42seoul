@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 04:21:02 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 00:03:30 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:13:45 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt_bonus.h"
 
-void			ft_normalize_vector(t_vec *v)
+void		ft_normalize_vector(t_vec *v)
 {
 	double mod;
 
@@ -22,7 +22,7 @@ void			ft_normalize_vector(t_vec *v)
 	v->z = v->z / mod;
 }
 
-double			ft_mod_vector(t_vec v)
+double		ft_mod_vector(t_vec v)
 {
 	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }
@@ -37,14 +37,14 @@ t_vec		ft_mtx_vct_prod(t_matrix m, t_vec v)
 	return (p);
 }
 
-double			ft_abs(double num)
+double		ft_abs(double num)
 {
 	if (num < 0)
 		return (-1 * num);
 	return (num);
 }
 
-double			ft_det(t_matrix m)
+double		ft_det(t_matrix m)
 {
 	double	det;
 

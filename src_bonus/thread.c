@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 04:19:43 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/20 03:13:54 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:11:36 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ static int			tinfo_get_y_init_value(t_thread_info *info)
 void				*ft_render_pthread(void *arg)
 {
 	t_thread_info	*tinfo;
-    int				px;
-    int				py;
+	int				px;
+	int				py;
 	t_ray			ray;
 
 	tinfo = (t_thread_info *)arg;
 	px = tinfo_get_y_init_value(tinfo);
-    while (--px >= (tinfo_get_step(tinfo) * (tinfo->tnum - 1)))
+	while (--px >= (tinfo_get_step(tinfo) * (tinfo->tnum - 1)))
 	{
 		py = 0;
 		while (py < tinfo->rt->y)
 		{
-			if(tinfo->rt->option[2])
+			if (tinfo->rt->option[2])
 				ft_render_pxl_antialiasing((double)px, (double)py, \
 							&ray, tinfo->rt);
 			else
@@ -73,7 +73,8 @@ void				draw_hittable_pthread(t_rt *rt)
 	while (++pnum <= PTHREAD_CNT)
 	{
 		info = tinfo_new(rt, pnum);
-		pthread_create(&(threads[pnum - 1]), NULL, ft_render_pthread, (void *)info);
+		pthread_create(&(threads[pnum - 1]), NULL,\
+						ft_render_pthread, (void *)info);
 	}
 	pnum = 0;
 	while (++pnum <= PTHREAD_CNT)

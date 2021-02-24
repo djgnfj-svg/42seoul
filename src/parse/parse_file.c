@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 21:34:51 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:44:51 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:51:24 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_set_elements(t_rt *rt)
 	rt->triangle[rt->index[8]] = NULL;
 }
 
-void		ft_count_elements(char *rt_file, t_rt *rt)
+void	ft_count_elements(char *rt_file, t_rt *rt)
 {
 	int		fd;
 	char	*line;
@@ -98,7 +98,6 @@ void		ft_count_elements(char *rt_file, t_rt *rt)
 	i = 0;
 	while (i < 9)
 		rt->index[i++] = 0;
-
 	fd = open(rt_file, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
@@ -111,7 +110,7 @@ void		ft_count_elements(char *rt_file, t_rt *rt)
 	rt->n_cams = rt->index[2];
 }
 
-void		parse_file(char *rt_file, t_rt *rt)
+void	parse_file(char *rt_file, t_rt *rt)
 {
 	int		fd;
 	char	*line;

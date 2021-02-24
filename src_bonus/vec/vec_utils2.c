@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_calc_extra.c                                   :+:      :+:    :+:   */
+/*   vec_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 06:53:14 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 21:46:23 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:14:07 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_matrix		ft_inv_matrix(t_matrix m)
+t_matrix	ft_inv_matrix(t_matrix m)
 {
 	double		det;
 	t_matrix	inv;
@@ -30,7 +30,7 @@ t_matrix		ft_inv_matrix(t_matrix m)
 	return (inv);
 }
 
-int				ft_minus_vector(t_vec *v)
+int			ft_minus_vector(t_vec *v)
 {
 	v->x = -1 * v->x;
 	v->y = -1 * v->y;
@@ -77,7 +77,7 @@ t_vec		ft_set_hor_axis(t_vec n)
 	return (x);
 }
 
-int				ft_isvoid(t_vec vector)
+int			ft_isvoid(t_vec vector)
 {
 	if (!vector.x && !vector.y && !vector.z)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 21:46:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:45:09 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:49:17 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ double		ft_ten_powerf(int p)
 	return (t);
 }
 
-double	ft_ftoi(char *str)
+double		ft_ftoi(char *str)
 {
 	int	k;
 	int	d;
@@ -52,7 +52,7 @@ double	ft_ftoi(char *str)
 	return ((double)(d + k * ft_ten_powerf(-l)));
 }
 
-void	ft_del_matrix(char **matrix)
+void		ft_del_matrix(char **matrix)
 {
 	int	i;
 
@@ -73,7 +73,6 @@ t_rgb		parse_rgb(char *buffer)
 	t_rgb	color;
 
 	buff_aux = ft_split(buffer, ',');
-	//참고 내가 바꿈
 	color.r = ft_ftoi(buff_aux[0]);
 	color.g = ft_ftoi(buff_aux[1]);
 	color.b = ft_ftoi(buff_aux[2]);

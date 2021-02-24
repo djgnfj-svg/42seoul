@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 22:48:43 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:46:28 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:46:45 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_intersect_plane(t_rt *rt, t_auxplane *plane, t_ray *r)
 	return (0);
 }
 
-int			ft_get_point_plane(t_rt *rt, t_auxplane *plane, t_ray *r)
+int		ft_get_point_plane(t_rt *rt, t_auxplane *plane, t_ray *r)
 {
 	double	t;
 
@@ -45,7 +45,7 @@ int			ft_get_point_plane(t_rt *rt, t_auxplane *plane, t_ray *r)
 	return (1);
 }
 
-int					ft_draw_plane(t_rt rt, t_ray *r, int i)
+int		ft_draw_plane(t_rt rt, t_ray *r, int i)
 {
 	t_auxplane		auxplane;
 	t_obj_color		obj;

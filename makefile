@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/12 22:40:26 by ysong             #+#    #+#              #
-#    Updated: 2021/02/20 03:12:45 by ysong            ###   ########.fr        #
+#    Updated: 2021/02/24 15:19:01 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRC_BONUS = camera.c color_utils.c color.c draw_rt_bonus.c error.c \
 		shadows/shadows.c \
 		shadows/cylinder_shadows.c shadows/plane_shadows.c \
 		shadows/sphere_shadows.c shadows/square_shadows.c shadows/triangle_shadows.c \
-		txture/color_plane_bonus.c txture/color_sphere_bonus.c txture/color_utils_bonus.c \
+		texture/color_plane_bonus.c texture/color_sphere_bonus.c texture/color_utils_bonus.c \
 		vec/vec_calc.c vec/vec_utils.c vec/vec_utils2.c
 
 MSRC	= main.c

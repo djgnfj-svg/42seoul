@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 02:02:49 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:35 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:15:57 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void			ft_sphere_coords(t_obj_color obj, double *x, double *y)
 {
-	double			angle[2];
-	double			alpha;
+	double		angle[2];
+	double		alpha;
 	t_vec		cp;
 	t_vec		equator;
 

@@ -6,19 +6,18 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 04:32:36 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/15 07:41:00 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:04:23 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHADOWS_H
 # define SHADOWS_H
 
-#include "minirt_struct.h"
+# include "minirt_struct.h"
 
 int	ft_shadows(t_rt rt, t_ray *ray);
 int	ft_between_light_source(t_vec light,
 					t_vec point, t_vec origin);
-
 
 int	ft_shadow_cylinder(t_rt rt, t_ray *r, int i);
 int	ft_shadow_plane(t_rt rt, t_ray *r, int i);

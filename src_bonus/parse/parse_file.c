@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 21:34:51 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 07:52:38 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:19:11 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	ft_load_element(char *line, t_rt *rt)
 {
-
 	if (ft_strncmp(line, "R ", 2) == 0)
 		parse_res(line, rt);
 	else if (ft_strncmp(line, "A ", 2) == 0)
@@ -39,7 +38,7 @@ static void	ft_load_element(char *line, t_rt *rt)
 
 static void	ft_set_elements(t_rt *rt)
 {
-	if (rt->index[Res_Index] != 1 || rt->index[Ambient_Index] != 1)
+	if (rt->index[RES_INDEX] != 1 || rt->index[AMBIENT_INDEX] != 1)
 		ft_error_handler(BAD_FORMAT);
 	if (!(rt->camera = malloc((rt->index[2] + 1) * sizeof(t_camera *))))
 		ft_error_handler(MEM_ALLOC);
@@ -67,23 +66,23 @@ static void	ft_set_elements(t_rt *rt)
 static void	ft_number_elements(char *line, t_rt *rt)
 {
 	if (ft_strncmp(line, "R ", 2) == 0)
-		rt->index[Res_Index]++;
+		rt->index[RES_INDEX]++;
 	else if (ft_strncmp(line, "A ", 2) == 0)
-		rt->index[Ambient_Index]++;
+		rt->index[AMBIENT_INDEX]++;
 	else if (ft_strncmp(line, "c ", 2) == 0)
-		rt->index[Camera_Index]++;
+		rt->index[CAMERA_INDEX]++;
 	else if (ft_strncmp(line, "l ", 2) == 0)
-		rt->index[Ligth_Index]++;
+		rt->index[LIGTH_INDEX]++;
 	else if (ft_strncmp(line, "sp ", 3) == 0)
-		rt->index[Sphere_Index]++;
+		rt->index[SPHERE_INDEX]++;
 	else if (ft_strncmp(line, "pl ", 3) == 0)
-		rt->index[Plane_Index]++;
+		rt->index[PLANE_INDEX]++;
 	else if (ft_strncmp(line, "sq ", 3) == 0)
-		rt->index[Square_Index]++;
+		rt->index[SQUARE_INDEX]++;
 	else if (ft_strncmp(line, "cy ", 3) == 0)
-		rt->index[Cylinder_Index]++;
+		rt->index[CYLINDER_INDEX]++;
 	else if (ft_strncmp(line, "tr ", 3) == 0)
-		rt->index[Triangle_Index]++;
+		rt->index[TRAIANGLE_INDEX]++;
 	else if (line[0] != '\0')
 		ft_error_handler(BAD_FORMAT);
 }
@@ -110,7 +109,7 @@ static void	ft_count_elements(char *rt_file, t_rt *rt)
 	rt->n_cams = rt->index[2];
 }
 
-void	parse_file(char *rt_file, t_rt *rt)
+void		parse_file(char *rt_file, t_rt *rt)
 {
 	int		fd;
 	char	*line;

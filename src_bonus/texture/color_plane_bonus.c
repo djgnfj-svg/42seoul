@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 02:02:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 08:40:12 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:15:26 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_vec		ft_wave_normal(t_obj_color obj)
 {
 	t_vec	wave_n;
-	double		alpha;
-	double		d;
+	double	alpha;
+	double	d;
 
 	wave_n = ft_sub_vec(obj.center, obj.p);
 	if (obj.bonus.type == 's')
@@ -37,7 +37,7 @@ t_vec		ft_wave_normal(t_obj_color obj)
 	return (wave_n);
 }
 
-t_rgb			ft_checkered_pattern(t_obj_color obj)
+t_rgb		ft_checkered_pattern(t_obj_color obj)
 {
 	if (ft_dot_product(obj.normal, (t_vec){0, 0, 1}))
 		if ((int)(floor(obj.p.x) + floor(obj.p.y)) % 2)
@@ -51,10 +51,10 @@ t_rgb			ft_checkered_pattern(t_obj_color obj)
 	return (obj.rgb);
 }
 
-t_rgb			ft_color_texture(t_obj_color obj, int x, int y)
+t_rgb		ft_color_texture(t_obj_color obj, int x, int y)
 {
-	int				color;
-	t_rgb			rgb;
+	int		color;
+	t_rgb	rgb;
 
 	color = obj.bonus.texture.val[y * obj.bonus.texture.width + x];
 	rgb.r = (color & 0x00FF0000) >> 16;
@@ -63,10 +63,10 @@ t_rgb			ft_color_texture(t_obj_color obj, int x, int y)
 	return (rgb);
 }
 
-t_rgb			ft_plane_texture(t_obj_color obj)
+t_rgb		ft_plane_texture(t_obj_color obj)
 {
-	int				x;
-	int				y;
+	int		x;
+	int		y;
 
 	if (ft_abs(ft_dot_product(obj.normal, (t_vec){1, 0, 0})) == 1)
 		x = ft_abs((int)obj.p.z % obj.bonus.texture.width);

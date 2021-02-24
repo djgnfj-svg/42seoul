@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:34:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 23:28:26 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:45:21 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void			ft_initialize_options(t_rt *rt)
+void	ft_initialize_options(t_rt *rt)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ void			ft_initialize_options(t_rt *rt)
 		rt->option[i] = 0;
 }
 
-void			ft_save_option(char *argv, t_rt *rt)
+void	ft_save_option(char *argv, t_rt *rt)
 {
 	if (!ft_strncmp(argv, "--save", ft_strlen(argv) + 1))
 	{
@@ -33,7 +33,7 @@ void			ft_save_option(char *argv, t_rt *rt)
 		ft_error_handler(BAD_FLAG);
 }
 
-void			ft_check_options(int argc, char **argv, t_rt *rt)
+void	ft_check_options(int argc, char **argv, t_rt *rt)
 {
 	int	i;
 

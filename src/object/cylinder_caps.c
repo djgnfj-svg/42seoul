@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_caprt.c                                    :+:      :+:    :+:   */
+/*   cylinder_caps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:02:36 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 13:47:37 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int				ft_intersect_caps(t_rt *rt, t_ray *r, int i, t_auxplane *auxplane)
+int			ft_intersect_caps(t_rt *rt, t_ray *r, int i, t_auxplane *auxplane)
 {
 	if (ft_intersect_plane(rt, auxplane, r))
 		if (ft_get_point_plane(rt, auxplane, r))
@@ -26,7 +26,7 @@ int				ft_intersect_caps(t_rt *rt, t_ray *r, int i, t_auxplane *auxplane)
 	return (0);
 }
 
-t_vec			ft_nearest_cap(t_rt rt, int i)
+t_vec		ft_nearest_cap(t_rt rt, int i)
 {
 	t_vec		vect[2];
 	t_vec		top_side;
@@ -43,7 +43,7 @@ t_vec			ft_nearest_cap(t_rt rt, int i)
 	return (rt.cylinder[i]->point);
 }
 
-int				ft_draw_caps(t_rt rt, t_ray *r, int i)
+int			ft_draw_caps(t_rt rt, t_ray *r, int i)
 {
 	double		last_t;
 	t_obj_color	obj;

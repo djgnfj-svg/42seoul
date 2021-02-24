@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 23:01:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 21:19:17 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:20:49 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_calc_surface_cylinder(t_rt *rt, t_ray *r, int i)
 	rt->cylinder[i]->b = 2 * (ft_dot_product(r->global, rt->cylinder[i]->oc)
 			- ft_dot_product(r->global, rt->cylinder[i]->n)
 			* ft_dot_product(rt->cylinder[i]->oc, rt->cylinder[i]->n));
-	rt->cylinder[i]->c = ft_dot_product(rt->cylinder[i]->oc, rt->cylinder[i]->oc)
+	rt->cylinder[i]->c = ft_dot_product(rt->cylinder[i]->oc, \
+					rt->cylinder[i]->oc)
 		- aux * aux - rt->cylinder[i]->radius * rt->cylinder[i]->radius;
 	rt->cylinder[i]->discr = rt->cylinder[i]->b * rt->cylinder[i]->b - 4
 		* rt->cylinder[i]->a * rt->cylinder[i]->c;

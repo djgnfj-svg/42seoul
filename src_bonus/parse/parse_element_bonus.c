@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 22:49:30 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/17 02:44:36 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:21:12 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_vec		ft_get_parallel_dir(char *option)
 {
-	char		**buffer;
-	int			i;
+	char	**buffer;
+	int		i;
 	t_vec	dir;
 
 	i = 0;

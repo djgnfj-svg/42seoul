@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 19:47:55 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:05:20 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/24 14:12:47 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_vec		ft_local_camera_ray(t_rt rt, double p_x, double p_y)
 {
-	t_vec	c_local;
+	t_vec		c_local;
 	double		sx;
 	double		sy;
 
@@ -28,7 +28,7 @@ t_vec		ft_local_camera_ray(t_rt rt, double p_x, double p_y)
 	return (c_local);
 }
 
-int				ft_global_camera_base(t_rt *rt, int i_cam)
+int			ft_global_camera_base(t_rt *rt, int i_cam)
 {
 	t_matrix	conversion;
 
