@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 20:35:17 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/24 14:02:16 by ysong            ###   ########.fr       */
+/*   Updated: 2021/02/27 18:19:15 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <float.h>
 # include <pthread.h>
 
-# include "mlx.h"
+# include "../mlx/mlx.h"
 # include "libft.h"
 # include "minirt_const.h"
 # include "minirt_struct.h"
