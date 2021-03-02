@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/27 18:32:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/02 16:21:33 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	parse_camera(char *line, t_rt *rt)
 	rt->index[2]--;
 	camera->pos = ft_load_coords(buffer[1]);
 	camera->n = ft_load_coords(buffer[2]);
-	if(!ft_isvoid(camera->n))
+	if (!ft_isvoid(camera->n))
 		camera->n.x = 1.0;
 	fov_deg = ft_atoi(buffer[3]);
 	if (fov_deg < 0 & fov_deg > 180)
