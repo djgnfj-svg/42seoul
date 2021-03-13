@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:28:00 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:02:35 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/13 17:21:34 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,19 @@ int		ft_bonus_option(void)
 {
 	int	bonus;
 
-	bonus = 0;
+	bonus = 2;
 	return (bonus);
+}
+
+int ft_check_normalized(t_vec *nor)
+{
+	if (nor->x < 0 && nor->x > 1)
+		return (0);
+	if (nor->y < 0 && nor->y > 1)
+		return (0);
+	if (nor->z < 0 && nor->z > 1)
+		return (0);
+	return (1);
 }
 
 void	ft_get_triangle_boundaries(t_triangle *triangle)

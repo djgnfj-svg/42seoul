@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:21:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 07:40:36 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/13 16:21:11 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	parse_plane(char *line, t_rt *rt)
 	rt->plane[rt->index[5] - 1] = plane;
 	rt->index[5]--;
 	plane->point = ft_load_coords(buffer[1]);
+	if(!(ft_check_normalized(&plane->n)))
+		ft_error_handler(BAD_FORMAT);
 	plane->n = ft_load_coords(buffer[2]);
 	plane->rgb = parse_rgb(buffer[3]);
 	plane->bonus = ft_plane_bonus(rt, &buffer[4]);
@@ -75,6 +77,8 @@ void	parse_square(char *line, t_rt *rt)
 	rt->square[rt->index[6] - 1] = square;
 	rt->index[6]--;
 	square->center = ft_load_coords(buffer[1]);
+	if(!(ft_check_normalized(&square->n)))
+		ft_error_handler(BAD_FORMAT);
 	square->n = ft_load_coords(buffer[2]);
 	square->side = ft_ftoi(buffer[3]);
 	square->rgb = parse_rgb(buffer[4]);
@@ -101,6 +105,8 @@ void	parse_cylinder(char *line, t_rt *rt)
 	rt->cylinder[rt->index[7] - 1] = cylinder;
 	rt->index[7]--;
 	cylinder->point = ft_load_coords(buffer[1]);
+	if(!(ft_check_normalized(&cylinder->n)))
+		ft_error_handler(BAD_FORMAT);
 	cylinder->n = ft_load_coords(buffer[2]);
 	cylinder->radius = ft_ftoi(buffer[3]) / 2;
 	cylinder->height = ft_ftoi(buffer[4]);

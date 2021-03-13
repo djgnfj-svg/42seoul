@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/03/02 16:21:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/13 15:25:45 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	parse_res(char *line, t_rt *rt)
 		ft_error_handler(BAD_FORMAT);
 	rt->x = ft_atoi(buffer[1]);
 	rt->y = ft_atoi(buffer[2]);
-	if (rt->x > 1280)
-		rt->x = 1280;
-	if (rt->y > 1280)
-		rt->y = 1280;
+	if (rt->x > 2560)
+		rt->x = 2560;
+	if (rt->y > 1395)
+		rt->y = 1395;
 	ft_del_matrix(buffer);
 }
 
@@ -68,6 +68,8 @@ void	parse_camera(char *line, t_rt *rt)
 	rt->camera[rt->index[2] - 1] = camera;
 	rt->index[2]--;
 	camera->pos = ft_load_coords(buffer[1]);
+	if(!(ft_check_normalized(&camera->n)))
+		ft_error_handler(BAD_FORMAT);
 	camera->n = ft_load_coords(buffer[2]);
 	if (!ft_isvoid(camera->n))
 		camera->n.x = 1.0;
