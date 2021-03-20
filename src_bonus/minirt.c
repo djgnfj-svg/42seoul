@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:43:17 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/18 08:09:57 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/15 20:49:43 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_draw_to_screen(t_rt *rt)
 int		ft_exit(t_window *window)
 {
 	mlx_destroy_window(window->mlx_ptr, window->win_ptr);
+	system("leaks a.out > leaks_result; cat leaks_result \
+    	| grep leaked && rm -rf leaks_result");
 	exit(EXIT_SUCCESS);
 }
 

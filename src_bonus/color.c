@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 20:44:41 by ysong             #+#    #+#             */
-/*   Updated: 2021/03/13 16:30:49 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/21 03:43:55 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_rgb			ft_spot_light(t_rt rt, t_obj_color obj)
 		kd = 0;
 	else
 		kd = rt.light[0]->intensity;
-	specular = rt.option[3] ? 0 : pow(fmax(diffuse, 0.0), 50);
+	specular = pow(fmax(diffuse, 0.0), 50);
 	color.r = kd * rt.light[0]->rgb.r * (obj.rgb.r * diffuse / 255 + specular);
 	color.g = kd * rt.light[0]->rgb.g * (obj.rgb.g * diffuse / 255 + specular);
 	color.b = kd * rt.light[0]->rgb.b * (obj.rgb.b * diffuse / 255 + specular);

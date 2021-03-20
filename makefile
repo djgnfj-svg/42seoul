@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/12 22:40:26 by ysong             #+#    #+#              #
-#    Updated: 2021/03/13 17:18:56 by ysong            ###   ########.fr        #
+#    Updated: 2021/03/21 05:00:24 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ MOBJS_BONUS	= $(MSRCS_BONUS:.c=.o)
 			$(GCC) -g $(CFLAGS) -I$(INCLUDE) -c $< -o $@
 
 $(NAME):	$(LIBNAME) $(MLXNAME) $(OBJS) $(MOBJS)
-			$(GCC) $(CFLAG) -I$(INCLUDE) -L$(MLXDIR) -g3 -fsanitize=address -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(MOBJS) $(LIBNAME) $(MLXNAME)
+			$(GCC) $(CFLAG) -I$(INCLUDE) -L$(MLXDIR)  -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(MOBJS) $(LIBNAME) $(MLXNAME)
 
 $(NAME_BONUS):	$(LIBNAME) $(MLXNAME) $(OBJS_BONUS) $(MOBJS_BONUS)
 			$(GCC) $(CFLAG) -I$(INCLUDE) -L$(MLXDIR) -g3 -fsanitize=address -lpthread -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS) $(OBJS_BONUS) $(MOBJS_BONUS) $(LIBNAME) $(MLXNAME)
