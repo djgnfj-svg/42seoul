@@ -6,67 +6,65 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 18:50:54 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/16 05:04:09 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/27 14:26:25 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
-static int ft_gclean_line(char **file_value, char **line, int i)
+static int	ft_remain(char **remain_str, char **line)
 {
-	char *temp;
-	int len;
-
-	(*file_value)[i] = '\0';
-	*line = ft_gstrdup(*file_value);
-	len = ft_gstrlen(*file_value + i + 1);
-	if (!len)
+	if (*line)
 	{
-		free(*file_value);
-		*file_value = 0;
-		return (1);
+		if (ft_analyse(*line))
+		{
+			ft_free_memory(remain_str);
+			*remain_str = ft_cut_line("", line);
+			return (1);
+		}
 	}
-	temp = ft_gstrdup(*file_value + i + 1);
-	free(*file_value);
-	*file_value = temp;
-	return (1);
-}
-
-static int return_EOF(char **file_value, char **line)
-{
-	int i;
-
-	if (*file_value && (i = ft_gstrchr(*file_value, '\n')) >= 0) //파일끝이고 그안에 \n이 포함되어있으면
-		return (ft_gclean_line(file_value, line, i));
-	else if (*file_value) //가져온 값만 유효
-	{
-		*line = *file_value;
-		*file_value = 0;
-		return (0);
-	}
-	*line = ft_gstrdup("");
+	else
+		*line = ft_realloc_content("", "");
+	ft_free_memory(remain_str);
 	return (0);
 }
 
-int get_next_line(int fd, char **line)
+static	int	ft_keep_reading(ssize_t rd_status, char *buffer,
+		char **remain_str, char **line)
 {
-	static char *file_value[10240]; //OPEN_MAX
-	char buf[BUFFER_SIZE + 1];
-	int read_size;
-	int temp;
-	
-	
-	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0)
-		return (-1);										 //잘못된 입력 = 에러
-	while ((read_size = read(fd, buf, BUFFER_SIZE)) > 0) //파일을 읽어 온다 -1 EOF = 0 나머지양수는 읽어온 양
+	char *aux_free;
+
+	buffer[rd_status] = '\0';
+	if (ft_analyse(buffer))
 	{
-		buf[read_size] = '\0';
-		file_value[fd] = ft_gstrjoin(file_value[fd], buf);
-		if ((temp = ft_gstrchr(file_value[fd], '\n')) >= 0)
-			return (ft_gclean_line(&file_value[fd], line, temp)); //file_value[fd]에 \n이 있으면 작동
+		ft_free_memory(remain_str);
+		*remain_str = ft_cut_line(buffer, line);
+		ft_free_memory(&buffer);
+		return (1);
 	}
-	if (read_size == -1)
+	aux_free = *line;
+	*line = ft_realloc_content(*line, buffer);
+	ft_free_memory(&aux_free);
+	return (0);
+}
+
+int			get_next_line(int fd, char **line)
+{
+	ssize_t			rd_status;
+	char			*buffer;
+	static char		*remain_str[4096];
+
+	if (!line)
 		return (-1);
-	return (return_EOF(&file_value[fd], line)); //0이 들어왔을때 작동
+	*line = ft_realloc_content(remain_str[fd], "");
+	rd_status = 0;
+	if (!(buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))))
+		return (-1);
+	while ((rd_status = read(fd, buffer, BUFFER_SIZE)) > 0)
+		if (ft_keep_reading(rd_status, buffer, &remain_str[fd], line))
+			return (1);
+	ft_free_memory(&buffer);
+	if (rd_status < 0)
+		return (-1);
+	return (ft_remain(&remain_str[fd], line));
 }

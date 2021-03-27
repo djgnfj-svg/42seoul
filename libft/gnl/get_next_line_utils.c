@@ -6,76 +6,71 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 20:03:58 by ysong             #+#    #+#             */
-/*   Updated: 2021/01/22 09:16:23 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/27 14:39:52 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t ft_gstrlen(const char *s)
+void	ft_free_memory(char **p)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char *ft_gstrdup(char *s1)
-{
-	char *str;
-	size_t i;
-
-	if (!(str = (char *)malloc(sizeof(char) * (ft_gstrlen(s1) + 1))))
-		return (0);
-	i = 0;
-	while (s1[i])
+	if (*p)
 	{
-		str[i] = s1[i];
-		i++;
+		free(*p);
+		*p = NULL;
 	}
-	str[i] = '\0';
-	return (str);
 }
 
-char *ft_gstrjoin(char *s1, char *s2)
+int		ft_analyse(char *buffer)
 {
-	char *str;
 	int i;
-	int j;
 
-	if (!s1 && !s2)
-		return (NULL);
-	else if (!s1 || !s2)
-	{
-		if (!s1)
-			return (ft_gstrdup(s2));
-		return (ft_gstrdup(s1));
-	}
-	str = (char *)malloc(sizeof(s1) * (ft_gstrlen(s1) + ft_gstrlen(s2) + 1));
-	if (!str)
-		return (0);
+	i = 0;
+	if (buffer)
+		while (buffer[i])
+			if (buffer[i++] == '\n')
+				return (1);
+	return (0);
+}
+
+char	*ft_realloc_content(char *line, char *buffer)
+{
+	int		i;
+	int		j;
+	char	*new_str;
+
 	i = 0;
 	j = 0;
-	while (s1[i])
-		str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[j++] = s2[i++];
-	str[j] = '\0';
-	return (str);
+	if (line)
+		while (line[i])
+			i++;
+	while (buffer[j])
+		j++;
+	if (!(new_str = (char *)malloc((i + j + 1) * sizeof(char))))
+		return (NULL);
+	if (line)
+		while (*line)
+			*new_str++ = *line++;
+	while (*buffer)
+		*new_str++ = *buffer++;
+	*new_str = '\0';
+	return (new_str - i - j);
 }
-int ft_gstrchr(char *s, int c)
+
+char	*ft_cut_line(char *buffer, char **line)
 {
-	int i;
+	int		i;
+	char	*aux;
+	char	*aux2;
 
 	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (i);
+	aux = ft_realloc_content(*line, buffer);
+	while (aux[i] != '\n')
 		i++;
-	}
-	return (-1);
+	aux[i] = '\0';
+	ft_free_memory(line);
+	*line = ft_realloc_content(aux, "");
+	aux2 = ft_realloc_content(&aux[i + 1], "");
+	ft_free_memory(&aux);
+	return (aux2);
 }

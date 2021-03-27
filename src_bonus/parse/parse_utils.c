@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 21:46:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/03/13 16:17:46 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/27 14:55:16 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ t_rgb		parse_rgb(char *buffer)
 	t_rgb	color;
 
 	buff_aux = ft_split(buffer, ',');
+	if (!buff_aux[0] || !buff_aux[1] || !buff_aux[2])
+		ft_error_handler(BAD_RGB);
 	color.r = ft_ftoi(buff_aux[0]);
 	color.g = ft_ftoi(buff_aux[1]);
 	color.b = ft_ftoi(buff_aux[2]);
@@ -89,6 +91,8 @@ t_vec		ft_load_coords(char *buffer)
 	t_vec	vector;
 
 	buff_aux = ft_split(buffer, ',');
+	if (!buff_aux[0] || !buff_aux[1] || !buff_aux[2])
+		ft_error_handler(BAD_FORMAT);
 	vector.x = ft_ftoi(buff_aux[0]);
 	vector.y = ft_ftoi(buff_aux[1]);
 	vector.z = ft_ftoi(buff_aux[2]);

@@ -4,7 +4,6 @@ Color disruption: rainbow effect using object’s normal.
 Parallel light following a precise direction.
 Compound element: Cube (6 squares).
 Compound element: Pyramid (4 triangles, 1 square).
-Anti-aliasing.
 Changing the camera rotation with the mouse.
 Keyboard interactivity (translation/rotation) with camera.
 Putting caps on size-limited cylinders.
@@ -14,5 +13,5 @@ A beautiful skybox.
 One color filter: Sepia, R/G/B filters..
 
 -g -fsanitize=address
-
+Anti-aliasing.
 멀티쓰래드도 만들기는 했는데 동작하면 화면이 깨짐

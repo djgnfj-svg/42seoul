@@ -6,16 +6,16 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/03/13 15:25:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/27 15:09:38 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt_bonus.h"
 
-void	parse_res(char *line, t_rt *rt)
+void			parse_res(char *line, t_rt *rt)
 {
-	char	**buffer;
-	int		i;
+	char		**buffer;
+	int			i;
 
 	i = 0;
 	buffer = ft_split(line, ' ');
@@ -32,10 +32,10 @@ void	parse_res(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_amdient(char *line, t_rt *rt)
+void			parse_amdient(char *line, t_rt *rt)
 {
-	char	**buffer;
-	int		i;
+	char		**buffer;
+	int			i;
 
 	i = 0;
 	buffer = ft_split(line, ' ');
@@ -50,7 +50,7 @@ void	parse_amdient(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_camera(char *line, t_rt *rt)
+void			parse_camera(char *line, t_rt *rt)
 {
 	char		**buffer;
 	int			i;
@@ -68,11 +68,10 @@ void	parse_camera(char *line, t_rt *rt)
 	rt->camera[rt->index[2] - 1] = camera;
 	rt->index[2]--;
 	camera->pos = ft_load_coords(buffer[1]);
-	if(!(ft_check_normalized(&camera->n)))
-		ft_error_handler(BAD_FORMAT);
 	camera->n = ft_load_coords(buffer[2]);
-	if (!ft_isvoid(camera->n))
-		camera->n.x = 1.0;
+	if (!(ft_check_normalized(&camera->n)))
+		ft_error_handler(BAD_FORMAT);
+	camera->n.x = !(ft_isvoid(camera->n)) ? 1.0 : camera->n.x;
 	fov_deg = ft_atoi(buffer[3]);
 	if (fov_deg < 0 & fov_deg > 180)
 		ft_error_handler(BAD_FORMAT);
@@ -80,11 +79,11 @@ void	parse_camera(char *line, t_rt *rt)
 	ft_del_matrix(buffer);
 }
 
-void	parse_light(char *line, t_rt *rt)
+void			parse_light(char *line, t_rt *rt)
 {
-	char	**buffer;
-	int		i;
-	t_light	*light;
+	char		**buffer;
+	int			i;
+	t_light		*light;
 
 	i = 0;
 	buffer = ft_split(line, ' ');

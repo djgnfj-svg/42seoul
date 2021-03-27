@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:28:00 by ysong             #+#    #+#             */
-/*   Updated: 2021/03/13 15:57:40 by ysong            ###   ########.fr       */
+/*   Updated: 2021/03/27 15:32:45 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int		ft_bonus_option(void)
 	return (bonus);
 }
 
-int ft_check_normalized(t_vec *nor)
+int		ft_check_normalized(t_vec *nor)
 {
-	if (nor->x < 0 && nor->x > 1)
+	if (nor->x < -1 || nor->x > 1)
 		return (0);
-	if (nor->y < 0 && nor->y > 1)
+	if (nor->y < -1 || nor->y > 1)
 		return (0);
-	if (nor->z < 0 && nor->z > 1)
+	if (nor->z < -1 || nor->z > 1)
 		return (0);
 	return (1);
 }
