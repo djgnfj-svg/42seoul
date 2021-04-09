@@ -11,7 +11,7 @@ adduser --disabled-password ${SSH_USERNAME}
 echo "${SSH_USERNAME}:${SSH_PASSWORD}" | chpasswd
 
 mkdir -p /run/nginx
-echo "<h1>THIS IS hjung's FT_SERVICES NGINX INDEX.HTML</h1>" >> /var/www/index.html
+echo "<h1>HTML은 1도 모른다</h1>" >> /var/www/index.html
 
 /usr/sbin/sshd
 /usr/sbin/nginx -g "daemon off;"
