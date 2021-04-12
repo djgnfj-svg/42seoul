@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:31:15 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/24 14:08:34 by ysong            ###   ########.fr       */
+/*   Updated: 2021/04/12 14:27:16 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void		ft_normalize_vector(t_vec *v);
 double		ft_mod_vector(t_vec v);
 t_vec		ft_mtx_vct_prod(t_matrix m, t_vec v);
 double		ft_abs(double num);
-double		ft_det(t_matrix m);
-t_matrix	ft_inv_matrix(t_matrix m);
 int			ft_minus_vector(t_vec *v);
 t_vec		ft_set_axis(char axis);
 t_vec		ft_set_hor_axis(t_vec n);

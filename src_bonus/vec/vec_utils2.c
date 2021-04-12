@@ -6,29 +6,11 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 06:53:14 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/24 14:14:07 by ysong            ###   ########.fr       */
+/*   Updated: 2021/04/12 14:27:17 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-t_matrix	ft_inv_matrix(t_matrix m)
-{
-	double		det;
-	t_matrix	inv;
-
-	det = ft_det(m);
-	inv.vx.x = (m.vy.y * m.vz.z - m.vy.z * m.vz.y) / det;
-	inv.vx.y = -1 * (m.vx.y * m.vz.z - m.vx.z * m.vz.y) / det;
-	inv.vx.z = (m.vx.y * m.vy.z - m.vx.z * m.vy.y) / det;
-	inv.vy.x = -1 * (m.vy.x * m.vz.z - m.vy.z * m.vz.x) / det;
-	inv.vy.y = (m.vx.x * m.vz.z - m.vx.z * m.vz.x) / det;
-	inv.vy.z = -1 * (m.vx.x * m.vy.z - m.vx.z * m.vy.x) / det;
-	inv.vz.x = (m.vy.x * m.vz.y - m.vy.y * m.vz.x) / det;
-	inv.vz.y = -1 * (m.vx.x * m.vz.y - m.vx.y * m.vz.x) / det;
-	inv.vz.z = (m.vx.x * m.vy.y - m.vx.y * m.vy.x) / det;
-	return (inv);
-}
 
 int			ft_minus_vector(t_vec *v)
 {

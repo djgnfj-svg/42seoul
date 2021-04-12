@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 04:21:02 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/24 14:13:45 by ysong            ###   ########.fr       */
+/*   Updated: 2021/04/12 14:27:19 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,3 @@ double		ft_abs(double num)
 	return (num);
 }
 
-double		ft_det(t_matrix m)
-{
-	double	det;
-
-	det = (m.vx.x * m.vy.y * m.vz.z + m.vy.x * m.vz.y * m.vx.z
-			+ m.vx.y * m.vy.z * m.vz.x) - (m.vx.z * m.vy.y * m.vz.x
-			+ m.vy.x * m.vx.y * m.vz.z + m.vz.y * m.vy.z * m.vx.x);
-	return (det);
-}
