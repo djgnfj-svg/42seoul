@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:09:10 by ysong             #+#    #+#             */
-/*   Updated: 2021/03/27 15:09:38 by ysong            ###   ########.fr       */
+/*   Updated: 2021/04/12 14:23:14 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void			parse_res(char *line, t_rt *rt)
 		ft_error_handler(BAD_FORMAT);
 	rt->x = ft_atoi(buffer[1]);
 	rt->y = ft_atoi(buffer[2]);
-	if (rt->x > 2560)
-		rt->x = 2560;
-	if (rt->y > 1395)
-		rt->y = 1395;
+	if (rt->x > 2048)
+		rt->x = 2048;
+	if (rt->y > 1107)
+		rt->y = 1107;
 	ft_del_matrix(buffer);
 }
 

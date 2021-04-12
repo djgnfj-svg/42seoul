@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:45:28 by ysong             #+#    #+#             */
-/*   Updated: 2021/02/24 14:02:57 by ysong            ###   ########.fr       */
+/*   Updated: 2021/04/12 14:25:03 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ t_bonus			ft_cylinder_bonus(char **option);
 void			ft_render_pxl_antialiasing(double px, double py
 				, t_ray *ray, t_rt *rt);
 t_rgb			ft_sepia_filter(t_rt rt, t_rgb in_color);
-
-t_matrix		ft_inv_matrix(t_matrix m);
-double			ft_det(t_matrix m);
 
 t_vec			ft_wave_normal(t_obj_color obj);
 t_rgb			ft_checkered_pattern(t_obj_color obj);
