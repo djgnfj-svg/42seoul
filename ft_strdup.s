@@ -11,9 +11,15 @@ _ft_strdup:
     push    rdi 
     mov     rdi, rax
     call    _malloc
+        cmp rax, 0
+        jc error
     pop     rdi
     
     mov     rsi, rdi
     mov     rdi, rax
     call _ft_strcpy  
+    ret
+
+error:
+    mov rax, 0
     ret
