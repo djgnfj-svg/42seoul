@@ -1,18 +1,18 @@
-바꿔야할꺼 _start 전부 바꾸고
-__errno에 대하여?
-https://www.notion.so/Libasm-f4869fe5de17402b9054a7ca06bfc79c 참조
 
-
-클러스터라면 니가해야되는건
-
-1. 하나하나 테스트할 수 있는 환경만들기
-2. 하나하나 테스트하기
-3. libasm.h 작성
-4. makefile만들기
-5. main만들기
-6. 내가만든 테스터로 동작시켜보고 README없에고 제출
 
 RDI RSI RDX RCX R8 R9
+
+
 ft_strdup(const char rdi)
 
-mov [rax] <- 에서 []는 
+ft_strlen의 값이 rax에 들어감 1
+rax 숫자 하나 증가시킴 null을 위해 2
+rdi 값을 스택에 저장
+rdi 에 rax(할당받아야하는 총 길이를 rdi에 전달) 4
+반환값은 rax에 전달됨 5
+정상적으로 할당이 된다면 rdi의 값을 다시 rdi에 전달
+
+rsi 값에 rdi 이동 (rsi인 이유는 카피에 넣어야 하기 때문에)
+rdi 에 할당받은메모리를 이동
+rsi 에는 복사해야되는 문자열이 들어가 있고 rdi에는 할당된 공간이 있음
+rdi 에 rsi의 값은 하나씩 넣어줌 (cpy에서)
