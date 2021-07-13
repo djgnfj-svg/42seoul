@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:23:58 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:41:58 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/14 02:18:44 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,6 @@ int		is_sorted(t_deque *a)
 		return (1);
 	else
 		return (0);
-}
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	if (s2[i] != '\0')
-		return (s1[i] - s2[i]);
-	return (0);
 }
 void	do_push(char *buf, t_deque *a, t_deque *b)
 {

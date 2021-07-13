@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:28:51 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:40:36 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/14 02:19:13 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ void	rotate_all_stack(t_deque *a, t_deque *b, int flag)
 	if (flag == ALL)
 		ft_putendl_fd("rr", 1);
 }
-
