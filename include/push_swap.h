@@ -86,9 +86,7 @@ void	handle_arg_five(t_deque *a, t_deque *b);
 
 void	handle_arg_three_a(int r, t_deque *a);
 
-void	arg_three_header_min_b(t_deque *b, int max);
-void	arg_three_middle_min_b(t_deque *b, int max);
-void	arg_three_bottom_min_b(t_deque *b, int max);
+
 void	handle_arg_three_b(int r, t_deque *a, t_deque *b);
 
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt);

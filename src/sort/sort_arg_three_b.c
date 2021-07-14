@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	arg_three_header_min_b(t_deque *b, int max)
+static void	arg_three_header_min_b(t_deque *b, int max)
 {
 	if (b->size == 3)
 	{
@@ -31,7 +31,7 @@ void	arg_three_header_min_b(t_deque *b, int max)
 	}
 }
 
-void	arg_three_middle_min_b(t_deque *b, int max)
+static void	arg_three_middle_min_b(t_deque *b, int max)
 {
 	if (b->size == 3)
 	{
