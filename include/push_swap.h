@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 10:56:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:20:57 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/16 10:06:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@
 # define A 1
 # define B 2
 # define ALL 3
+
+# define PA	11
+# define PB 12
+# define SA 13
+# define SB 14
+# define SS 15
+# define RA 16
+# define RB 17
+# define RR 18
+# define RRA 19
+# define RRB 20
+# define RRR  21
 
 typedef struct s_node
 {
