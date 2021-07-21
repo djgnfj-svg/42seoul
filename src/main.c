@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 10:56:40 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 17:21:56 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 19:50:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,15 @@ void	printingdeque(t_deque *a, int flag)
 		temp = temp->next;
 	}
 	printf("\n");
+}
+
+void printall(char *title, t_deque *a, t_deque *b, t_op_count *opc)
+{
+	printf("-----%s-----\n",title);
+	printingdeque(a, 1);
+	printingdeque(b, 2);
+	printf("opc_piv_small = %ld\n",opc->piv_small);
+	printf("opc_piv_big = %ld\n",opc->piv_big);
 }
 
 int	main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 10:56:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 17:21:18 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 19:48:48 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,5 @@ void	arg_three_b(int r, t_deque *a, t_deque *b);
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt);
 
 void	printingdeque(t_deque *a, int flag);
+void printall(char *str, t_deque *a, t_deque *b, t_op_count *opc);
 #endif

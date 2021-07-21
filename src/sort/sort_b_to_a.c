@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 17:03:13 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 19:51:42 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,13 @@ void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 	int		r_temp;
 	t_op_count	opc;
 
-	printingdeque(b, 2);
 	(*cnt)++;
 	if (!exceptional_cases(r, a, b))
 		return ;
 	init_op_count(&opc);
 	select_pivot(r, b, &opc);
+	printall("b_to_a_first",a,b,&opc);
 	r_temp = r;
-	printingdeque(b, 2);
 	while (r_temp--)
 		push_rotate_b(a, b, &opc);
 	a_to_b(opc.pa - opc.ra, a, b, cnt);
