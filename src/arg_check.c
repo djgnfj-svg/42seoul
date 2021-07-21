@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:03:03 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/13 11:48:17 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 17:29:10 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,17 @@ static void	check_duplicate(char **av, int last)
 	}
 }
 
-int	arg_check(int last, char **av)
+static void	init_all(t_deque **a, t_deque **b, char **av)
+{
+	(*a) = init_deque();
+	(*b) = init_deque();
+	(*a)->header = connect_deque(av, a);
+}
+
+int	arg_check_and_init(int last, char **av, t_deque **a, t_deque **b)
 {
 	check_is_int(av, last);
 	check_duplicate(av, last);
+	init_all(a, b, av);
 	return (0);
 }

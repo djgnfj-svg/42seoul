@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_items.c                                       :+:      :+:    :+:   */
+/*   get_op_counts.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	sort_items(int item[])
+static int	sort_op_counts(int item[])
 {
 	int	i;
 	int	j;
@@ -51,7 +51,7 @@ int	get_mid_item_five(t_node *node)
 	}
 	while (node->prev)
 		node = node->prev;
-	return (sort_items(item));
+	return (sort_op_counts(item));
 }
 
 int	get_min_item(t_node *node, int size)

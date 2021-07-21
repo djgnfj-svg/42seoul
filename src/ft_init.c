@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:07:54 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/13 11:18:48 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 14:47:22 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 t_deque	*init_deque(void)
 {
-	t_deque	*stack;
+	t_deque	*deque;
 
-	stack = (t_deque *)malloc(sizeof(t_deque));
-	if (!stack)
+	deque = (t_deque *)malloc(sizeof(t_deque));
+	if (!deque)
 		return (NULL);
-	stack->size = 0;
-	stack->header = NULL;
-	stack->tailer = NULL;
-	return (stack);
+	deque->size = 0;
+	deque->header = NULL;
+	deque->tailer = NULL;
+	return (deque);
 }
 
 static t_node	*init_node(void)
@@ -38,12 +38,12 @@ static t_node	*init_node(void)
 	return (node);
 }
 
-static void	connect_list(t_node **temp, t_node **node, t_deque **stack)
+static void	connect_list(t_node **temp, t_node **node, t_deque **deque)
 {
 	if (!*node)
 	{
 		*node = *temp;
-		(*stack)->header = *node;
+		(*deque)->header = *node;
 	}
 	else
 	{
@@ -51,48 +51,37 @@ static void	connect_list(t_node **temp, t_node **node, t_deque **stack)
 		(*temp)->prev = *node;
 		*node = (*node)->next;
 	}
+	(*deque)->size++;
 }
 
-static int	set_node(char *av, t_node **node, t_deque **stack)
+static int	set_node(char **av, t_node **node, t_deque **deque)
 {
 	int		i;
-	char	**arg;
 	t_node	*temp;
 
-	arg = ft_split(av, ' ');
-	if (!arg || !*arg)
-		return (0);
-	i = -1;
-	while (arg[++i])
+	i = 0;
+	while (av[++i])
 	{
 		temp = init_node();
 		if (!temp)
 			print_error();
-		temp->item = ft_atoi(arg[i]);
-		connect_list(&temp, node, stack);
-		(*stack)->size++;
-		free(arg[i]);
+		temp->item = ft_atoi(av[i]);
+		connect_list(&temp, node, deque);
 	}
-	free(arg);
 	return (1);
 }
 
-t_node	*make_stack(int ac, char **av, t_deque **stack)
+t_node	*connect_deque(char **av, t_deque **deque)
 {
-	int		i;
 	int		ret;
 	t_node	*node;
 
-	i = 0;
 	node = NULL;
-	while (++i < ac)
-	{
-		ret = set_node(av[i], &node, stack);
-		if (!ret)
-			print_error();
-	}
+	ret = set_node(av, &node, deque);
+	if (!ret)
+		print_error();
 	if (!node->next)
-		(*stack)->tailer = node;
+		(*deque)->tailer = node;
 	while (node->prev)
 		node = node->prev;
 	return (node);

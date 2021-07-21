@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 11:55:39 by ysong             #+#    #+#              #
-#    Updated: 2021/07/13 23:42:49 by ysong            ###   ########.fr        #
+#    Updated: 2021/07/21 14:27:57 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM = rm -f
 SRCDIR		=	src/
 SRC			=	push_swap.c ft_init.c arg_check.c get_item.c  ft_utils.c \
 				sort/sort_arg_five.c sort/sort_b_to_a.c sort/sort_arg_three_b.c \
-				sort/handle_under_three.c sort/sort_a_to_b.c sort/sort_arg_three_a.c \
+				sort/under_three.c sort/sort_a_to_b.c sort/sort_arg_three_a.c \
 				operations/swap.c operations/reverse_rotate.c operations/rotate.c operations/push.c
 MSRC		=	src/main.c
 CHECKER		=	src/check.c
@@ -45,13 +45,13 @@ $(LIBNAME):
 all:		$(NAME)
 
 check:		$(LIBNAME) $(OBJS) $(MOBJS) $(CHECKEROBJS)
-				$(CC) $(CFLAGS) -g -I$(INCLUDE) -o check $(OBJS) $(CHECKEROBJS) $(LIBNAME)
+				$(CC) $(CFLAGS) -g -I$(INCLUDE) -o checker $(OBJS) $(CHECKEROBJS) $(LIBNAME)
 
 clean:
 			$(RM) $(OBJS) $(MOBJS) $(CHECKEROBJS)
 
 fclean:		clean
-			$(RM) $(NAME) $(LIBNAME) check
+			$(RM) $(NAME) $(LIBNAME) checker
 			@$(MAKE) -C $(LIBDIR) fclean
 
 re:			fclean $(NAME)

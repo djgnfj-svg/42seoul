@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:44 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/13 11:37:39 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/17 14:48:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	arg_three_bottom_min_b(t_deque *b, int max)
 		swap_stack(b, B);
 }
 
-void	handle_arg_three_b(int r, t_deque *a, t_deque *b)
+void	arg_three_b(int r, t_deque *a, t_deque *b)
 {
 	int	min;
 	int	max;

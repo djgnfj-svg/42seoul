@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:28:53 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/16 10:04:11 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 14:28:18 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	from_size_one(t_deque *from, t_deque *to)
 	from->tailer = NULL;
 }
 
-static void	push_pop(t_deque *from, t_deque *to, int flag)
+static void	push_pop(t_deque *from, t_deque *to)
 {
 	if (from->size == 1)
 		from_size_one(from, to);
@@ -56,16 +56,13 @@ static void	push_pop(t_deque *from, t_deque *to, int flag)
 	from->size--;
 }
 
-
 void	push_stack(t_deque *from, t_deque *to, int flag)
 {
 	if (from->size == 0)
 		return ;
+	push_pop(from, to);
 	if (flag == A)
-		ft_pa(from, to);
+		ft_putendl_fd("pa", 1);
 	else if (flag == B)
-	{
-		push_pop(from, to);
 		ft_putendl_fd("pb", 1);
-	}
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_under_three.c                               :+:      :+:    :+:   */
+/*   under_three.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	handle_arg_two(t_deque *a, t_deque *b, int flag)
+void	arg_two(t_deque *a, t_deque *b, int flag)
 {
 	if (flag == A)
 	{
@@ -28,17 +28,17 @@ void	handle_arg_two(t_deque *a, t_deque *b, int flag)
 	}
 }
 
-void	handle_under_three(int r, t_deque *a, t_deque *b, int flag)
+void	under_three(int r, t_deque *a, t_deque *b, int flag)
 {
 	if (r == 3)
 	{
 		if (flag == A)
-			handle_arg_three_a(r, a);
+			arg_three_a(r, a);
 		else
-			handle_arg_three_b(r, a, b);
+			arg_three_b(r, a, b);
 	}
 	else if (r == 2)
-		handle_arg_two(a, b, flag);
+		arg_two(a, b, flag);
 	else if (r == 1)
 	{
 		if (flag == B)

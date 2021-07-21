@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:23:58 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 02:18:44 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 14:47:03 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ int		main(int ac, char *av[])
 	arg_check(ac - 1, av);
 	a = init_deque();
 	b = init_deque();
-	a->header = make_stack(ac, av, &a);
+	a->header = connect_deque(av, &a);
 	checker(a, b);
-	free_all(a, b);
+	free_deque(a, b);
 	return (0);
 }

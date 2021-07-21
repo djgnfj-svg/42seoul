@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/13 11:35:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/17 14:48:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ void	hanlde_sort_five(int size, t_deque *a, t_deque *b, int flag)
 		sort_five_a(size, a, b);
 	else
 		sort_five_b(size, a, b);
-	handle_arg_three_a(3, a);
-	handle_arg_two(a, b, B);
+	arg_three_a(3, a);
+	arg_two(a, b, B);
 }
 
-void	handle_arg_five(t_deque *a, t_deque *b)
+void	arg_five(t_deque *a, t_deque *b)
 {
 	int	pb;
 	int	mid;
@@ -97,6 +97,6 @@ void	handle_arg_five(t_deque *a, t_deque *b)
 		if (pb == 2)
 			break ;
 	}
-	handle_arg_three_a(3, a);
-	handle_arg_two(a, b, B);
+	arg_three_a(3, a);
+	arg_two(a, b, B);
 }

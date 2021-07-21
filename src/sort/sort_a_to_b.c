@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:21:06 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 19:28:52 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 {
 	if (r <= 3)
 	{
-		handle_under_three(r, a, b, A);
+		under_three(r, a, b, A);
 		return (0);
 	}
 	else if (r == 5)
@@ -28,32 +28,35 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 		return (1);
 }
 
-static void	push_rotate_a(t_deque *a, t_deque *b, t_item *var)
+static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 {
-	if (a->header->item > var->piv_big)
+	if (a->header->item > opc->piv_big)
 	{
 		rotate_stack(a, A);
-		var->ra++;
+		opc->ra++;
 	}
 	else
 	{
 		push_stack(a, b, B);
-		var->pb++;
-		if (b->header->item > var->piv_small)
+		opc->pb++;
+		if (b->header->item > opc->piv_small)
 		{
 			rotate_stack(b, B);
-			var->rb++;
+			opc->rb++;
 		}
 	}
+	printingdeque(a, 1);
+	printingdeque(b, 2);
+	printf("opc_piv_small = %ld\n",opc->piv_small);
 }
 
-static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_item *var)
+static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 {
 	int	rrr;
 	int	rem;
 
-	rrr = var->rb;
-	rem = var->ra - rrr;
+	rrr = opc->rb;
+	rem = opc->ra - rrr;
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
@@ -66,15 +69,19 @@ static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_item *var)
 		while (rrr--)
 			reverse_rotate_stack(b, B);
 	}
+	printf("----\n");
+	printingdeque(a, 1);
+	printingdeque(b, 2);
+	printf("opc_piv_small = %ld\n",opc->piv_small);
 }
 
-static void	back_to_orig_rb(t_deque *a, t_deque *b, int *cnt, t_item *var)
+static void	back_to_orig_rb(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 {
 	int	rrr;
 	int	rem;
 
-	rrr = var->ra;
-	rem = var->rb - rrr;
+	rrr = opc->ra;
+	rem = opc->rb - rrr;
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
@@ -84,29 +91,32 @@ static void	back_to_orig_rb(t_deque *a, t_deque *b, int *cnt, t_item *var)
 	}
 	else
 	{
-		rrr = var->rb;
 		while (rrr--)
 			reverse_rotate_stack(b, B);
 	}
+	printf("----2\n");
+	printingdeque(b, 2);
+	printf("opc_piv_small = %ld\n",opc->piv_small);
 }
 
+// 여기서는 item을 하나의 객채로 만들고 그걸 할떄마다 초기화 하는 방식으로 했는데 다르게 하자
 void	a_to_b(int r, t_deque *a, t_deque *b, int *cnt)
 {
-	int		r_temp;
-	t_item	var;
+	int			r_temp;
+	t_op_count	opc;
 
 	if (!exceptional_cases(r, a, b))
 		return ;
-	init_item(&var);
-	select_pivot(r, a, &var);
+	init_op_count(&opc);
+	select_pivot(r, a, &opc);
 	r_temp = r;
 	while (r_temp--)
-		push_rotate_a(a, b, &var);
-	if (var.ra > var.rb)
-		back_to_orig_ra(a, b, cnt, &var);
+		push_rotate_a(a, b, &opc);
+	if (opc.ra > opc.rb)
+		back_to_orig_ra(a, b, cnt, &opc);
 	else
-		back_to_orig_rb(a, b, cnt, &var);
-	a_to_b(var.ra, a, b, cnt);
-	b_to_a(var.rb, a, b, cnt);
-	b_to_a(var.pb - var.rb, a, b, cnt);
+		back_to_orig_rb(a, b, cnt, &opc);
+	a_to_b(opc.ra, a, b, cnt);
+	b_to_a(opc.rb, a, b, cnt);
+	b_to_a(opc.pb - opc.rb, a, b, cnt);
 }

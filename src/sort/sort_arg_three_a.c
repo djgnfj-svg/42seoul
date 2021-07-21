@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:45 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/13 11:36:39 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/17 14:48:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	arg_three_tailer_min_a(t_deque *a, int max)
 	}
 }
 
-void	handle_arg_three_a(int r, t_deque *a)
+void	arg_three_a(int r, t_deque *a)
 {
 	int	min;
 	int	max;

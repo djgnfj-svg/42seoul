@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 10:56:40 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/13 23:42:36 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 17:21:56 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_deque *a)
+int		is_sorted(t_deque *a)
 {
 	t_node	*node;
 
@@ -35,6 +35,23 @@ int	is_sorted(t_deque *a)
 		return (0);
 }
 
+void	printingdeque(t_deque *a, int flag)
+{
+	t_node	*temp;
+
+	temp = a->header;
+	if (flag == 1)
+		printf("A : ");
+	else
+		printf("B : ");
+	while (temp)
+	{
+		printf("%d ",temp->item);
+		temp = temp->next;
+	}
+	printf("\n");
+}
+
 int	main(int ac, char **av)
 {
 	t_deque	*a;
@@ -42,12 +59,10 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	arg_check(ac - 1, av);
-	a = init_deque();
-	b = init_deque();
-	a->header = make_stack(ac, av, &a);
+	arg_check_and_init(ac - 1, av, &a, &b);
 	if (!is_sorted(a))
 		push_swap(a, b);
-	free_all(a, b);
+	printingdeque(a, 1);
+	free_deque(a, b);
 	return (0);
 }
