@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 19:49:21 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/21 20:00:33 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 
 static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 {
+	printall("rotate_a fisrt",a,b, opc);
 	if (a->header->item > opc->piv_big)
 	{
 		rotate_stack(a, A);
@@ -45,6 +46,7 @@ static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 			opc->rb++;
 		}
 	}
+	printall("rotate_a end",a,b, opc);
 }
 
 static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
@@ -54,6 +56,7 @@ static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 
 	rrr = opc->rb;
 	rem = opc->ra - rrr;
+	
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
