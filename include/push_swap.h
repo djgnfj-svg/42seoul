@@ -26,7 +26,6 @@
 # define C_PRPL "\033[35m"
 # define C_AQUA "\033[36m"
 
-
 # define A 1
 # define B 2
 # define ALL 3
