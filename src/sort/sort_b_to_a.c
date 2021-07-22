@@ -30,6 +30,7 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 
 static void	push_rotate_b(t_deque *a, t_deque *b, t_op_count *opc)
 {
+	printall("rotate_b fisrt",a,b, opc);
 	if (b->header->item <= opc->piv_small)
 	{
 		rotate_stack(b, B);
@@ -45,6 +46,7 @@ static void	push_rotate_b(t_deque *a, t_deque *b, t_op_count *opc)
 			opc->ra++;
 		}
 	}
+	printall("rotate_b last",a,b, opc);
 }
 
 static void	back_to_orig_ra(t_deque *a, t_deque *b, t_op_count *opc)
@@ -54,10 +56,12 @@ static void	back_to_orig_ra(t_deque *a, t_deque *b, t_op_count *opc)
 
 	rrr = opc->rb;
 	rem = opc->ra - rrr;
+	printall("ra_b fisrt",a,b, opc);
 	while (rrr--)
 		reverse_rotate_all_stack(a, b);
 	while (rem--)
 		reverse_rotate_stack(a, A);
+	printall("ra_b last",a,b, opc);
 }
 
 static void	back_to_orig_rb(t_deque *a, t_deque *b, t_op_count *opc)
@@ -67,10 +71,12 @@ static void	back_to_orig_rb(t_deque *a, t_deque *b, t_op_count *opc)
 
 	rrr = opc->ra;
 	rem = opc->rb - rrr;
+	printall("rb_b first",a,b, opc);
 	while (rrr--)
 		reverse_rotate_all_stack(a, b);
 	while (rem--)
 		reverse_rotate_stack(b, B);
+	printall("rb_b last",a,b, opc);
 }
 
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
@@ -79,6 +85,7 @@ void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 	t_op_count	opc;
 
 	(*cnt)++;
+	printf("여기 숫자가 있어요 r = %d\n",r);
 	if (!exceptional_cases(r, a, b))
 		return ;
 	init_op_count(&opc);
@@ -92,6 +99,7 @@ void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 		back_to_orig_ra(a, b, &opc);
 	else
 		back_to_orig_rb(a, b, &opc);
+	printall("b_to_a_last",a,b,&opc);
 	a_to_b(opc.ra, a, b, cnt);
 	b_to_a(opc.rb, a, b, cnt);
 }

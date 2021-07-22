@@ -54,11 +54,11 @@ void	printingdeque(t_deque *a, int flag)
 
 void printall(char *title, t_deque *a, t_deque *b, t_op_count *opc)
 {
-	printf("-----%s-----\n",title);
+	printf(C_BLUE"-----%s-----\n",title);
 	printingdeque(a, 1);
 	printingdeque(b, 2);
-	printf("opc_piv_small = %ld\n",opc->piv_small);
-	printf("opc_piv_big = %ld\n",opc->piv_big);
+	printf(C_YLLW"opc_piv_small = %ld\n",opc->piv_small);
+	printf(C_RED"opc_piv_big = %ld\n"C_AQUA,opc->piv_big);
 }
 
 int	main(int ac, char **av)

@@ -56,7 +56,7 @@ static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 
 	rrr = opc->rb;
 	rem = opc->ra - rrr;
-	
+	printall("ra first",a,b, opc);
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
@@ -69,6 +69,7 @@ static void	back_to_orig_ra(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 		while (rrr--)
 			reverse_rotate_stack(b, B);
 	}
+	printall("ra last",a,b, opc);
 }
 
 static void	back_to_orig_rb(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
@@ -78,6 +79,7 @@ static void	back_to_orig_rb(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 
 	rrr = opc->ra;
 	rem = opc->rb - rrr;
+	printall("rb first",a,b, opc);
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
@@ -90,26 +92,26 @@ static void	back_to_orig_rb(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 		while (rrr--)
 			reverse_rotate_stack(b, B);
 	}
+	printall("rb last",a,b, opc);
 }
 
 // 여기서는 item을 하나의 객채로 만들고 그걸 할떄마다 초기화 하는 방식으로 했는데 다르게 하자
 void	a_to_b(int r, t_deque *a, t_deque *b, int *cnt)
 {
-	int			r_temp;
 	t_op_count	opc;
-
+	printf("여기 숫자가 있어요 r = %d\n",r);
 	if (!exceptional_cases(r, a, b))
 		return ;
 	init_op_count(&opc);
 	select_pivot(r, a, &opc);
 	printall("a_to_b_first",a,b,&opc);
-	r_temp = r;
-	while (r_temp--)
+	while (r--)
 		push_rotate_a(a, b, &opc);
 	if (opc.ra > opc.rb)
 		back_to_orig_ra(a, b, cnt, &opc);
 	else
 		back_to_orig_rb(a, b, cnt, &opc);
+	printall("a_to_b_last",a,b,&opc);
 	a_to_b(opc.ra, a, b, cnt);
 	b_to_a(opc.rb, a, b, cnt);
 	b_to_a(opc.pb - opc.rb, a, b, cnt);
