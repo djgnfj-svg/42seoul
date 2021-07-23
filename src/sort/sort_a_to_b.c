@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/23 22:59:34 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/23 23:22:25 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 	printall("rotate_a end",a,b, opc);
 }
 
+
 static void	back_to_orig(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 {
 	int	rrr;
@@ -76,7 +77,7 @@ static void	back_to_orig(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 		while (rrr--)
 			reverse_rotate_stack(b, B);
 }
-// 여기서는 item을 하나의 객채로 만들고 그걸 할떄마다 초기화 하는 방식으로 했는데 다르게 하자
+
 void	a_to_b(int r, t_deque *a, t_deque *b, int *cnt)
 {
 	int			r_temp;
@@ -86,7 +87,6 @@ void	a_to_b(int r, t_deque *a, t_deque *b, int *cnt)
 		return ;
 	init_op_count(&opc);
 	select_pivot(r, a, &opc);
-	printall("a_to_b_first",a,b,&opc);
 	r_temp = r;
 	while (r_temp--)
 		push_rotate_a(a, b, &opc);
