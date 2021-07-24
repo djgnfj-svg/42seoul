@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:28:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/23 23:32:36 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/24 00:07:00 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_stack(t_deque *target)
+static void	swap_stack(t_deque *target)
 {
 	t_node	*temp;
 	t_node	*header_next;
@@ -35,18 +35,15 @@ void	swap_stack(t_deque *target)
 void	ft_sa(t_deque *a)
 {
 	swap_stack(a);
-	ft_putendl_fd("sa", 1);
 }
 
 void	ft_sb(t_deque *b)
 {
 	swap_stack(b);
-	ft_putendl_fd("sb", 1);
 }
 
 void	ft_ss(t_deque *a, t_deque *b)
 {
 	swap_stack(a);
 	swap_stack(b);
-	ft_putendl_fd("ss", 1);
 }

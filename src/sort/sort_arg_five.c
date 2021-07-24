@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/17 14:48:20 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/23 23:54:11 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ static void	sort_five_a(int size, t_deque *a, t_deque *b)
 	{
 		if (a->header->item < mid)
 		{
-			push_stack(a, b, B);
+			ft_pb(a, b);
 			push++;
 		}
 		else
 		{
-			rotate_stack(a, A);
+			ft_ra(a);
 			rotate++;
 		}
 		if (push == 2)
 			break ;
 	}
 	while (rotate--)
-		reverse_rotate_stack(a, A);
+		ft_rra(a);
 }
 
 static void	sort_five_b(int size, t_deque *a, t_deque *b)
@@ -53,19 +53,19 @@ static void	sort_five_b(int size, t_deque *a, t_deque *b)
 	{
 		if (b->header->item >= mid)
 		{
-			push_stack(b, a, A);
+			ft_pa(b, a);
 			push++;
 		}
 		else
 		{
-			rotate_stack(b, B);
+			ft_rb(b);
 			rotate++;
 		}
 		if (push == 3)
 			break ;
 	}
 	while (rotate--)
-		reverse_rotate_stack(b, B);
+		ft_rrb(b);
 }
 
 void	hanlde_sort_five(int size, t_deque *a, t_deque *b, int flag)
@@ -89,11 +89,11 @@ void	arg_five(t_deque *a, t_deque *b)
 	{
 		if (a->header->item < mid)
 		{
-			push_stack(a, b, B);
+			ft_pb(a, b);
 			pb++;
 		}
 		else
-			rotate_stack(a, A);
+			ft_ra(a);
 		if (pb == 2)
 			break ;
 	}

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 10:56:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 19:48:48 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/24 00:26:55 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_item
 int		arg_check_and_init(int last, char **av, t_deque **a, t_deque **b);
 
 void	print_error(void);
+int		is_sorted(t_deque *a);
 void	free_deque(t_deque *a, t_deque *b);
 t_deque	*init_deque(void);
 
@@ -63,13 +64,20 @@ t_node	*connect_deque(char **av, t_deque **stack);
 /*
 	operations
 */
-void	push_stack(t_deque *from, t_deque *to, int flag);
-void	reverse_rotate_stack(t_deque *target, int flag);
-void	reverse_rotate_all_stack(t_deque *a, t_deque *b);
-void	rotate_stack(t_deque *target, int flag);
-void	rotate_all_stack(t_deque *a, t_deque *b, int flag);
-void	swap_stack(t_deque *target, int flag);
-void	swap_all_stack(t_deque *a, t_deque *b, int flag);
+void	ft_pb(t_deque *a, t_deque *b);
+void	ft_pa(t_deque *b, t_deque *a);
+
+void	ft_rra(t_deque *a);
+void	ft_rrb(t_deque *b);
+void	ft_rrr(t_deque *a, t_deque *b);
+
+void	ft_ra(t_deque *a);
+void	ft_rb(t_deque *b);
+void	ft_rr(t_deque *a, t_deque *b);
+
+void	ft_sa(t_deque *a);
+void	ft_sb(t_deque *b);
+void	ft_ss(t_deque *a, t_deque *b);
 /*
 		sort
 */

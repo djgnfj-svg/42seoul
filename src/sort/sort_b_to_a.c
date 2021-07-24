@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/23 23:22:18 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/23 23:54:11 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ static void	push_rotate_b(t_deque *a, t_deque *b, t_op_count *opc)
 {
 	if (b->header->item <= opc->piv_small)
 	{
-		rotate_stack(b, B);
+		ft_rb(b);
 		opc->rb++;
 	}
 	else
 	{
-		push_stack(b, a, A);
+		ft_pa(b, a);
 		opc->pa++;
 		if (a->header->item <= opc->piv_big)
 		{
-			rotate_stack(a, A);
+			ft_ra(a);
 			opc->ra++;
 		}
 	}
@@ -60,13 +60,13 @@ static void	back_to_orig(t_deque *a, t_deque *b, t_op_count *opc)
 		rem = opc->ra - rrr;
 	}
 	while (rrr--)
-		reverse_rotate_all_stack(a, b);
+		ft_rrr(a,b);
 	if (opc->ra > opc->rb)
 		while (rem--)
-			reverse_rotate_stack(a, A);
+			ft_rra(a);
 	else
 		while (rem--)
-			reverse_rotate_stack(b, B);
+			ft_rrb(b);
 }
 
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)

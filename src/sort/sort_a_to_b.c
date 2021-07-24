@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/23 23:22:25 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/24 01:06:32 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,22 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 
 static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 {
-	printall("rotate_a fisrt",a,b, opc);
 	if (a->header->item > opc->piv_big)
 	{
-		rotate_stack(a, A);
+		ft_ra(a);
 		opc->ra++;
 	}
 	else
 	{
-		push_stack(a, b, B);
+		ft_pb(a, b);
 		opc->pb++;
 		if (b->header->item > opc->piv_small)
 		{
-			rotate_stack(b, B);
+			ft_rb(b);
 			opc->rb++;
 		}
 	}
-	printall("rotate_a end",a,b, opc);
 }
-
 
 static void	back_to_orig(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 {
@@ -65,17 +62,18 @@ static void	back_to_orig(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
-			reverse_rotate_all_stack(a, b);
+			ft_rrr(a, b);
 		if (opc->ra > opc->rb)
 			while (rem--)
-				reverse_rotate_stack(a, A);
+				ft_rra(a);
 		else
 			while (rem--)
-				reverse_rotate_stack(b, B);
+				ft_rrb(b);
+		return ;
 	}
-	else
-		while (rrr--)
-			reverse_rotate_stack(b, B);
+	rrr = opc->rb;
+	while (rrr--)
+		ft_rrb(b);
 }
 
 void	a_to_b(int r, t_deque *a, t_deque *b, int *cnt)
