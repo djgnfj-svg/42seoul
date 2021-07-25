@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 06:07:31 by ysong             #+#    #+#             */
-/*   Updated: 2020/10/07 15:28:53 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 22:56:44 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 static int	ft_abs(int nbr)
 {
-	return ((nbr < 0) ? -nbr : nbr);
+	if (nbr < 0)
+		return (-nbr);
+	return (nbr);
 }
 
 static int	ft_len(int nbr)
 {
 	int	len;
 
-	len = (nbr <= 0) ? 1 : 0;
+	len = 0;
+	if (nbr <= 0)
+		len = 1;
 	while (nbr != 0)
 	{
 		nbr = nbr / 10;
@@ -30,15 +34,18 @@ static int	ft_len(int nbr)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*result;
 	int		len;
 	int		neg;
 
-	neg = (n < 0) ? -1 : 1;
+	neg = 1;
+	if (n > 0)
+		neg = -1;
 	len = ft_len(n);
-	if (!(result = (char *)malloc(sizeof(char) * len + 1)))
+	result = ((char *)malloc(sizeof(char) * len + 1));
+	if (!result)
 		return (0);
 	result[len] = '\0';
 	len--;

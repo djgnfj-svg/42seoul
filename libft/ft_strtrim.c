@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 08:07:38 by ysong             #+#    #+#             */
-/*   Updated: 2020/10/07 20:52:13 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 18:53:59 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_check_st(char c, char const *set)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
@@ -39,7 +39,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_check_st(s1[end - 1], set))
 		end--;
-	if (!(result = (char *)malloc(sizeof(char) * (end - start + 1))))
+	result = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!result)
 		return (0);
 	i = 0;
 	while (start < end)

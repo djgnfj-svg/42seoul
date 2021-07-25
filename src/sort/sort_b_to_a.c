@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/23 23:54:11 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 18:08:05 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	back_to_orig(t_deque *a, t_deque *b, t_op_count *opc)
 		rem = opc->ra - rrr;
 	}
 	while (rrr--)
-		ft_rrr(a,b);
+		ft_rrr(a, b);
 	if (opc->ra > opc->rb)
 		while (rem--)
 			ft_rra(a);
@@ -71,7 +71,7 @@ static void	back_to_orig(t_deque *a, t_deque *b, t_op_count *opc)
 
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 {
-	int		r_temp;
+	int			r_temp;
 	t_op_count	opc;
 
 	(*cnt)++;

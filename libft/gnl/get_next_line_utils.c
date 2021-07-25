@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:40 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:32:47 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 18:50:09 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_free_memory(char **p)
 	}
 }
 
-int		ft_analyse(char *buffer)
+int	ft_analyse(char *buffer)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (buffer)
@@ -46,7 +46,8 @@ char	*ft_realloc_content(char *line, char *buffer)
 			i++;
 	while (buffer[j])
 		j++;
-	if (!(new_str = (char *)malloc((i + j + 1) * sizeof(char))))
+	new_str = (char *)malloc((i + j + 1) * sizeof(char));
+	if (!new_str)
 		return (NULL);
 	if (line)
 		while (*line)

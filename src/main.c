@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 10:56:40 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/24 01:50:12 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 18:09:35 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 	arg_check_and_init(ac - 1, av, &a, &b);
 	if (!is_sorted(a))
 		push_swap(a, b);
-	// printingdeque(a, 1);
 	free_deque(a, b);
 	return (0);
 }

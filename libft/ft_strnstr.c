@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 07:15:27 by ysong             #+#    #+#             */
-/*   Updated: 2020/10/07 14:19:58 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 19:07:08 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return (0);
 	lit_len = ft_strlen(little);
 	big_len = ft_strlen(big);
-	size = big_len > len ? len : big_len;
+	size = big_len;
+	if (big_len > len)
+		size = len;
 	while (size-- >= lit_len)
 	{
 		if (ft_memcmp(big, little, lit_len) == 0)

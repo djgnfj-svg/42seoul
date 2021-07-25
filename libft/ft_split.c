@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 05:51:22 by ysong             #+#    #+#             */
-/*   Updated: 2020/10/07 12:01:13 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 19:14:04 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ static char	**my_split(char const *s, char **result, char c, int l)
 		k = 0;
 		while (s[i] == c)
 			i++;
-		if (!(result[j] = (char*)malloc(sizeof(char) * numchar(s, c, i) + 1)))
+		result[j] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1);
+		if (!result[j])
 			return (split_free((char const **)result, j));
 		while (s[i] && s[i] != c)
 			result[j][k++] = s[i++];
@@ -83,13 +84,14 @@ static char	**my_split(char const *s, char **result, char c, int l)
 	return (result);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		l;
 
 	l = numstring(s, c);
-	if (!(result = (char**)malloc(sizeof(char*) * (l + 1))))
+	result = (char **)malloc(sizeof(char *) * (l + 1));
+	if (!result)
 		return (0);
 	result = my_split(s, result, c, l);
 	return (result);

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:41 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:35:59 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 18:52:43 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_remain(char **remain_str, char **line)
 static	int	ft_keep_reading(ssize_t rd_status, char *buffer,
 		char **remain_str, char **line)
 {
-	char *aux_free;
+	char	*aux_free;
 
 	buffer[rd_status] = '\0';
 	if (ft_analyse(buffer))
@@ -48,7 +48,7 @@ static	int	ft_keep_reading(ssize_t rd_status, char *buffer,
 	return (0);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	ssize_t			rd_status;
 	char			*buffer;
@@ -58,11 +58,16 @@ int			get_next_line(int fd, char **line)
 		return (-1);
 	*line = ft_realloc_content(remain_str[fd], "");
 	rd_status = 0;
-	if (!(buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))))
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
 		return (-1);
-	while ((rd_status = read(fd, buffer, BUFFER_SIZE)) > 0)
+	while (1)
+	{
+		if (rd_status > 0)
+			break ;
 		if (ft_keep_reading(rd_status, buffer, &remain_str[fd], line))
 			return (1);
+	}
 	ft_free_memory(&buffer);
 	if (rd_status < 0)
 		return (-1);

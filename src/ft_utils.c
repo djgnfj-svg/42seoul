@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:15:35 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/24 00:26:13 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/25 18:46:38 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_error(void)
 	exit(0);
 }
 
-int		is_sorted(t_deque *a)
+int	is_sorted(t_deque *a)
 {
 	t_node	*node;
 
@@ -51,10 +51,7 @@ void	printingdeque(t_deque *a, int flag)
 	else
 		printf("B : ");
 	while (temp)
-	{
-		printf("%d ",temp->item);
 		temp = temp->next;
-	}
 	printf("\n");
 }
 
