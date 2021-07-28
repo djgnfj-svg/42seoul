@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 11:55:39 by ysong             #+#    #+#              #
-#    Updated: 2021/07/24 00:33:37 by ysong            ###   ########.fr        #
+#    Updated: 2021/07/29 04:33:55 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ $(LIBNAME):
 				@cp $(addprefix $(LIBDIR), $(LIBNAME)) $(LIBNAME)
 all:		$(NAME)
 
-checker:		$(LIBNAME) $(OBJS) $(O_OPRS_BONUS) $(MOBJS) $(CHECKEROBJS)
+checker:		$(LIBNAME) $(OBJS) $(O_OPRS_BONUS) $(CHECKEROBJS)
 				$(CC) $(CFLAGS) -g -I$(INCLUDE) -o checker $(OBJS) $(O_OPRS_BONUS) $(CHECKEROBJS) $(LIBNAME)
 
 clean:

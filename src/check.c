@@ -6,37 +6,89 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:23:58 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/25 18:47:59 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/29 05:08:34 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_operations(char *buf, t_deque *a, t_deque *b)
+void	do_push(char *buf, t_deque *a, t_deque *b)
 {
 	if (!ft_strcmp("pa", buf))
 		ft_pa(b, a);
 	else if (!ft_strcmp("pb", buf))
 		ft_pb(a, b);
-	else if (!ft_strcmp("sa", buf))
+}
+
+void	do_swap(char *buf, t_deque *a, t_deque *b)
+{
+	if (!ft_strcmp("sa", buf))
 		ft_sa(a);
 	else if (!ft_strcmp("sb", buf))
 		ft_sb(b);
-	else if (!ft_strcmp("ss", buf))
+	else
 		ft_ss(a, b);
-	else if (!ft_strcmp("ra", buf))
+}
+
+void	do_rotate(char *buf, t_deque *a, t_deque *b)
+{
+	if (!ft_strcmp("ra", buf))
 		ft_ra(a);
 	else if (!ft_strcmp("rb", buf))
 		ft_rb(b);
-	else if (!ft_strcmp("rr", buf))
+	else
 		ft_rr(a, b);
-	else if (!ft_strcmp("rra", buf))
+}
+
+void	do_reverse_rotate(char *buf, t_deque *a, t_deque *b)
+{
+	if (!ft_strcmp("rra", buf))
 		ft_rra(a);
 	else if (!ft_strcmp("rrb", buf))
 		ft_rrb(b);
-	else if (!ft_strcmp("rrr", buf))
+	else
 		ft_rrr(a, b);
-	print_error();
+}
+
+void	check_operations(char *buf, t_deque *a, t_deque *b)
+{
+	// if (!ft_strcmp("pa", buf))
+	// 	ft_pa(b, a);
+	// else if (!ft_strcmp("pb", buf))
+	// 	ft_pb(a, b);
+	// else if (!ft_strcmp("sa", buf))
+	// 	ft_sa(a);
+	// else if (!ft_strcmp("sb", buf))
+	// 	ft_sb(b);
+	// else if (!ft_strcmp("ss", buf))
+	// 	ft_ss(a, b);
+	// else if (!ft_strcmp("ra", buf))
+	// 	ft_ra(a);
+	// else if (!ft_strcmp("rb", buf))
+	// 	ft_rb(b);
+	// else if (!ft_strcmp("rr", buf))
+	// 	ft_rr(a, b);
+	// else if (!ft_strcmp("rra", buf))
+	// 	ft_rra(a);
+	// else if (!ft_strcmp("rrb", buf))
+	// 	ft_rrb(b);
+	// else if (!ft_strcmp("rrr", buf))
+	// 	ft_rrr(a, b);
+	// else
+	// 	print_error();
+	// printf("test\n");
+	if (!ft_strcmp("pa", buf) || !ft_strcmp("pb", buf))
+		do_push(buf, a, b);
+	else if (!ft_strcmp("sa", buf) || !ft_strcmp("sb", buf) ||
+	!ft_strcmp("ss", buf))
+		do_swap(buf, a, b);
+	else if (!ft_strcmp("ra", buf) || !ft_strcmp("rb", buf) ||
+	!ft_strcmp("rr", buf))
+		do_rotate(buf, a, b);
+	else if (!ft_strcmp("rra", buf) || !ft_strcmp("rrb", buf) ||
+	!ft_strcmp("rrr", buf))
+		do_reverse_rotate(buf, a, b);
+	else
+		print_error();
 }
 
 void	checker(t_deque *a, t_deque *b)

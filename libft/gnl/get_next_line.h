@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:30:27 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/29 05:05:32 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
+# define OPEN_MAX 1024
+
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2
+#  define BUFFER_SIZE 3
 # endif
 
 int		get_next_line(int fd, char **line);
-int		ft_analyse(char *buffer);
-char	*ft_realloc_content(char *line, char *buffer);
-char	*ft_cut_line(char *buffer, char **line);
-void	ft_free_memory(char **p);
+int		ft_strlen_gnl(char *s);
+char	*ft_strjoin_gnl(char *save, char *buff);
 
 #endif
