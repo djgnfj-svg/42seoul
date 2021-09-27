@@ -1,11 +1,11 @@
 #ifndef PHILO_H
 #define PHILO_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/time.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include <sys/time.h>
 # include <pthread.h>
 
 #define ARGUMENT_ERROR 100
@@ -28,7 +28,7 @@ struct	s_info
 	int				time_to_sleep;
 	int				num_of_must_eat;
 	int				stop;
-	int				base_time;
+	int				start_time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	status;
 	t_philo			*philo;
