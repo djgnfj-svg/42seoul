@@ -28,7 +28,7 @@ struct	s_info
 	int				time_to_sleep;
 	int				num_of_must_eat;
 	int				stop;
-	int				start_time;
+	int				base_time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	status;
 	t_philo			*philo;
@@ -49,6 +49,7 @@ struct	s_philo
 
 // utils.c
 int print_error(int error_int);
+int get_time(void);
 // free_all.c
 void free_all(t_info *info);
 #endif

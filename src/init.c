@@ -6,11 +6,11 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:43:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/28 03:08:34 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/28 09:22:00 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "philo.h"
 
 static int init_fork(t_info *info)
 {
@@ -72,7 +72,7 @@ static int parsing_arg(t_info *info, int ac, char **av)
 	if (ac == 6)
 		info->num_of_must_eat = ft_atoi(av[5]);
 	info->stop=0;
-	info->start_time = 0;
+	info->base_time = 0;
 	if(!check_arg(info,av));
 		return ;
 	if(init_fork(info))

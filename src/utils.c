@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/08/27 12:05:16 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/28 07:17:30 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,19 @@ int get_time(void)
 	
 	gettimeofday(&time, NULL);
 	return (time.tv_sec *1000 + time.tv_usec / 1000);	
+}
+
+void free_all(t_info *info)
+{
+	int i;
+
+	i = -1;
+	while (++i < info->num_of_philo)
+	{
+		pthread_mutex_destroy(&info->fork[i]);
+		pthread_mutex_destroy(&info->philo[i].protect);
+	}
+	pthread_mutex_destroy(&info->status);
+	free(info->philo);
+	free(info->fork);
 }
