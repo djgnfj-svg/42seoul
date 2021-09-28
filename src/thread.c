@@ -6,12 +6,24 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 10:56:09 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/28 09:21:12 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/29 04:01:01 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+int		check_meals(t_philo *philo)
+{
+	int	i;
 
+	i = -1;
+	while (++i < philo->info->num_of_philo)
+	{
+		if (philo->info->philo[i].meals < philo->info->num_of_must_eat)
+			return (0);
+	}
+	philo->info->stop = 1;
+	return (1);
+}
 void *action(void *arg)
 {
 	t_philo *philo;
@@ -21,10 +33,11 @@ void *action(void *arg)
 		usleep(1000 * philo->info->time_to_eat);
 	while (!philo->info->stop)
 	{
-		eating();
+		eating(philo);
 		if (philo->info->num_of_must_eat > 0 && check_meals(philo))
-		sleeping();
-		thinking();
+			break;
+		sleeping(philo);
+		thinking(philo);
 	}
 	return (0);
 }
@@ -39,7 +52,7 @@ void *monitor(void *arg)
 		pthread_mutex_lock(&philo->protect);
 		if (get_time() - philo->start_time >= philo->info->time_to_die)
 		{
-			print_msg(); // todo
+			print_msg(philo, DIED);
 			philo->info->stop = 1;
 			pthread_mutex_unlock(&philo->protect);
 			return (0);

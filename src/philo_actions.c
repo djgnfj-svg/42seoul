@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 09:21:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/28 09:35:43 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/29 03:55:18 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,19 @@ void eating(t_philo *philo)
 	pthread_mutex_unlock(&philo->protect);
 	fork_off(philo);
 }
+
 void sleeping(t_philo *philo)
 {
 	int time;
 
 	print_msg(philo, SLEEPING);
-	time - get_time();
+	time = get_time();
 	while (get_time() - time <= philo->info->time_to_sleep \
 	&& !philo->info->stop)
 		usleep(1000);
 }
-void thinging(t_philo *philo)
+
+void thinking(t_philo *philo)
 {
-	print_msg(philo, THINGING);
+	print_msg(philo, THINKING);
 }
