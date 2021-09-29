@@ -69,7 +69,7 @@ void	free_all(t_info *info);
 void	print_msg(t_philo *philo, int status);
 
 // thread.c
-int		dining_philo(t_info *info);
+int		run_philo(t_info *info);
 
 // philo_actions.c
 void	sleeping(t_philo *philo);
