@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:43:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:17:36 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:21:43 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	init_philosiper(t_info *info)
 	info->philo = (t_philo *)malloc(sizeof(t_philo) * info->num_of_philo);
 	if (!info->philo)
 		return (print_error(FAILED_TO_MEMORY));
-	i= -1;
+	i = -1;
 	while (++i < info->num_of_philo)
 	{
 		info->philo[i].n = i;
@@ -76,7 +76,7 @@ static int	parsing_arg(t_info *info, int ac, char **av)
 		info->num_of_must_eat = ft_atoi(av[5]);
 	else
 		info->num_of_must_eat = -1;
-	info->stop=0;
+	info->stop = 0;
 	info->base_time = 0;
 	if (check_arg(info, ac))
 		return (1);
@@ -87,7 +87,7 @@ static int	parsing_arg(t_info *info, int ac, char **av)
 	return (0);
 }
 
-int init_philo(t_info *info, int ac, char **av)
+int	init_philo(t_info *info, int ac, char **av)
 {
 	if (parsing_arg(info, ac, av))
 		return (1);

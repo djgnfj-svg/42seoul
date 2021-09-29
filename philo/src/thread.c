@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 10:56:09 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/29 08:40:33 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:21:04 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		check_meals(t_philo *philo)
+int check_meals(t_philo *philo)
 {
 	int	i;
 
@@ -71,7 +71,7 @@ void	*monitor(void *param)
 	return (NULL);
 }
 
-int		dining_philo(t_info *info)
+int	dining_philo(t_info *info)
 {
 	int	i;
 

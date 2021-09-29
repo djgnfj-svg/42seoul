@@ -6,15 +6,15 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:59 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:18:22 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:23:03 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_info info;
+	t_info	info;
 
 	if (ac < 5 || ac > 6)
 		return (print_error(ARGUMENT_ERROR));

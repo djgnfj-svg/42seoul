@@ -55,25 +55,25 @@ struct	s_philo
 };
 
 //init.c
-int init_philo(t_info *info, int ac, char **av);
+int		init_philo(t_info *info, int ac, char **av);
 
 // utils.c
-int print_error(int error_int);
-int	str_err(char *str);
-int get_time(void);
+int		print_error(int error_int);
+int		str_err(char *str);
+int		get_time(void);
 // free_all.c
-void free_all(t_info *info);
+void		free_all(t_info *info);
 
 // print.c
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 void	print_msg(t_philo *philo, int status);
 
 // thread.c
 int		dining_philo(t_info *info);
 
 // philo_actions.c
-void sleeping(t_philo *philo);
-void eating(t_philo *philo);
-void thinking(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	eating(t_philo *philo);
+void	thinking(t_philo *philo);
 
 #endif

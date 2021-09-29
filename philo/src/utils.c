@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:19:03 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:22:44 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	str_err(char *str)
 	return (1);
 }
 
-int print_error(int error_int)
+int	print_error(int error_int)
 {
 	if (error_int == ARGUMENT_ERROR)
 		printf("Error : argument.\n");
@@ -50,17 +50,17 @@ int print_error(int error_int)
 	return (1);
 }
 
-int get_time(void)
+int	get_time(void)
 {
-	struct timeval time;
+	struct timeval	time;
 	
 	gettimeofday(&time, NULL);
-	return (time.tv_sec *1000 + time.tv_usec / 1000);	
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);	
 }
 
-void free_all(t_info *info)
+void	free_all(t_info *info)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < info->num_of_philo)
