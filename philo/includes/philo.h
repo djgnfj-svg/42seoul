@@ -1,5 +1,5 @@
 #ifndef PHILO_H
-#define PHILO_H
+# define PHILO_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -8,14 +8,14 @@
 # include <sys/time.h>
 # include <pthread.h>
 
-#define ARGUMENT_ERROR 100
-#define WRONG_NUM_OF_PHILO 101
-#define WRONG_TIME_TO_DIE 102
-#define WRONG_TIEM_TO_EAT 103
-#define WRONG_TIEM_TO_SLEEP 104
-#define WRONG_NUM_OF_MUST_EAT 105
-#define FAILED_TO_MEMORY 106
-#define FAILED_TO_MUTAX 107
+# define ARGUMENT_ERROR 100
+# define WRONG_NUM_OF_PHILO 101
+# define WRONG_TIME_TO_DIE 102
+# define WRONG_TIEM_TO_EAT 103
+# define WRONG_TIEM_TO_SLEEP 104
+# define WRONG_NUM_OF_MUST_EAT 105
+# define FAILED_TO_MEMORY 106
+# define FAILED_TO_MUTAX 107
 
 # define FORK 1
 # define EATING 2

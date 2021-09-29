@@ -6,30 +6,30 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:43:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/29 10:59:06 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:17:36 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int init_fork(t_info *info)
+static int	init_fork(t_info *info)
 {
-	int i;
+	int	i;
 
-	info->fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) 
+	info->fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) \
 	* info->num_of_philo);
-	if(!info->fork)
-		return(print_error(FAILED_TO_MEMORY));
+	if (!info->fork)
+		return (print_error(FAILED_TO_MEMORY));
 	i = -1;
 	while (++i < info->num_of_philo)
 	{
-		if(pthread_mutex_init(&info->fork[i], NULL))
+		if (pthread_mutex_init(&info->fork[i], NULL))
 			return (print_error(FAILED_TO_MUTAX));
 	}
 	return (0);
 }
 
-static int check_arg(t_info *info, int ac)
+static int	check_arg(t_info *info, int ac)
 {
 	if (info->num_of_philo < 0)
 		return (print_error(WRONG_NUM_OF_PHILO));
@@ -44,11 +44,12 @@ static int check_arg(t_info *info, int ac)
 	return (0);
 }
 
-static int init_philosiper(t_info *info)
+static int	init_philosiper(t_info *info)
 {
-	int i;
+	int	i;
+
 	info->philo = (t_philo *)malloc(sizeof(t_philo) * info->num_of_philo);
-	if(!info->philo)
+	if (!info->philo)
 		return (print_error(FAILED_TO_MEMORY));
 	i= -1;
 	while (++i < info->num_of_philo)
@@ -59,12 +60,13 @@ static int init_philosiper(t_info *info)
 		info->philo[i].start_time = 0;
 		info->philo[i].meals = 0;
 		info->philo[i].info = info;
-		if(pthread_mutex_init(&info->philo[i].protect, NULL))
+		if (pthread_mutex_init(&info->philo[i].protect, NULL))
 			return (print_error(FAILED_TO_MUTAX));
 	}
 	return (0);
 }
-static int parsing_arg(t_info *info, int ac, char **av)
+
+static int	parsing_arg(t_info *info, int ac, char **av)
 {
 	info->num_of_philo = ft_atoi(av[1]);
 	info->time_to_die = ft_atoi(av[2]);

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/29 11:16:07 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:19:03 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int	ft_strlen(char *str)
 		len++;
 	return (len);
 }
+
 int	str_err(char *str)
 {
 	write(2, str, ft_strlen(str));
 	return (1);
 }
+
 int print_error(int error_int)
 {
 	if (error_int == ARGUMENT_ERROR)
