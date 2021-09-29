@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:22:44 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 03:25:46 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	print_error(int error_int)
 int	get_time(void)
 {
 	struct timeval	time;
-	
+
 	gettimeofday(&time, NULL);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);	
 }

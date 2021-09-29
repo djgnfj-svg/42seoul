@@ -62,7 +62,7 @@ int		print_error(int error_int);
 int		str_err(char *str);
 int		get_time(void);
 // free_all.c
-void		free_all(t_info *info);
+void	free_all(t_info *info);
 
 // print.c
 int		ft_atoi(const char *str);
