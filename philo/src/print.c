@@ -6,31 +6,11 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 03:00:28 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:18:42 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 04:21:13 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	ft_atoi(const char *str)
-{
-	int	res;
-	int	sign;
-
-	res = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
-		if (*str++ == '-')
-			sign *= -1;
-	while ('0' <= *str && *str <= '9')
-	{
-		res *= 10;
-		res += *str++ - '0';
-	}
-	return (res * sign);
-}
 
 void	print_status(t_philo *philo, int status)
 {
@@ -59,4 +39,22 @@ void	print_msg(t_philo *philo, int status)
 	printf("%d", get_time() - philo->info->base_time);
 	print_status(philo, status);
 	pthread_mutex_unlock(&philo->info->status);
+}
+
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	if (!str)
+		return (0);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+int	print_err(char *str)
+{
+	write(2, str, ft_strlen(str));
+	return (1);
 }

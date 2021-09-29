@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 SRCDIR		=	src/
-SRC			=	 main.c philo_actions.c print.c thread.c utils.c init.c
+SRC			=	 main.c philo_actions.c print.c thread.c utils.c init.c ft_atoi.c
 INCLUDE 	= ./includes/
 
 SRCS	= $(addprefix $(SRCDIR), $(SRC))

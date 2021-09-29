@@ -1,9 +1,9 @@
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <string.h>
 # include <sys/time.h>
 # include <pthread.h>
@@ -59,13 +59,13 @@ int		init_philo(t_info *info, int ac, char **av);
 
 // utils.c
 int		print_error(int error_int);
-int		str_err(char *str);
+int		print_err(char *str);
 int		get_time(void);
+
 // free_all.c
 void	free_all(t_info *info);
 
 // print.c
-int		ft_atoi(const char *str);
 void	print_msg(t_philo *philo, int status);
 
 // thread.c
@@ -76,4 +76,6 @@ void	sleeping(t_philo *philo);
 void	eating(t_philo *philo);
 void	thinking(t_philo *philo);
 
+//ft_atoi.c
+int		ft_atoi(char *str);
 #endif

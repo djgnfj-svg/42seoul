@@ -6,29 +6,11 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:29:50 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 04:24:22 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	if (!str)
-		return (0);
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-int	str_err(char *str)
-{
-	write(2, str, ft_strlen(str));
-	return (1);
-}
 
 int	print_error(int error_int)
 {

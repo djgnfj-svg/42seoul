@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:59 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:23:03 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 04:35:22 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int	main(int ac, char **av)
 	if (ac < 5 || ac > 6)
 		return (print_error(ARGUMENT_ERROR));
 	memset(&info, 0, sizeof(info));
-	init_philo(&info, ac, av);
-	if (dining_philo(&info))
+	if (!init_philo(&info, ac, av))
 	{
+		dining_philo(&info);
 		free_all(&info);
 		return (0);
 	}
-	free_all(&info);
+	free(info.philo);
+	free(info.fork);
 	return (0);
 }

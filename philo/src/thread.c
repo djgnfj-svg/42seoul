@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 10:56:09 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 03:25:13 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 04:14:53 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,18 @@ int	dining_philo(t_info *info)
 		info->philo[i].start_time = get_time();
 		if (pthread_create(&info->philo[i].philo_th, NULL, \
 		philo, &info->philo[i]))
-			return (str_err("Failed to create thread.\n"));
+			return (print_err("Failed to create thread.\n"));
 		if (pthread_create(&info->philo[i].monitor, NULL, \
 		monitor, &info->philo[i]))
-			return (str_err("Failed to create thread.\n"));
+			return (print_err("Failed to create thread.\n"));
 	}
 	i = -1;
 	while (++i < info->num_of_philo)
 	{
 		if (pthread_join(info->philo[i].philo_th, NULL))
-			return (str_err("Failed to join thread.\n"));
+			return (print_err("Failed to join thread.\n"));
 		if (pthread_join(info->philo[i].monitor, NULL))
-			return (str_err("Failed to join thread.\n"));
+			return (print_err("Failed to join thread.\n"));
 	}
 	return (0);
 }
