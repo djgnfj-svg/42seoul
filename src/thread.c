@@ -6,11 +6,12 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 10:56:09 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/29 04:01:01 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/29 08:40:33 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
 int		check_meals(t_philo *philo)
 {
 	int	i;
@@ -24,30 +25,37 @@ int		check_meals(t_philo *philo)
 	philo->info->stop = 1;
 	return (1);
 }
-void *action(void *arg)
-{
-	t_philo *philo;
 
-	philo = arg;
-	if(philo->n % 2 == 0)
+void	*philo(void *param)
+{
+	t_philo	*philo;
+
+	philo = param;
+	if (philo->n % 2 == 0 && philo->info->num_of_philo != 1)
 		usleep(1000 * philo->info->time_to_eat);
 	while (!philo->info->stop)
 	{
 		eating(philo);
-		if (philo->info->num_of_must_eat > 0 && check_meals(philo))
-			break;
+		if (philo->info->num_of_must_eat != -1 && check_meals(philo))
+			break ;
+		if (philo->info->stop)
+			break ;
 		sleeping(philo);
+		if (philo->info->stop)
+			break ;
 		thinking(philo);
+		if (philo->info->stop)
+			break ;
 	}
-	return (0);
+	return (NULL);
 }
 
-void *monitor(void *arg)
+void	*monitor(void *param)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
-	philo = arg;
-	while(!philo->info->stop)
+	philo = param;
+	while (!philo->info->stop)
 	{
 		pthread_mutex_lock(&philo->protect);
 		if (get_time() - philo->start_time >= philo->info->time_to_die)
@@ -55,12 +63,12 @@ void *monitor(void *arg)
 			print_msg(philo, DIED);
 			philo->info->stop = 1;
 			pthread_mutex_unlock(&philo->protect);
-			return (0);
+			break ;
 		}
 		pthread_mutex_unlock(&philo->protect);
 		usleep(100);
 	}
-	return (0);
+	return (NULL);
 }
 
 int		dining_philo(t_info *info)
@@ -73,7 +81,7 @@ int		dining_philo(t_info *info)
 	{
 		info->philo[i].start_time = get_time();
 		if (pthread_create(&info->philo[i].philo_th, NULL, \
-		action, &info->philo[i]))
+		philo, &info->philo[i]))
 			return (str_err("Failed to create thread.\n"));
 		if (pthread_create(&info->philo[i].monitor, NULL, \
 		monitor, &info->philo[i]))

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:43:56 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/29 06:41:18 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/29 10:59:06 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static int parsing_arg(t_info *info, int ac, char **av)
 	info->time_to_sleep = ft_atoi(av[4]);
 	if (ac == 6)
 		info->num_of_must_eat = ft_atoi(av[5]);
+	else
+		info->num_of_must_eat = -1;
 	info->stop=0;
 	info->base_time = 0;
 	if (check_arg(info, ac))
