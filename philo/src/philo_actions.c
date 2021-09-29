@@ -6,11 +6,11 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 09:21:48 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/29 08:38:41 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 02:48:16 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+#include "philo.h"
 
 
 void	eating(t_philo *philo)
