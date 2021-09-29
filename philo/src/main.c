@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:29:59 by ysong             #+#    #+#             */
-/*   Updated: 2021/09/30 04:35:22 by ysong            ###   ########.fr       */
+/*   Updated: 2021/09/30 05:30:41 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ int	main(int ac, char **av)
 		free_all(&info);
 		return (0);
 	}
-	free(info.philo);
-	free(info.fork);
 	return (0);
 }
