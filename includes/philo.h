@@ -75,5 +75,4 @@ int		dining_philo(t_info *info);
 void sleeping(t_philo *philo);
 void eating(t_philo *philo);
 void thinking(t_philo *philo);
-
 #endif
