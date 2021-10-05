@@ -6,11 +6,15 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 09:21:48 by ysong             #+#    #+#             */
+<<<<<<< HEAD:src/philo_actions.c
 /*   Updated: 2021/10/05 06:48:09 by ysong            ###   ########.fr       */
+=======
+/*   Updated: 2021/09/30 05:36:46 by ysong            ###   ########.fr       */
+>>>>>>> e8bcda8de60a60d6b913e86bcc66f1c5bf00e3e6:philo/src/philo_actions.c
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+#include "philo.h"
 
 void	fork_on(t_philo *philo)
 {

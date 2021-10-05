@@ -1,21 +1,21 @@
 #ifndef PHILO_H
-#define PHILO_H
+# define PHILO_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <string.h>
 # include <sys/time.h>
 # include <pthread.h>
 
-#define ARGUMENT_ERROR 100
-#define WRONG_NUM_OF_PHILO 101
-#define WRONG_TIME_TO_DIE 102
-#define WRONG_TIEM_TO_EAT 103
-#define WRONG_TIEM_TO_SLEEP 104
-#define WRONG_NUM_OF_MUST_EAT 105
-#define FAILED_TO_MEMORY 106
-#define FAILED_TO_MUTAX 107
+# define ARGUMENT_ERROR 100
+# define WRONG_NUM_OF_PHILO 101
+# define WRONG_TIME_TO_DIE 102
+# define WRONG_TIEM_TO_EAT 103
+# define WRONG_TIEM_TO_SLEEP 104
+# define WRONG_NUM_OF_MUST_EAT 105
+# define FAILED_TO_MEMORY 106
+# define FAILED_TO_MUTAX 107
 
 # define FORK 1
 # define EATING 2
@@ -55,24 +55,34 @@ struct	s_philo
 };
 
 //init.c
-int init_philo(t_info *info, int ac, char **av);
+int		init_philo(t_info *info, int ac, char **av);
 
 // utils.c
-int print_error(int error_int);
-int	str_err(char *str);
-int get_time(void);
+int		print_error(int error_int);
+int		print_err(char *str);
+int		get_time(void);
+
 // free_all.c
-void free_all(t_info *info);
+void	free_all(t_info *info);
 
 // print.c
-int	ft_atoi(const char *str);
 void	print_msg(t_philo *philo, int status);
 
 // thread.c
-int		dining_philo(t_info *info);
+int		run_philo(t_info *info);
 
 // philo_actions.c
+<<<<<<< HEAD:includes/philo.h
 void sleeping(t_philo *philo);
 void eating(t_philo *philo);
 void thinking(t_philo *philo);
 #endif
+=======
+void	sleeping(t_philo *philo);
+void	eating(t_philo *philo);
+void	thinking(t_philo *philo);
+
+//ft_atoi.c
+int		ft_atoi(char *str);
+#endif
+>>>>>>> e8bcda8de60a60d6b913e86bcc66f1c5bf00e3e6:philo/includes/philo.h
