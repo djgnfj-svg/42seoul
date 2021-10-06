@@ -26,7 +26,13 @@ void    *routine(void *thread_number)
     printf("thread(%d): mutex unlock\n", *(int *)thread_number);
     return (thread_number);
 }
- 
+int	get_time(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
 int        main(void)
 {
     pthread_t    thread1;
@@ -37,22 +43,32 @@ int        main(void)
  
     number1 = 1;
     number2 = 2;
+    int s_time = get_time();
+    printf("%d\n",s_time - get_time());
+    usleep(10000);
+    printf("%d\n",s_time - get_time());
+    usleep(10000);
     
-    printf("mutex init\n");
-    pthread_mutex_init(&mutex, NULL);
+    printf("%d\n",s_time - get_time());
+    usleep(10000);
+    printf("%d\n",s_time - get_time());
+    usleep(10000);
+    printf("%d\n",s_time - get_time());
+
     printf("pthread create\n");
-    pthread_create(&thread1, NULL, routine, (void *)&number1);
-    usleep(101);
-    pthread_create(&thread2, NULL, routine, (void *)&number2);
+    // pthread_create(&thread1, NULL, routine, (void *)&number1);
+    // pthread_create(&thread2, NULL, routine, (void *)&number2);
+
+    // printf("mutex init\n");
+    // pthread_mutex_init(&mutex, NULL);
+    // printf("waiting for threads\n");
+    
+    // pthread_join(thread1, &ret); // thread1을 대기함, routine의 값을 ret에 넣어줌
+    // pthread_join(thread2, &ret); // thread1을 대기함, routine의 값을 ret에 넣어줌
  
-    printf("waiting for threads\n");
-    pthread_join(thread1, &ret); // thread1을 대기함, routine의 값을 ret에 넣어줌
-    // usleep(20);
-    pthread_join(thread2, &ret); // thread1을 대기함, routine의 값을 ret에 넣어줌
+    // printf("mutex destroy\n");
+    // pthread_mutex_destroy(&mutex);
  
-    printf("mutex destroy\n");
-    pthread_mutex_destroy(&mutex);
- 
-    printf("main end\n");
+    // printf("main end\n");
     return (0);
 }
