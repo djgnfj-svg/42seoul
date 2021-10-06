@@ -72,12 +72,6 @@ void	print_msg(t_philo *philo, int status);
 int		run_philo(t_info *info);
 
 // philo_actions.c
-<<<<<<< HEAD:includes/philo.h
-void sleeping(t_philo *philo);
-void eating(t_philo *philo);
-void thinking(t_philo *philo);
-#endif
-=======
 void	sleeping(t_philo *philo);
 void	eating(t_philo *philo);
 void	thinking(t_philo *philo);
@@ -85,4 +79,3 @@ void	thinking(t_philo *philo);
 //ft_atoi.c
 int		ft_atoi(char *str);
 #endif
->>>>>>> e8bcda8de60a60d6b913e86bcc66f1c5bf00e3e6:philo/includes/philo.h
