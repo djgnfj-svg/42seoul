@@ -45,7 +45,7 @@ int        main(void)
     number2 = 2;
     int s_time = get_time();
     printf("%d\n",s_time - get_time());
-    usleep(10000);
+    usleep(1000 * 1000);
     printf("%d\n",s_time - get_time());
     usleep(10000);
     
