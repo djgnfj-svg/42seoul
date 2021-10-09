@@ -1,4 +1,5 @@
 
 
-./test.c
+test.c
 *.o
+a.out
