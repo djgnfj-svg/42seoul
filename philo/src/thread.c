@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 10:56:09 by ysong             #+#    #+#             */
-/*   Updated: 2021/10/06 17:21:37 by ysong            ###   ########.fr       */
+/*   Updated: 2021/10/13 16:36:08 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@ int	check_meals(t_philo *philo)
 	int	i;
 
 	i = -1;
+	pthread_mutex_lock(&philo->info->status);
 	while (++i < philo->info->num_of_philo)
 	{
 		if (philo->info->philo[i].meals < philo->info->num_of_must_eat)
+		{
+			pthread_mutex_unlock(&philo->info->status);
 			return (0);
+		}
 	}
 	philo->info->stop = 1;
+	pthread_mutex_unlock(&philo->info->status);
 	return (1);
 }
 
@@ -91,6 +96,8 @@ int	run_philo(t_info *info)
 	while (++i < info->num_of_philo)
 	{
 		if (pthread_join(info->philo[i].philo_th, NULL))
+			return (print_err("Failed to join thread.\n"));
+		if (pthread_join(info->philo[i].monitor, NULL))
 			return (print_err("Failed to join thread.\n"));
 	}
 	return (0);
