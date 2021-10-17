@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 10:56:09 by ysong             #+#    #+#             */
-/*   Updated: 2021/10/17 22:53:37 by ysong            ###   ########.fr       */
+/*   Updated: 2021/10/17 22:56:43 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ int	run_philo(t_info *info)
 	while (++i < info->num_of_philo)
 	{
 		if (pthread_join(info->philo[i].philo_th, NULL))
+			return (print_err("Failed to join thread.\n"));
+		if (pthread_join(info->philo[i].monitor, NULL))
 			return (print_err("Failed to join thread.\n"));
 	}
 	return (0);
