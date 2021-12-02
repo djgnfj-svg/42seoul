@@ -1,0 +1,95 @@
+#include <iostream>
+
+#include "Friend_class.hpp"
+
+void show_welcome(void)
+{
+	std::cout << "HIYO" << std::endl;
+	std::cout << "choise ADD, SEARCH, EXIT" << std::endl;
+}
+
+Friend ADD(int id)
+{
+	std::string temp;
+	Friend temp_friend;
+
+	// std::cout << "first_name : ";
+	// std::getline(std::cin, temp);
+	// temp_friend.set_first_name(temp);
+	// std::cout << "Last_name : " ;
+	// std::getline(std::cin, temp);
+	// temp_friend.set_last_name(temp);
+	// std::cout << "Nickname : " ;
+	// std::getline(std::cin, temp);
+	// temp_friend.set_nickname(temp);
+	// std::cout << "Phone_number : " ;
+	// std::getline(std::cin, temp);
+	// temp_friend.set_phone_number(temp);
+	std::cout << "this is test : " << id << std::endl;
+	temp_friend.set_id(id + 1);
+	return temp_friend;
+}
+void SEARCH(Friend Phone_book[8], int friend_count)
+{
+	if (friend_count < 0)
+	{
+		std::cout << "you don't have friend" << std::endl;
+		return ;
+	}
+	for(int i = 0; i < friend_count; i++)
+	{
+		std::cout.width(10);
+		std::cout << Phone_book[i].get_id();
+		std::cout << '|';
+		std::cout.width(10);
+		std::cout << Phone_book[i].get_first_name();
+		std::cout << '|';
+		std::cout.width(10);
+		std::cout << Phone_book[i].get_last_name();
+		std::cout << '|';
+		std::cout.width(10);
+		std::cout << Phone_book[i].get_nickname();
+		std::cout << '|';
+		std::cout << std::endl;
+	}
+}
+
+int main(void)
+{
+	std::string input;
+	Friend friends[8];
+	int		friend_count;
+	bool	full;
+
+	while(42)
+	{
+		show_welcome();
+		getline(std::cin, input);
+		if (input == "ADD")
+		{
+			if (friend_count >= 8)
+			{
+				friend_count = friend_count % 8;
+				full = true;
+			}
+			friends[friend_count] = ADD(friend_count);
+			friend_count++;
+		}
+		else if (input == "SEARCH")
+		{
+			if (full)
+				SEARCH(friends, 7);
+			else
+				SEARCH(friends, friend_count);
+		}
+		else if (input == "EXIT")
+			break;
+		else
+			std::cout << "test" << std::endl;
+		if(std::cin.bad())
+			break;
+		if (std::cin.eof())
+			break;
+	}
+	return 0;
+}
