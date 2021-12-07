@@ -1,4 +1,4 @@
-NAME = PhoneBook
+NAME = zombie
 CC	=	clang++
 CFLAGE = -Wall -Wextra -Werror
 RM	=	rm -f
@@ -7,8 +7,10 @@ INCLUDE_DIR = ./include/
 
 SRCS_DIR = ./srcs/
 SRCS	=	$(addprefix $(SRCS_DIR),\
-				Friend.cpp\
-				PhoneBook.cpp \
+				main.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
+				Zombie.cpp \
 )
 
 OBJS	=	$(SRCS:.cpp=.o)
