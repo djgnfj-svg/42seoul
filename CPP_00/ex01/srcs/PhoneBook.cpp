@@ -13,19 +13,18 @@ Friend ADD(int id)
 	std::string temp;
 	Friend temp_friend;
 
-	// std::cout << "first_name : ";
-	// std::getline(std::cin, temp);
-	// temp_friend.set_first_name(temp);
-	// std::cout << "Last_name : " ;
-	// std::getline(std::cin, temp);
-	// temp_friend.set_last_name(temp);
-	// std::cout << "Nickname : " ;
-	// std::getline(std::cin, temp);
-	// temp_friend.set_nickname(temp);
-	// std::cout << "Phone_number : " ;
-	// std::getline(std::cin, temp);
-	// temp_friend.set_phone_number(temp);
-	std::cout << "this is test : " << id << std::endl;
+	std::cout << "first_name : ";
+	std::getline(std::cin, temp);
+	temp_friend.set_first_name(temp);
+	std::cout << "Last_name : " ;
+	std::getline(std::cin, temp);
+	temp_friend.set_last_name(temp);
+	std::cout << "Nickname : " ;
+	std::getline(std::cin, temp);
+	temp_friend.set_nickname(temp);
+	std::cout << "Phone_number : " ;
+	std::getline(std::cin, temp);
+	temp_friend.set_phone_number(temp);
 	temp_friend.set_id(id + 1);
 	return temp_friend;
 }
@@ -84,8 +83,6 @@ int main(void)
 		}
 		else if (input == "EXIT")
 			break;
-		else
-			std::cout << "test" << std::endl;
 		if(std::cin.bad())
 			break;
 		if (std::cin.eof())
