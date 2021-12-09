@@ -1,3 +1,6 @@
 #include "ClapTrap.hpp"
 
-Clap
+ClapTrap::ClapTrap()
+{
+	std::cout << ""
+}
