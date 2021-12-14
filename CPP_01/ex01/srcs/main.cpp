@@ -3,10 +3,9 @@
 
 int	main()
 {
-	Zombie zombieStack = Zombie("stack");
-	Zombie *zombieHeap = new Zombie("heap");
+	Zombie*	zombies = zombieHorde(5, "ysong");
 
-	zombieStack.announce();
-	zombieHeap->announce();
-	delete zombieHeap;
+	for (int i = 0; i < 5; i++)
+		zombies[i].announce();
+	delete[] zombies;
 }

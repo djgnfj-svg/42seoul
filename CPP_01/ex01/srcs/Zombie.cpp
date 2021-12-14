@@ -17,4 +17,4 @@ Zombie::~Zombie()
     std::cout << "Zombie '" << this->name << "' disappeared." << std::endl; 
 }
 
-void Zombie::set_name(std::string) {this->name = name;}
+void Zombie::set_name(std::string name) {this->name = name;}

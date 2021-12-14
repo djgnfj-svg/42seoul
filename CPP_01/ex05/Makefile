@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = karen2.0
 CC	=	clang++
 CFLAGE = -Wall -Wextra -Werror
 RM	=	rm -f

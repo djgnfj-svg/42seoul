@@ -34,7 +34,8 @@ void	Karen::error(void)
 
 void Karen::complain(std::string level)
 {
-    for (int i = 0; i < 4; i++)
+    int i;
+    for (i = 0; i < 4; i++)
     {
         if (level == complain_list[i].level)
             break;
@@ -42,13 +43,13 @@ void Karen::complain(std::string level)
     }
     switch (i)
     {
-    case 0
+    case 0:
         return (this->*complain_list[i].func_ptr)();
-    case 1
+    case 1:
         return (this->*complain_list[i].func_ptr)();
-    case 2
+    case 2:
         return (this->*complain_list[i].func_ptr)();
-    case 3
+    case 3:
         return (this->*complain_list[i].func_ptr)();
     default:
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

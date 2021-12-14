@@ -38,7 +38,6 @@ void	Account::displayAccountsInfos( void )
 	<< ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
-
 void	Account::makeDeposit( int deposit )
 {
     if (deposit > 0)

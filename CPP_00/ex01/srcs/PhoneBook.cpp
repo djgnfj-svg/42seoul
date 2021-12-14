@@ -77,7 +77,7 @@ int main(void)
 		else if (input == "SEARCH")
 		{
 			if (full)
-				SEARCH(friends, 7);
+				SEARCH(friends, 8);
 			else
 				SEARCH(friends, friend_count);
 		}
