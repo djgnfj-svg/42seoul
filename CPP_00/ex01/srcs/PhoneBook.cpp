@@ -30,7 +30,7 @@ Friend ADD(int id)
 }
 void SEARCH(Friend Phone_book[8], int friend_count)
 {
-	if (friend_count < 0)
+	if (friend_count <= 0)
 	{
 		std::cout << "you don't have friend" << std::endl;
 		return ;

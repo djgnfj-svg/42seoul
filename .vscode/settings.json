@@ -46,6 +46,7 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "karen.hpp": "c",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "iomanip": "cpp"
     }
 }
