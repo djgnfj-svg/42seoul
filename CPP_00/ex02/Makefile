@@ -1,6 +1,6 @@
 NAME = account
 CC	=	clang++
-# CFLAGE = -Wall -Wextra -Werror
+CFLAGE = -Wall -Wextra -Werror -std=c++98
 RM	=	rm -f
 
 SRCS	=	Account.cpp tests.cpp

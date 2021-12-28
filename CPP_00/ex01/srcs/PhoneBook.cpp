@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <string>
+#include <iomanip>
 #include "Friend_class.hpp"
 
 void show_welcome(void)
@@ -28,6 +29,16 @@ Friend ADD(int id)
 	temp_friend.set_id(id + 1);
 	return temp_friend;
 }
+
+void SEARCH_check(std::string str)
+{
+	if (str.length() > 10)
+		std::cout << std::setw(10) << str.substr(0,9).append(".");
+	else
+		std::cout<< std::setw(10) << str;
+	std::cout << '|';
+}
+
 void SEARCH(Friend Phone_book[8], int friend_count)
 {
 	if (friend_count <= 0)
@@ -37,18 +48,10 @@ void SEARCH(Friend Phone_book[8], int friend_count)
 	}
 	for(int i = 0; i < friend_count; i++)
 	{
-		std::cout.width(10);
-		std::cout << Phone_book[i].get_id();
-		std::cout << '|';
-		std::cout.width(10);
-		std::cout << Phone_book[i].get_first_name();
-		std::cout << '|';
-		std::cout.width(10);
-		std::cout << Phone_book[i].get_last_name();
-		std::cout << '|';
-		std::cout.width(10);
-		std::cout << Phone_book[i].get_nickname();
-		std::cout << '|';
+		std::cout<< std::setw(10) << Phone_book[i].get_id() << '|';
+		SEARCH_check(Phone_book[i].get_first_name());
+		SEARCH_check(Phone_book[i].get_last_name());
+		SEARCH_check(Phone_book[i].get_nickname());
 		std::cout << std::endl;
 	}
 }
@@ -60,6 +63,7 @@ int main(void)
 	int		friend_count;
 	bool	full;
 
+	friend_count = 0;
 	while(42)
 	{
 		show_welcome();
