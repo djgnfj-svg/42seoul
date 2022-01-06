@@ -7,7 +7,7 @@ INCLUDE_DIR = ./include/
 
 SRCS_DIR = ./srcs/
 SRCS	=	$(addprefix $(SRCS_DIR),\
-				Friend.cpp\
+				Content.cpp\
 				PhoneBook.cpp \
 )
 

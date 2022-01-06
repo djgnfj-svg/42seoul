@@ -1,11 +1,33 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include "Friend_class.hpp"
+#include "Content.hpp"
+
+static int	check_over_range(unsigned long long sum, int sign)
+{
+	return (sum * sign);
+}
+
+int			ft_atoi(const char *str)
+{
+	int			i;
+	int			is_negative;
+	long long	result;
+
+	i = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	is_negative = (str[i] == '-') ? -1 : 1;
+	if (is_negative == -1 || str[i] == '+')
+		i++;
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+		result = (result * 10) + (str[i++] - '0');
+	result = check_over_range(result, is_negative);
+	return (result);
+}
 
 void show_welcome(void)
 {
-	std::cout << "HIYO" << std::endl;
+	std::cout << "========HIYO========" << std::endl;
 	std::cout << "choise ADD, SEARCH, EXIT" << std::endl;
 }
 
@@ -26,10 +48,12 @@ Friend ADD(int id)
 	std::cout << "Phone_number : " ;
 	std::getline(std::cin, temp);
 	temp_friend.set_phone_number(temp);
+	std::cout << "memo : " ;
+	std::getline(std::cin, temp);
+	temp_friend.set_memo(temp);
 	temp_friend.set_id(id + 1);
 	return temp_friend;
 }
-
 void SEARCH_check(std::string str)
 {
 	if (str.length() > 10)
@@ -54,6 +78,23 @@ void SEARCH(Friend Phone_book[8], int friend_count)
 		SEARCH_check(Phone_book[i].get_nickname());
 		std::cout << std::endl;
 	}
+	std::cout << "따로 찾으시는 분의 ID를 입력해 주세요(없으면 0을 입력해주세요 :";
+	int index;
+	std::string input;
+	getline(std::cin, input);
+	if (std::cin.eof())
+		return;
+	if(std::cin.bad())
+		return;
+	index = ft_atoi(input.c_str());
+	if (index == 0)
+		return ;
+	else if (0 < index && index < 9 && index <= friend_count )
+	{
+		Phone_book[index-1].print_info();
+	}
+	else
+		std::cout << "입력값이 올바르지 않습니다."<< std::endl;
 }
 
 int main(void)
@@ -64,6 +105,7 @@ int main(void)
 	bool	full;
 
 	friend_count = 0;
+	full = false;
 	while(42)
 	{
 		show_welcome();
