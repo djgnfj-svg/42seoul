@@ -78,7 +78,7 @@ void SEARCH(Friend Phone_book[8], int friend_count)
 		SEARCH_check(Phone_book[i].get_nickname());
 		std::cout << std::endl;
 	}
-	std::cout << "따로 찾으시는 분의 ID를 입력해 주세요(없으면 0을 입력해주세요 :";
+	std::cout << "if you find contents choice ID(if not choice 0) : ";
 	int index;
 	std::string input;
 	getline(std::cin, input);
