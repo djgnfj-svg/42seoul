@@ -1,25 +1,20 @@
-NAME = zombie
+NAME = violence
 CC	=	clang++
-CFLAGE = -Wall -Wextra -Werror
+CFLAGE = -Wall -Wextra -Werror -std=c++98
 RM	=	rm -f
 
-INCLUDE_DIR = ./include/
+INCLUDE = HumanA.cpp HumanB.cpp Weapon.cpp 
+MAIN = main.cpp
 
-SRCS_DIR = ./srcs/
-SRCS	=	$(addprefix $(SRCS_DIR),\
-				main.cpp \
-				HumanA.cpp \
-				HumanB.cpp \
-				Weapon.cpp \
-)
+SRCS	= HumanA.cpp HumanB.cpp Weapon.cpp 
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-%.o: %.cpp
-			$(CC) $(CFLAGE) -g -I$(INCLUDE_DIR) -c $< -o $@
+$(NAME) : $(MAIN) $(OBJS)
+		$(CC) $(MAIN) $(CFLAGE) -o $(NAME) $(OBJS)
 
-$(NAME): $(OBJS)
-			$(CC) $(CFLAGE) -g -I$(INCLUDE_DIR) -o $(NAME) $(OBJS)
+$(OBJS) : $(SRCS) $(INCLUDE)
+			$(CC) $(CFLAGE) -c $(SRCS)
 		
 
 all:	$(NAME)

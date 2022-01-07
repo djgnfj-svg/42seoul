@@ -5,7 +5,6 @@ RM	=	rm -f
 
 INCLUDE_DIR = Zombie.hpp
 MAIN = main.cpp
-SRCS_DIR = ./srcs/
 SRCS	=	newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
@@ -15,7 +14,6 @@ $(NAME) : $(MAIN) $(OBJS)
 
 $(OBJS) : $(SRCS) $(INCLUDE_DIR)
 			$(CC) $(CFLAGE) -c $(SRCS)
-		
 
 all:	$(NAME)
 

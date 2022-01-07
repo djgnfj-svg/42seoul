@@ -1,14 +1,21 @@
 NAME = brain
 CXX = clang++
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGE = -Wall -Wextra -Werror -std=c++98
 MAIN = main.cpp
+RM	=	rm -f
+
 
 $(NAME): $(MAIN)
 	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME)
 
-all : $(NAME)
-fclean:
-	rm -rf $(NAME)
-re:	fclean all
+all:	$(NAME)
 
-.PHONY: all fclean re
+clean:	
+		$(RM) $(OBJS)
+
+fclean: clean
+		$(RM) $(NAME)
+
+re:		fclean $(NAME)
+
+.PHONY:		all clean fclean re

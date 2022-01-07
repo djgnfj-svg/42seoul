@@ -1,14 +1,22 @@
 NAME = replace
-CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CC	=	clang++
+CFLAGE = -Wall -Wextra -Werror -std=c++98
+RM	=	rm -f
 MAIN = main.cpp
 
-$(NAME): $(MAIN)
-	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME)
 
-all : $(NAME)
-fclean:
-	rm -rf $(NAME)
-re:	fclean all
+$(NAME) : $(MAIN) $(OBJS)
+		$(CC) $(MAIN) $(CFLAGE) -o $(NAME) $(OBJS)
 
-.PHONY: all fclean re
+
+all:	$(NAME)
+
+clean:	
+		$(RM) $(OBJS)
+
+fclean: clean
+		$(RM) $(NAME)
+
+re:		fclean $(NAME)
+
+.PHONY:		all clean fclean re

@@ -1,23 +1,20 @@
-NAME = karen2.0
+NAME = karen
 CC	=	clang++
-CFLAGE = -Wall -Wextra -Werror
+CFLAGE = -Wall -Wextra -Werror -std=c++98
 RM	=	rm -f
 
-INCLUDE_DIR = ./include/
-
 SRCS_DIR = ./srcs/
-SRCS	=	$(addprefix $(SRCS_DIR),\
-				main.cpp \
-				karen.cpp \
-)
+MAIN = main.cpp
+INCLUDE = karen.hpp
+SRCS	= karen.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-%.o: %.cpp
-			$(CC) $(CFLAGE) -g -I$(INCLUDE_DIR) -c $< -o $@
+$(NAME) : $(MAIN) $(OBJS)
+		$(CC) $(MAIN) $(CFLAGE) -o $(NAME) $(OBJS)
 
-$(NAME): $(OBJS)
-			$(CC) $(CFLAGE) -g -I$(INCLUDE_DIR) -o $(NAME) $(OBJS)
+$(OBJS) : $(SRCS) $(INCLUDE)
+			$(CC) $(CFLAGE) -c $(SRCS)
 		
 
 all:	$(NAME)

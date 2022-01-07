@@ -2,13 +2,13 @@
 
 Karen::Karen()
 {
-    complain_list[0].level = "Debug";
+    complain_list[0].level = "DEBUG";
     complain_list[0].func_ptr = &Karen::debug;
-    complain_list[1].level = "info";
+    complain_list[1].level = "INFO";
     complain_list[1].func_ptr = &Karen::info;
-    complain_list[2].level = "warning";
+    complain_list[2].level = "WARNING";
     complain_list[2].func_ptr = &Karen::warning;
-    complain_list[3].level = "error";
+    complain_list[3].level = "ERROR";
     complain_list[3].func_ptr = &Karen::error;
 }
 

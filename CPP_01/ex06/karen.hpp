@@ -1,7 +1,9 @@
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef __KAREN_HPP__
+# define __KAREN_HPP__
 
 # include <iostream>
+
+class Karen;
 
 typedef struct s_complain
 {
