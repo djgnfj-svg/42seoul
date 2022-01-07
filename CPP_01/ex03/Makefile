@@ -3,7 +3,7 @@ CC	=	clang++
 CFLAGE = -Wall -Wextra -Werror -std=c++98
 RM	=	rm -f
 
-INCLUDE = HumanA.cpp HumanB.cpp Weapon.cpp 
+INCLUDE = HumanA.hpp HumanB.hpp Weapon.hpp 
 MAIN = main.cpp
 
 SRCS	= HumanA.cpp HumanB.cpp Weapon.cpp 

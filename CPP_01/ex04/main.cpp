@@ -27,7 +27,7 @@ int check_ofstream(std::ofstream &write_file, std::ifstream &read_file, std::str
 {
     if (write_file.fail())
     {
-        std::cerr << "Faild to open the file.: " << file_name+".replace" << std::endl;
+        std::cerr << "Faild to write the file.: " << file_name << std::endl;
         read_file.close();
         return 1;
     }
@@ -56,12 +56,12 @@ int main(int ac, char **av)
         return 1;
     
     std::string file_name(av[1]);
-    std::ifstream read_file(file_name);
+    std::ifstream read_file(av[1]);
 
     if (check_ifstream(read_file, file_name))
         return 1;
-
-    std::ofstream write_file(file_name + ".replace");
+    file_name = file_name + ".replace";
+    std::ofstream write_file(file_name.c_str());
 
     if (check_ofstream(write_file, read_file, file_name))
         return 1;

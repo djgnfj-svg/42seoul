@@ -1,18 +1,17 @@
 NAME = replace
 CC	=	clang++
-CFLAGE = -Wall -Wextra -Werror -std=c++98
+CFLAGE = -std=c++98 -Wall -Wextra -Werror
 RM	=	rm -f
 MAIN = main.cpp
 
 
-$(NAME) : $(MAIN) $(OBJS)
-		$(CC) $(MAIN) $(CFLAGE) -o $(NAME) $(OBJS)
-
+$(NAME) : $(MAIN)
+		$(CC) $(MAIN) $(CFLAGE) -o $(NAME)
 
 all:	$(NAME)
 
 clean:	
-		$(RM) $(OBJS)
+		$(RM)
 
 fclean: clean
 		$(RM) $(NAME)

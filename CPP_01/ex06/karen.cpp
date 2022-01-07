@@ -50,7 +50,8 @@ void Karen::complain(std::string level)
     {
         if (level == complain_list[i].level)
             break;
-        i = -1;
+        else if (i > 3)
+            i = -1;
     }
     switch (i)
     {
