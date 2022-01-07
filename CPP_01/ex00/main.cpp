@@ -8,4 +8,5 @@ int	main(void)
 	zombieheap->announce();
 	randomChump("randomChump");
 	delete zombieheap;
+	return 0;
 }
