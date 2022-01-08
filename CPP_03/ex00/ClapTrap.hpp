@@ -1,6 +1,13 @@
 #ifndef __CLAPTRAP_HPP__
 #define __CLAPTRAP_HPP__
 
+# define CYAN "\e[36m"
+# define GREEN "\e[32m"
+# define YELLOW "\e[33m"
+# define RED "\e[31m"
+# define RESET "\e[0m"
+
+
 #include <iostream>
 
 class ClapTrap

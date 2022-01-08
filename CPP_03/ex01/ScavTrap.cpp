@@ -1,6 +1,5 @@
 #include "ScavTrap.hpp"
 
-// todo 문자들 전부 그럴듯하게 바꾸기
 ScavTrap::ScavTrap()
 {
 	std::cout << "Default ScavTrap created" << std::endl;
@@ -9,13 +8,13 @@ ScavTrap::ScavTrap()
 	this->Attackdameage = 20;
 }
 
-ScavTrap::ScavTrap(std::string _name)
+ScavTrap::ScavTrap(std::string _name) 
 {
-	std::cout << "ScavTrap <" << this->name << "> created" << std::endl;
 	this->name = _name;
 	this->Hitpoints = 100;
 	this->Energypoints = 50;
 	this->Attackdameage = 20;
+	std::cout << "ScavTrap <" << this->name << "> created" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& copy)

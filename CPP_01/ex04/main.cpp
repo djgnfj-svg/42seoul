@@ -1,10 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
 
 int check_arg(int ac, char **av)
 {
-    if (ac != 4 || strlen(av[2]) == 0 || strlen(av[3]) == 0)
+    if (ac != 4)
     {
         std::cerr << "Invalid argument" << std::endl;
         return 1;

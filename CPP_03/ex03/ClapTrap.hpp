@@ -1,6 +1,12 @@
 #ifndef __CLAPTRAP_HPP__
 #define __CLAPTRAP_HPP__
 
+# define CYAN "\e[36m"
+# define GREEN "\e[32m"
+# define YELLOW "\e[33m"
+# define RED "\e[31m"
+# define LB		"\e[34m"
+# define RESET "\e[0m"
 #include <iostream>
 
 class ClapTrap
@@ -17,7 +23,7 @@ class ClapTrap
 		ClapTrap& operator=(const ClapTrap& copy);
 		~ClapTrap();
 		
-		virtual void attack(std::string const & target);
+		void attack(std::string const & target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 

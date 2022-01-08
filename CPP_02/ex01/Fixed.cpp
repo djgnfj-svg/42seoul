@@ -8,7 +8,6 @@ Fixed::Fixed() : fixedPoint(0)
 Fixed::Fixed(float const floatVal)
 {
 	std::cout << "Float Constructor called" << std::endl;
-	// bisa라고 하는 지정된 수자를 더한 다음 넣어야한다.
 	this->fixedPoint = (int)roundf(floatVal * (1 << fractionalBits));
 	
 }
@@ -49,7 +48,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return (this->fixedPoint / (float)(1 << fractionalBits));
+	return (this->fixedPoint / (1 << fractionalBits));
 }
 
 int Fixed::toInt(void) const
