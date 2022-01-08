@@ -10,7 +10,6 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-// 카피 생성자
 Fixed::Fixed( const Fixed &fixed )
 {
 	std::cout << "Copy constructor called" << std::endl;

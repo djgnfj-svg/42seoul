@@ -1,16 +1,19 @@
 NAME = fixed
 CC	=	clang++
-CFLAGE = -Wall -Wextra -Werror
+CFLAGE = -std=c++98 -Wall -Wextra -Werror
 RM	=	rm -f
 
-SRCS	=	Fixed.cpp main.cpp
+INCLUDE = Fixed.hpp
+MAIN	=	main.cpp
+SRCS	=	Fixed.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
-%.o:		%.cpp
-			$(CC) $(CFLAGE) -g -c $< -o $@
+$(NAME) : $(MAIN) $(OBJS)
+		$(CC) $(MAIN) $(CFLAGE) -o $(NAME) $(OBJS)
 
-$(NAME): $(OBJS)
-			@ $(CC) $(CFLAGE) -g -o $(NAME) $(OBJS)
+$(OBJS) : $(SRCS) $(INCLUDE)
+			$(CC) $(CFLAGE) -c $(SRCS)
+
 all:	$(NAME)
 
 clean:	

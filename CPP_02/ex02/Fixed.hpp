@@ -13,7 +13,6 @@ class Fixed
 	Fixed(const Fixed &fixed);
 	~Fixed();
 	Fixed& operator=(const Fixed &fixed);
-	Fixed&	operator=( const Fixed &fixed );
 	bool	operator>( const Fixed &fixed ) const;
 	bool	operator<( const Fixed &fixed ) const;
 	bool	operator>=( const Fixed &fixed ) const;
@@ -29,11 +28,14 @@ class Fixed
 	Fixed	operator++( int );	// 후위 연산자 a++
 	Fixed	operator--( int );	// 후위 연산자 a--
 	
-	int	getRawBits(void) const;
-	void setRawBits(int const raw);
-	int getRawBits(void) const;
-	float toFloat(void) const;
-	int toInt(void) const;
+	int	getRawBits( void ) const;
+	int	toInt( void ) const;
+	float	toFloat( void ) const;
+	void	setRawBits( int const raw );
+	void	setRawBits( float const raw );
+	static const Fixed&	min( const Fixed &f1, const Fixed &f2 );
+	static const Fixed&	max( const Fixed &f1, const Fixed &f2 );
+
 	private:
 	int fixedPoint;
 	static const int fractionalBits = 8;

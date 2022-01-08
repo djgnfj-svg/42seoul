@@ -8,8 +8,9 @@ Fixed::Fixed() : fixedPoint(0)
 Fixed::Fixed(float const floatVal)
 {
 	std::cout << "Float Constructor called" << std::endl;
-	// roundf가 무엇인가
+	// bisa라고 하는 지정된 수자를 더한 다음 넣어야한다.
 	this->fixedPoint = (int)roundf(floatVal * (1 << fractionalBits));
+	
 }
 
 Fixed::Fixed(int const intVal)
@@ -23,7 +24,6 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-// 카피 생성자
 Fixed::Fixed( const Fixed &fixed )
 {
 	std::cout << "Copy constructor called" << std::endl;

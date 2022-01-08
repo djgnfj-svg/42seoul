@@ -16,9 +16,9 @@ class Fixed
 
 	int	getRawBits(void) const;
 	void setRawBits(int const raw);
-	int getRawBits(void) const;
 	float toFloat(void) const;
 	int toInt(void) const;
+	
 	private:
 	int fixedPoint;
 	static const int fractionalBits = 8;
