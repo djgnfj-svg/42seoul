@@ -7,6 +7,6 @@ int	main(void)
 	Zombie *zombieheap = newZombie("Newzombie");
 	zombieheap->announce();
 	randomChump("randomChump");
-	delete zombieheap;
+	// delete zombieheap;
 	return 0;
 }

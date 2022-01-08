@@ -56,13 +56,14 @@ void Karen::complain(std::string level)
     switch (i)
     {
     case 0:
-        return (this->*complain_list[i].func_ptr)();
+        (this->*complain_list[i++].func_ptr)();
     case 1:
-        return (this->*complain_list[i].func_ptr)();
+        (this->*complain_list[i++].func_ptr)();
     case 2:
-        return (this->*complain_list[i].func_ptr)();
+        (this->*complain_list[i++].func_ptr)();
     case 3:
-        return (this->*complain_list[i].func_ptr)();
+        (this->*complain_list[i++].func_ptr)();
+        break;
     default:
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
         break;
