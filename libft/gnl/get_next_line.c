@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:41 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 08:20:00 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:26:43 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ int	get_next_line(int fd, char **line)
 			return (-1);
 		buff[read_len] = '\0';
 		save[fd] = ft_strjoin_gnl(save[fd], buff);
-		if (!save[fd])
-			return (-1);
 	}
 	free(buff);
 	*line = get_line(save[fd]);
