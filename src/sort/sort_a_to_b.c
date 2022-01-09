@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/27 03:56:28 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 07:48:54 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 {
 	if (r <= 3)
-	{
 		under_three(r, a, b, A);
-		return (0);
-	}
 	else if (r == 5)
-	{
 		hanlde_sort_five(5, a, b, A);
-		return (0);
-	}
 	else
 		return (1);
+	return (0);
 }
 
 static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 {
+
 	if (a->header->item > opc->piv_big)
 	{
 		ft_ra(a);

@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:03:03 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 17:29:10 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 07:23:28 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void	check_duplicate(char **av, int last)
 	start = 1;
 	while (start < last)
 	{
+		if (ft_atoi(av[start]) > INT_MAX || ft_atoi(av[start]) < INT_MIN)
+			print_error();
 		i = start + 1;
 		while (i <= last)
 		{

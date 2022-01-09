@@ -37,6 +37,7 @@ int		arg_check_and_init(int last, char **av, t_deque **a, t_deque **b);
 
 void	print_error(void);
 int		is_sorted(t_deque *a);
+int		is_reverse_sorted(t_deque *a);
 void	free_deque(t_deque *a, t_deque *b);
 t_deque	*init_deque(void);
 
@@ -80,4 +81,10 @@ void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt);
 
 void	printingdeque(t_deque *a, int flag);
 void	printall(char *str, t_deque *a, t_deque *b, t_op_count *opc);
+
+void	do_reverse_rotate(char *buf, t_deque *a, t_deque *b);
+void	do_rotate(char *buf, t_deque *a, t_deque *b);
+void	do_rotate(char *buf, t_deque *a, t_deque *b);
+void	do_swap(char *buf, t_deque *a, t_deque *b);
+void	do_push(char *buf, t_deque *a, t_deque *b);
 #endif

@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/03 02:12:20 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/25 23:00:17 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 07:23:13 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_over_range(unsigned long long sum, int sign)
+static long long	check_over_range(long long sum, int sign)
 {
 	if (sum > LLONG_MAX - 1 && sign == -1)
 		return (0);
@@ -21,7 +21,7 @@ static int	check_over_range(unsigned long long sum, int sign)
 	return (sum * sign);
 }
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	int			i;
 	int			is_negative;

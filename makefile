@@ -6,7 +6,7 @@
 #    By: ysong <ysong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 11:55:39 by ysong             #+#    #+#              #
-#    Updated: 2021/07/29 04:33:55 by ysong            ###   ########.fr        #
+#    Updated: 2022/01/10 06:43:54 by ysong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OPER		=	swap.c reverse_rotate.c rotate.c push.c
 
 MSRC		=	src/main.c
 
-CHECKER		=	src/check.c
+CHECKER		=	src/checker_main.c src/check.c
 
 OPERDIR_BONUS	=	src/operations_bonus/
 OPER_BONUS		=	push.c reverse_rotate.c rotate.c swap.c
@@ -56,7 +56,7 @@ $(LIBNAME):
 				@cp $(addprefix $(LIBDIR), $(LIBNAME)) $(LIBNAME)
 all:		$(NAME)
 
-checker:		$(LIBNAME) $(OBJS) $(O_OPRS_BONUS) $(CHECKEROBJS)
+bonus :		$(LIBNAME) $(OBJS) $(O_OPRS_BONUS) $(CHECKEROBJS)
 				$(CC) $(CFLAGS) -g -I$(INCLUDE) -o checker $(OBJS) $(O_OPRS_BONUS) $(CHECKEROBJS) $(LIBNAME)
 
 clean:

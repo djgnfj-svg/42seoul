@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 17:14:23 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/25 18:49:08 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 07:20:13 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -38,7 +39,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *big,
 						const char *little, size_t len);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-int					ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
