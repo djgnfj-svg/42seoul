@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:41 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/29 05:07:55 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:16:25 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		is_newline(char *save)
+static int	is_newline(char *save)
 {
 	int	i;
 
@@ -37,7 +37,8 @@ static char	*get_line(char *save)
 	dest_len = 0;
 	while (save[dest_len] != '\n' && save[dest_len])
 		dest_len++;
-	if (!(dest = (char *)malloc(dest_len + 1)))
+	dest = (char *)malloc(dest_len + 1);
+	if (!dest)
 		return (NULL);
 	i = -1;
 	while (++i < dest_len)
@@ -63,7 +64,8 @@ static char	*get_save(char *save)
 		return (NULL);
 	}
 	i++;
-	if (!(dest = (char *)malloc(save_len - i + 1)))
+	dest = (char *)malloc(save_len - i + 1);
+	if (!dest)
 		return (NULL);
 	j = 0;
 	while (save[i])
@@ -81,7 +83,8 @@ int		get_next_line(int fd, char **line)
 
 	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buff = (char *)malloc(BUFFER_SIZE + 1)))
+	buff = (char *)malloc(BUFFER_SIZE + 1);
+	if (!buff)
 		return (-1);
 	read_len = 1;
 	while (!is_newline(save[fd]) && read_len != 0)
@@ -89,7 +92,8 @@ int		get_next_line(int fd, char **line)
 		if ((read_len = read(fd, buff, BUFFER_SIZE)) < 0)
 			return (-1);
 		buff[read_len] = '\0';
-		if (!(save[fd] = ft_strjoin_gnl(save[fd], buff)))
+		save[fd] = ft_strjoin_gnl(save[fd], buff);
+		if (!save[fd])
 			return (-1);
 	}
 	free(buff);

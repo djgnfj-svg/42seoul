@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 08:04:47 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:18:20 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 
 static void	push_rotate_a(t_deque *a, t_deque *b, t_op_count *opc)
 {
-
 	if (a->header->item > opc->piv_big)
 	{
 		ft_ra(a);

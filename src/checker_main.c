@@ -6,10 +6,9 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 06:42:30 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 06:42:31 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:17:55 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -17,14 +16,14 @@ void	check_operations(char *buf, t_deque *a, t_deque *b)
 {
 	if (!ft_strcmp("pa", buf) || !ft_strcmp("pb", buf))
 		do_push(buf, a, b);
-	else if (!ft_strcmp("sa", buf) || !ft_strcmp("sb", buf) ||
-	!ft_strcmp("ss", buf))
+	else if (!ft_strcmp("sa", buf) || !ft_strcmp("sb", buf) || \
+		!ft_strcmp("ss", buf))
 		do_swap(buf, a, b);
-	else if (!ft_strcmp("ra", buf) || !ft_strcmp("rb", buf) ||
-	!ft_strcmp("rr", buf))
+	else if (!ft_strcmp("ra", buf) || !ft_strcmp("rb", buf) || \
+		!ft_strcmp("rr", buf))
 		do_rotate(buf, a, b);
-	else if (!ft_strcmp("rra", buf) || !ft_strcmp("rrb", buf) ||
-	!ft_strcmp("rrr", buf))
+	else if (!ft_strcmp("rra", buf) || !ft_strcmp("rrb", buf) || \
+		!ft_strcmp("rrr", buf))
 		do_reverse_rotate(buf, a, b);
 	else
 		print_error();

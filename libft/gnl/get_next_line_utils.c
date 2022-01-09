@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:40 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/29 05:06:01 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:14:22 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_strlen_gnl(char *s)
+int	ft_strlen_gnl(char *s)
 {
 	int	len;
 
@@ -34,7 +34,8 @@ char	*ft_strjoin_gnl(char *save, char *buff)
 
 	save_len = ft_strlen_gnl(save);
 	buff_len = ft_strlen_gnl(buff);
-	if (!(dest = (char *)malloc(save_len + buff_len + 1)))
+	dest = (char *)malloc(save_len + buff_len + 1);
+	if (!dest)
 		return (NULL);
 	i = -1;
 	while (++i < save_len)
@@ -46,4 +47,3 @@ char	*ft_strjoin_gnl(char *save, char *buff)
 	free(save);
 	return (dest);
 }
-
