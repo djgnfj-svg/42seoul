@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:46 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 07:48:54 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:04:47 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static void	back_to_orig(t_deque *a, t_deque *b, int *cnt, t_op_count *opc)
 
 void	a_to_b(int r, t_deque *a, t_deque *b, int *cnt)
 {
-	int			r_temp;
 	t_op_count	opc;
+	int			r_temp;
 
 	if (!exceptional_cases(r, a, b))
 		return ;
