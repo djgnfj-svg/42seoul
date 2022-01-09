@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:41 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 08:16:25 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:20:00 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static char	*get_save(char *save)
 	return (dest);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buff;
 	static char	*save[OPEN_MAX];
@@ -89,7 +89,8 @@ int		get_next_line(int fd, char **line)
 	read_len = 1;
 	while (!is_newline(save[fd]) && read_len != 0)
 	{
-		if ((read_len = read(fd, buff, BUFFER_SIZE)) < 0)
+		read_len = read(fd, buff, BUFFER_SIZE);
+		if (read_len < 0)
 			return (-1);
 		buff[read_len] = '\0';
 		save[fd] = ft_strjoin_gnl(save[fd], buff);
