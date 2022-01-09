@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:42 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 08:05:00 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:07:26 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static int	exceptional_cases(int r, t_deque *a, t_deque *b)
 
 static void	push_rotate_b(t_deque *a, t_deque *b, t_op_count *opc)
 {
-	printall("rotate_b fisrt",a,b, opc);
 	if (b->header->item <= opc->piv_small)
 	{
 		ft_rb(b);
@@ -46,7 +45,6 @@ static void	push_rotate_b(t_deque *a, t_deque *b, t_op_count *opc)
 			opc->ra++;
 		}
 	}
-	printall("rotate_b last",a,b, opc);
 }
 
 static void	back_to_orig(t_deque *a, t_deque *b, t_op_count *opc)
@@ -77,7 +75,6 @@ void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 	t_op_count	opc;
 
 	(*cnt)++;
-	printf("여기 숫자가 있어요 r = %d\n",r);
 	if (!exceptional_cases(r, a, b))
 		return ;
 	init_op_count(&opc);

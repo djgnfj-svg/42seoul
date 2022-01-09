@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:15:35 by ysong             #+#    #+#             */
-/*   Updated: 2022/01/10 06:46:53 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/10 08:10:21 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,6 @@ int	is_reverse_sorted(t_deque *a)
 		return (1);
 	else
 		return (0);
-}
-
-void	printingdeque(t_deque *a, int flag)
-{
-	t_node	*temp;
-
-	temp = a->header;
-	if (flag == 1)
-		printf("A : ");
-	else
-		printf("B : ");
-	while (temp)
-		temp = temp->next;
-	printf("\n");
 }
 
 static void	free_stack(t_deque *stack)

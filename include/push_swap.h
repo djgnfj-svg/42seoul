@@ -88,7 +88,6 @@ void	arg_three_a(int r, t_deque *a);
 void	arg_three_b(int r, t_deque *a, t_deque *b);
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt);
 
-void	printingdeque(t_deque *a, int flag);
 void	printall(char *str, t_deque *a, t_deque *b, t_op_count *opc);
 
 void	do_reverse_rotate(char *buf, t_deque *a, t_deque *b);
