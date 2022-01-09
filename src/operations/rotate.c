@@ -6,13 +6,13 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:28:51 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/17 15:47:55 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/23 23:46:54 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_stack(t_deque *target, int flag)
+static void	rotate_stack(t_deque *target)
 {
 	t_node	*temp;
 	t_node	*header_next;
@@ -27,15 +27,23 @@ void	rotate_stack(t_deque *target, int flag)
 	target->tailer = temp;
 	target->header = header_next;
 	target->header->prev = NULL;
-	if (flag == A)
-		ft_putendl_fd("ra", 1);
-	else if (flag == B)
-		ft_putendl_fd("rb", 1);
 }
 
-void	rotate_all_stack(t_deque *a, t_deque *b, int flag)
+void	ft_ra(t_deque *a)
 {
-	rotate_stack(a, flag);
-	rotate_stack(b, flag);
+	rotate_stack(a);
+	ft_putendl_fd("ra", 1);
+}
+
+void	ft_rb(t_deque *b)
+{
+	rotate_stack(b);
+	ft_putendl_fd("rb", 1);
+}
+
+void	ft_rr(t_deque *a, t_deque *b)
+{
+	rotate_stack(a);
+	rotate_stack(b);
 	ft_putendl_fd("rr", 1);
 }

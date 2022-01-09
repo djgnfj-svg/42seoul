@@ -17,14 +17,14 @@ void	arg_two(t_deque *a, t_deque *b, int flag)
 	if (flag == A)
 	{
 		if (a->header->item > a->header->next->item)
-			swap_stack(a, A);
+			ft_sa(a);
 	}
 	else
 	{
 		if (b->header->item < b->header->next->item)
-			swap_stack(b, B);
-		push_stack(b, a, A);
-		push_stack(b, a, A);
+			ft_sb(b);
+		ft_pa(b, a);
+		ft_pa(b, a);
 	}
 }
 
@@ -42,6 +42,6 @@ void	under_three(int r, t_deque *a, t_deque *b, int flag)
 	else if (r == 1)
 	{
 		if (flag == B)
-			push_stack(b, a, A);
+			ft_pa(b, a);
 	}
 }

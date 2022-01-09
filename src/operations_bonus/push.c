@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:28:53 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/24 01:25:32 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/24 01:25:11 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	ft_pa(t_deque *b, t_deque *a)
 	if (b->size == 0)
 		return ;
 	push_pop(b, a);
-	ft_putendl_fd("pa", 1);
 }
 
 void	ft_pb(t_deque *a, t_deque *b)
@@ -69,5 +68,4 @@ void	ft_pb(t_deque *a, t_deque *b)
 	if (a->size == 0)
 		return ;
 	push_pop(a, b);
-	ft_putendl_fd("pb", 1);
 }

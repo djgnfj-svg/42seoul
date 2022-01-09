@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:42 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/21 19:51:42 by ysong            ###   ########.fr       */
+/*   Updated: 2022/01/09 23:10:39 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,55 +33,47 @@ static void	push_rotate_b(t_deque *a, t_deque *b, t_op_count *opc)
 	printall("rotate_b fisrt",a,b, opc);
 	if (b->header->item <= opc->piv_small)
 	{
-		rotate_stack(b, B);
+		ft_rb(b);
 		opc->rb++;
 	}
 	else
 	{
-		push_stack(b, a, A);
+		ft_pa(b, a);
 		opc->pa++;
 		if (a->header->item <= opc->piv_big)
 		{
-			rotate_stack(a, A);
+			ft_ra(a);
 			opc->ra++;
 		}
 	}
 	printall("rotate_b last",a,b, opc);
 }
 
-static void	back_to_orig_ra(t_deque *a, t_deque *b, t_op_count *opc)
-{
-	int	rrr;
-	int	rem;
-
-	rrr = opc->rb;
-	rem = opc->ra - rrr;
-	printall("ra_b fisrt",a,b, opc);
-	while (rrr--)
-		reverse_rotate_all_stack(a, b);
-	while (rem--)
-		reverse_rotate_stack(a, A);
-	printall("ra_b last",a,b, opc);
-}
-
-static void	back_to_orig_rb(t_deque *a, t_deque *b, t_op_count *opc)
+static void	back_to_orig(t_deque *a, t_deque *b, t_op_count *opc)
 {
 	int	rrr;
 	int	rem;
 
 	rrr = opc->ra;
 	rem = opc->rb - rrr;
-	printall("rb_b first",a,b, opc);
+	if (opc->ra > opc->rb)
+	{
+		rrr = opc->rb;
+		rem = opc->ra - rrr;
+	}
 	while (rrr--)
-		reverse_rotate_all_stack(a, b);
-	while (rem--)
-		reverse_rotate_stack(b, B);
-	printall("rb_b last",a,b, opc);
+		ft_rrr(a, b);
+	if (opc->ra > opc->rb)
+		while (rem--)
+			ft_rra(a);
+	else
+		while (rem--)
+			ft_rrb(b);
 }
 
 void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 {
-	int		r_temp;
+	int			r_temp;
 	t_op_count	opc;
 
 	(*cnt)++;
@@ -90,16 +82,11 @@ void	b_to_a(int r, t_deque *a, t_deque *b, int *cnt)
 		return ;
 	init_op_count(&opc);
 	select_pivot(r, b, &opc);
-	printall("b_to_a_first",a,b,&opc);
 	r_temp = r;
 	while (r_temp--)
 		push_rotate_b(a, b, &opc);
 	a_to_b(opc.pa - opc.ra, a, b, cnt);
-	if (opc.ra > opc.rb)
-		back_to_orig_ra(a, b, &opc);
-	else
-		back_to_orig_rb(a, b, &opc);
-	printall("b_to_a_last",a,b,&opc);
+	back_to_orig(a, b, &opc);
 	a_to_b(opc.ra, a, b, cnt);
 	b_to_a(opc.rb, a, b, cnt);
 }

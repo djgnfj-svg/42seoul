@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 11:28:50 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/25 18:08:15 by ysong            ###   ########.fr       */
+/*   Created: 2021/07/13 11:28:51 by ysong             #+#    #+#             */
+/*   Updated: 2021/07/24 00:06:47 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_stack(t_deque *target)
+static void	rotate_stack(t_deque *target)
 {
 	t_node	*temp;
 	t_node	*header_next;
 
 	if (target->size < 2)
 		return ;
-	header_next = target->header->next;
 	temp = target->header;
-	if (target->size > 2)
-		header_next->next->prev = target->header;
-	temp->next = header_next->next;
+	header_next = target->header->next;
+	target->tailer->next = temp;
+	temp->prev = target->tailer;
+	temp->next = NULL;
+	target->tailer = temp;
 	target->header = header_next;
 	target->header->prev = NULL;
-	target->header->next = temp;
-	temp->prev = target->header;
-	if (target->size == 2)
-		target->tailer = target->header->next;
 }
 
-void	ft_sa(t_deque *a)
+void	ft_ra(t_deque *a)
 {
-	swap_stack(a);
-	ft_putendl_fd("sa", 1);
+	rotate_stack(a);
 }
 
-void	ft_sb(t_deque *b)
+void	ft_rb(t_deque *b)
 {
-	swap_stack(b);
-	ft_putendl_fd("sb", 1);
+	rotate_stack(b);
 }
 
-void	ft_ss(t_deque *a, t_deque *b)
+void	ft_rr(t_deque *a, t_deque *b)
 {
-	swap_stack(a);
-	swap_stack(b);
-	ft_putendl_fd("ss", 1);
+	rotate_stack(a);
+	rotate_stack(b);
 }

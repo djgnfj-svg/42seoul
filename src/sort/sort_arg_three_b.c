@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:44 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/17 14:48:20 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/23 23:54:11 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ static void	arg_three_header_min_b(t_deque *b, int max)
 {
 	if (b->size == 3)
 	{
-		rotate_stack(b, B);
+		ft_rb(b);
 		if (b->header->next->item == max)
-			swap_stack(b, B);
+			ft_sb(b);
 	}
 	else
 	{
-		swap_stack(b, B);
-		rotate_stack(b, B);
-		swap_stack(b, B);
-		reverse_rotate_stack(b, B);
+		ft_sb(b);
+		ft_rb(b);
+		ft_sb(b);
+		ft_rrb(b);
 		if (b->header->next->item == max)
-			swap_stack(b, B);
+			ft_sb(b);
 	}
 }
 
@@ -35,24 +35,24 @@ static void	arg_three_middle_min_b(t_deque *b, int max)
 {
 	if (b->size == 3)
 	{
-		reverse_rotate_stack(b, B);
+		ft_rrb(b);
 		if (b->header->next->item == max)
-			swap_stack(b, B);
+			ft_sb(b);
 	}
 	else
 	{
-		rotate_stack(b, B);
-		swap_stack(b, B);
-		reverse_rotate_stack(b, B);
+		ft_rb(b);
+		ft_sb(b);
+		ft_rrb(b);
 		if (b->header->next->item == max)
-			swap_stack(b, B);
+			ft_sb(b);
 	}
 }
 
 void	arg_three_bottom_min_b(t_deque *b, int max)
 {
 	if (b->header->next->item == max)
-		swap_stack(b, B);
+		ft_sb(b);
 }
 
 void	arg_three_b(int r, t_deque *a, t_deque *b)
@@ -68,7 +68,7 @@ void	arg_three_b(int r, t_deque *a, t_deque *b)
 		arg_three_middle_min_b(b, max);
 	else if (b->header->next->next->item == min)
 		arg_three_bottom_min_b(b, max);
-	push_stack(b, a, A);
-	push_stack(b, a, A);
-	push_stack(b, a, A);
+	ft_pa(b, a);
+	ft_pa(b, a);
+	ft_pa(b, a);
 }

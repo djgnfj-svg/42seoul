@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:25:45 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/17 14:48:20 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/23 23:48:56 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ static void	arg_three_header_min_a(t_deque *a, int max)
 	{
 		if (a->header->next->item == max)
 		{
-			reverse_rotate_stack(a, A);
-			swap_stack(a, A);
+			ft_rra(a);
+			ft_sa(a);
 		}
 	}
 	else
 	{
 		if (a->header->next->item == max)
 		{
-			rotate_stack(a, A);
-			swap_stack(a, A);
-			reverse_rotate_stack(a, A);
+			ft_ra(a);
+			ft_sa(a);
+			ft_rra(a);
 		}
 	}
 }
@@ -38,18 +38,18 @@ static void	arg_three_middle_min_a(t_deque *a, int max)
 	if (a->size == 3)
 	{
 		if (a->tailer->item == max)
-			swap_stack(a, A);
+			ft_sa(a);
 		else
-			rotate_stack(a, A);
+			ft_ra(a);
 	}
 	else
 	{
-		swap_stack(a, A);
+		ft_sa(a);
 		if (a->header->next->item == max)
 		{
-			rotate_stack(a, A);
-			swap_stack(a, A);
-			reverse_rotate_stack(a, A);
+			ft_ra(a);
+			ft_sa(a);
+			ft_rra(a);
 		}
 	}
 }
@@ -59,17 +59,17 @@ static void	arg_three_tailer_min_a(t_deque *a, int max)
 	if (a->size == 3)
 	{
 		if (a->header->item == max)
-			swap_stack(a, A);
-		reverse_rotate_stack(a, A);
+			ft_sa(a);
+		ft_rra(a);
 	}
 	else
 	{
 		if (a->header->item == max)
-			swap_stack(a, A);
-		rotate_stack(a, A);
-		swap_stack(a, A);
-		reverse_rotate_stack(a, A);
-		swap_stack(a, A);
+			ft_sa(a);
+		ft_ra(a);
+		ft_sa(a);
+		ft_rra(a);
+		ft_sa(a);
 	}
 }
 

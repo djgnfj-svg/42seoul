@@ -6,65 +6,96 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 01:29:41 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/14 01:35:59 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/29 05:07:55 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	ft_remain(char **remain_str, char **line)
+static int		is_newline(char *save)
 {
-	if (*line)
+	int	i;
+
+	if (!save)
+		return (0);
+	i = 0;
+	while (save[i])
 	{
-		if (ft_analyse(*line))
-		{
-			ft_free_memory(remain_str);
-			*remain_str = ft_cut_line("", line);
+		if (save[i] == '\n')
 			return (1);
-		}
+		i++;
 	}
-	else
-		*line = ft_realloc_content("", "");
-	ft_free_memory(remain_str);
 	return (0);
 }
 
-static	int	ft_keep_reading(ssize_t rd_status, char *buffer,
-		char **remain_str, char **line)
+static char	*get_line(char *save)
 {
-	char *aux_free;
+	int		i;
+	int		dest_len;
+	char	*dest;
 
-	buffer[rd_status] = '\0';
-	if (ft_analyse(buffer))
-	{
-		ft_free_memory(remain_str);
-		*remain_str = ft_cut_line(buffer, line);
-		ft_free_memory(&buffer);
-		return (1);
-	}
-	aux_free = *line;
-	*line = ft_realloc_content(*line, buffer);
-	ft_free_memory(&aux_free);
-	return (0);
+	dest_len = 0;
+	while (save[dest_len] != '\n' && save[dest_len])
+		dest_len++;
+	if (!(dest = (char *)malloc(dest_len + 1)))
+		return (NULL);
+	i = -1;
+	while (++i < dest_len)
+		dest[i] = save[i];
+	dest[i] = '\0';
+	return (dest);
 }
 
-int			get_next_line(int fd, char **line)
+static char	*get_save(char *save)
 {
-	ssize_t			rd_status;
-	char			*buffer;
-	static char		*remain_str[4096];
+	int		i;
+	int		j;
+	int		save_len;
+	char	*dest;
 
-	if (!line)
+	save_len = ft_strlen_gnl(save);
+	i = 0;
+	while (save[i] != '\n' && save[i])
+		i++;
+	if (!save[i])
+	{
+		free(save);
+		return (NULL);
+	}
+	i++;
+	if (!(dest = (char *)malloc(save_len - i + 1)))
+		return (NULL);
+	j = 0;
+	while (save[i])
+		dest[j++] = save[i++];
+	dest[j] = '\0';
+	free(save);
+	return (dest);
+}
+
+int		get_next_line(int fd, char **line)
+{
+	char		*buff;
+	static char	*save[OPEN_MAX];
+	int			read_len;
+
+	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	*line = ft_realloc_content(remain_str[fd], "");
-	rd_status = 0;
-	if (!(buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))))
+	if (!(buff = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
-	while ((rd_status = read(fd, buffer, BUFFER_SIZE)) > 0)
-		if (ft_keep_reading(rd_status, buffer, &remain_str[fd], line))
-			return (1);
-	ft_free_memory(&buffer);
-	if (rd_status < 0)
-		return (-1);
-	return (ft_remain(&remain_str[fd], line));
+	read_len = 1;
+	while (!is_newline(save[fd]) && read_len != 0)
+	{
+		if ((read_len = read(fd, buff, BUFFER_SIZE)) < 0)
+			return (-1);
+		buff[read_len] = '\0';
+		if (!(save[fd] = ft_strjoin_gnl(save[fd], buff)))
+			return (-1);
+	}
+	free(buff);
+	*line = get_line(save[fd]);
+	save[fd] = get_save(save[fd]);
+	if (!save[fd])
+		return (0);
+	return (1);
 }

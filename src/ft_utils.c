@@ -6,7 +6,7 @@
 /*   By: ysong <ysong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 11:15:35 by ysong             #+#    #+#             */
-/*   Updated: 2021/07/17 13:56:11 by ysong            ###   ########.fr       */
+/*   Updated: 2021/07/27 03:56:45 by ysong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,43 @@ void	print_error(void)
 {
 	printf("error\n");
 	exit(0);
+}
+
+int	is_sorted(t_deque *a)
+{
+	t_node	*node;
+
+	node = a->header;
+	while (node)
+	{
+		if (node->next)
+		{
+			if (node->item > node->next->item)
+				return (0);
+		}
+		if (node->next)
+			node = node->next;
+		else
+			break ;
+	}
+	if (node->item == a->tailer->item)
+		return (1);
+	else
+		return (0);
+}
+
+void	printingdeque(t_deque *a, int flag)
+{
+	t_node	*temp;
+
+	temp = a->header;
+	if (flag == 1)
+		printf("A : ");
+	else
+		printf("B : ");
+	while (temp)
+		temp = temp->next;
+	printf("\n");
 }
 
 static void	free_stack(t_deque *stack)
