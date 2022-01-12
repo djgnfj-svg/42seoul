@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-int check_arg(int ac, char **av)
+int check_arg(int ac)
 {
     if (ac != 4)
     {
@@ -51,7 +51,7 @@ void write_replace_file(std::ifstream &read_file, std::ofstream &write_file, cha
 
 int main(int ac, char **av)
 {
-    if (check_arg(ac,av))
+    if (check_arg(ac))
         return 1;
     
     std::string file_name(av[1]);
