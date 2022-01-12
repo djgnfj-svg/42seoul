@@ -1,16 +1,28 @@
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Dog.hpp"
 
-# include "Animal.hpp"
-
-class Dog : public Animal
+Dog::Dog()
 {
-public:
-	Dog();
-	Dog(const Dog &dog);
-	~Dog();
-	Dog&	operator=(const Dog &dog);
-	void	makeSound() const;
-};
+	this->type = "Dog";
+	std::cout << type << " is born" << std::endl;
+}
 
-#endif
+Dog::Dog(const Dog& copy)
+{
+	*this = copy;
+}
+
+Dog& Dog::operator=(const Dog& copy)
+{
+	this->Animal::operator=(copy);
+	return *this;
+}
+
+Dog::~Dog()
+{
+	std::cout << type << " is dead" << std::endl;
+}
+
+void	Dog::makeSound() const
+{
+	std::cout << "wang wang." << std::endl;
+}
